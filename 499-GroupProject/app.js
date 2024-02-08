@@ -3,6 +3,8 @@ const { Console } = require("console");
 const express = require("express");
 const App = express();
 
+
+
 App.set(("view engine"),("ejs"));
 App.use(express.static("public"));
 
@@ -13,14 +15,28 @@ App.get("/loginPage", (req, res) => { res.render("LoginPage"); });
 App.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
 
 
-App.post("/loginPage",(req,res)=>{
 
-res.redirect("/ChoicesPage");
+
+// Handle form submission for signup
+App.post("/SingupPage", (req, res) => {
+  // Handle form submission, e.g., save user data to database
+  // Redirect to login page with success message
+  res.render("LoginPage", { message:"Test"});
 });
+
+
+
+// Toggel ShowPassword OFF or On 
+App.get("/app.js", (req, res) => {
+    res.sendFile(path.join(__dirname, "app.js"));
+  });
+
+
+
 
 
 
 
 App.use((req,res)=>{res.status(404).render("Error");});
 
-App.listen((process.env.pp),()=>{console.log(`Porting To ${process.env.pp}`);});
+App.listen((process.env.Port),()=>{console.log(`Porting To ${process.env.Port}`);});
