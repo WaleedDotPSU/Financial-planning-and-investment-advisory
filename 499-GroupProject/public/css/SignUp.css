@@ -118,7 +118,7 @@ form{
     /* For Banner*/
     .banner {
         position: fixed;
-        top: -50px; 
+        top: -100px; 
         left: -100%; 
         width: 105%;
         background-color: #f4f4f4;
