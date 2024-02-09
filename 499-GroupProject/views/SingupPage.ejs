@@ -1,9 +1,38 @@
-<%- include("./part/LandsHeader") %>
+<%- include("./part/SignUpHead") %>
   <main>
     <section>
-      <article>
+
+
+      <div class="banner" id="banner">
+        <h1>Welcome to Investopia</h1>
+        <img src="/css/img/BannerNoTitle.png" alt="Investopia Logo" class="logo">
+      </div>
+
+      <form method="post" action="">
+
+           <h2>SignUp</h2>
+        <div class="DivEmail">
+          <label for="Email">Email:</label>
+          <input id="_Email_SignUp" type="email" name="Email">
+        </div>
+
         
-      </article>
+        <div class="DivPassword">
+          <label for="Password">Password:</label>
+          <input id="_Password_SignUp" type="password" name="Password">
+          <label for="ShowPassWord"></label>
+        </div>
+
+        <div class="DivShowPassWord">
+        <label for="ShowPassword">Show PassWord</label>
+        <input id="_ShowPassWord_SignUp" type="checkbox">
+        </div>
+
+        <input type="submit" class="Formsubmit" name="ShowPassword">
+
+        <a class="LinkToLogin" href="../LoginPage">Back</a>
+      </form>
+
     </section>
   </main>
-  <%- include("./part/LandsFooter") %>
+  <%- include("./part/SignUpFot") %>
