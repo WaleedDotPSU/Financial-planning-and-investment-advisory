@@ -1,37 +1,51 @@
+/* Imports */
 require("dotenv").config();
 const { Console } = require("console");
 const express = require("express");
+const bodyParser = require('body-parser');
 const App = express();
 
 
 
 App.set(("view engine"),("ejs"));
 App.use(express.static("public"));
+App.use(bodyParser.json());
+App.use(bodyParser.urlencoded({ extended: false }));
 
+/* Get */
 App.get("/", (req, res) => { res.redirect("/loginPage"); });
 App.get("/Page2", (req, res) => { res.render("Page2"); });
 App.get("/Page1", (req, res) => { res.render("Page1"); });
 App.get("/loginPage", (req, res) => { res.render("LoginPage"); });
 App.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
 
+const users = [
+    { username: "user1", password: "pass1" }, // Trial
+  ];
 
-
-
-// Handle form submission for signup
-App.post("/SingupPage", (req, res) => {
-  // Handle form submission, e.g., save user data to database
-  // Redirect to login page with success message
-  res.render("LoginPage", { message:"Test"});
-});
-
-
-
-// Toggel ShowPassword OFF or On 
-App.get("/app.js", (req, res) => {
-    res.sendFile(path.join(__dirname, "app.js"));
+/* Post */
+App.post('/LoginPage', (req, res) => {
+    const { username, password } = req.body;
+    const user = users.find(u => u.username === username && u.password === password);
+    if (user) {
+      res.send({ status: 'success', message: 'Logged in successfully' });
+    } else {
+      res.status(401).send({ status: 'error', message: 'Invalid credentials' });
+    }
   });
 
 
+  
+/* Toggle Function For PassWord*/
+function Toggle() {
+  let temp = document.getElementById("_Password_SignUp");
+   
+  if (temp.type === "password") {
+      temp.type = "text";
+  } else {
+      temp.type = "password";
+  }
+}
 
 
 
