@@ -34,6 +34,23 @@ App.post('/LoginPage', (req, res) => {
     }
   });
 
+
+  
+/* Toggle Function For PassWord*/
+function Toggle() {
+  let temp = document.getElementById("_Password_SignUp");
+   
+  if (temp.type === "password") {
+      temp.type = "text";
+  } else {
+      temp.type = "password";
+  }
+}
+
+
+
+
+
 App.use((req,res)=>{res.status(404).render("Error");});
 
 App.listen((process.env.Port),()=>{console.log(`Porting To ${process.env.Port}`);});
