@@ -14,9 +14,10 @@ App.use(bodyParser.urlencoded({ extended: false }));
 
 /* Get */
 App.get("/", (req, res) => { res.redirect("/loginPage"); });
-App.get("/home", (req, res) => { res.render("home"); });
+App.get("/homePage", (req, res) => { res.render("home"); });
 App.get("/loginPage", (req, res) => { res.render("LoginPage"); });
 App.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
+App.get("/depositPage", (req, res) => { res.render("DepositPage"); });
 
 const users = [
     { username: "user1", password: "pass1" }, // Trial
