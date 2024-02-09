@@ -14,8 +14,7 @@ App.use(bodyParser.urlencoded({ extended: false }));
 
 /* Get */
 App.get("/", (req, res) => { res.redirect("/loginPage"); });
-App.get("/Page2", (req, res) => { res.render("Page2"); });
-App.get("/Page1", (req, res) => { res.render("Page1"); });
+App.get("/home", (req, res) => { res.render("home"); });
 App.get("/loginPage", (req, res) => { res.render("LoginPage"); });
 App.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
 
