@@ -1,97 +1,96 @@
-/* Login CSS*/
-article {
+body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
 }
 
-.login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* DASHBOARD */
+.dashboard {
+    padding: 35px 0;
 }
 
-.login-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.input-group label {
-    margin-bottom: 5px;
-}
-
-.input-group input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.extra-links {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.extra-links a {
-    color: #007bff;
+.dashboard a {
+    margin: 0 15px;
     text-decoration: none;
+    border: 1px solid;
+    padding: 10px;
+    background-color: var(--buttonC);
+    color: white;
 }
 
-.extra-links a:hover {
-    text-decoration: underline;
+.dashboard a:hover {
+    background-color: var(--hoverC);
 }
 
-/*Sliding Banner CSS*/
-.banner {
-    position: fixed;
-    top: 0;
-    left: -100%; 
-    width: 105%;
-    background-color: #f4f4f4;
-    color: black;
-    padding: 10px 0;
-    padding-top: 170px;
+/* BANNER */
+.banner-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    animation: slideIn 0.5s forwards; 
+    justify-content: center;
+    margin-top: 150px;
 }
 
-.banner h1 {
-    margin: 0 10px 0 0;
+.sliding-banner {
+    font-size: 24px;
+    color: var(--primeFontC);
+    animation: slideIn 1s ease-out forwards; 
+    transform: translateX(-350%);
 }
 
-.logo {
-    width: 65px;
-    height: auto;
+.banner-logo {
+  width: 75px; 
+  height: auto;
+  padding-left: 1%;
+  animation: slideIn 1s ease-out forwards; 
+  transform: translateX(-1000%);
 }
 
 @keyframes slideIn {
     to {
-        left: 0;
+      transform: translateX(5%);
     }
+  }
+
+/* LOGIN */
+.login-container {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form input,
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.login-form input{
+    width: 92.5%;
+}
+
+.login-form button {
+    background-color: var(--buttonC);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: var(--hoverC);
+}
+
+.login-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-actions a {
+    text-decoration: none;
+    color: var(--linkC);
+    font-size: 14px;
+}
+
+.login-actions a:hover {
+    text-decoration: underline;
 }
