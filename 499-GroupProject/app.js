@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => { res.redirect("/LoginPage"); });
 app.get("/HomePage", (req, res) => { res.render("HomePage"); });
 app.get("/LoginPage", (req, res) => { res.render("LoginPage"); });
-app.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
+app.get("/SignupPage", (req, res) => { res.render("SignupPage"); });
 app.get("/depositPage", (req, res) => { res.render("DepositPage"); });
 app.get("/test", (req, res) => { res.render("test"); });
 
