@@ -13,11 +13,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /* Get */
-app.get("/", (req, res) => { res.redirect("/loginPage"); });
-app.get("/homePage", (req, res) => { res.render("home"); });
-app.get("/loginPage", (req, res) => { res.render("LoginPage"); });
+app.get("/", (req, res) => { res.redirect("/LoginPage"); });
+app.get("/HomePage", (req, res) => { res.render("HomePage"); });
+app.get("/LoginPage", (req, res) => { res.render("LoginPage"); });
 app.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
 app.get("/depositPage", (req, res) => { res.render("DepositPage"); });
+app.get("/test", (req, res) => { res.render("test"); });
 
 /* Toggle Function For PassWord */
 function Toggle() {
