@@ -1,42 +1,71 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- general meta tags -->
+    <!-- General meta tags -->
     <meta charset="utf-8">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- site specific tags -->
+    <!-- Site specific tags -->
     <title>Deposit</title>
-    <!-- style sheets -->
+    <!-- Style sheets -->
     <link rel="stylesheet" href="css-reset.css">
     <link rel="stylesheet" href=".css">
-    <!-- javascript files -->
+    <!-- Javascript files -->
     <script src=".js"></script>
     <style>
         body {
-            background: #ddd;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
             min-height: 100vh;
-            vertical-align: middle;
             display: flex;
-
+            align-items: center;
+            justify-content: center;
         }
 
         .card {
+            background-color: #fff;
             margin: auto;
             width: 600px;
-            padding: 3rem 3.5rem;
-            box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .mt-50 {
-            margin-top: 50px
+        .card-title, .nav li a, #card-header, span, input, form a, .btn {
+            color: #007bff; /* Matching link color theme */
         }
 
-        .mb-50 {
-            margin-bottom: 50px
+        input, .row-1 {
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: calc(100% - 20px); /* Adjust input width */
         }
 
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.5s, background-color 0.5s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .btn:active {
+            transform: scale(0.9);
+        }
 
         @media(max-width:767px) {
             .card {
@@ -47,18 +76,8 @@
 
         @media(height:1366px) {
             .card {
-                width: 90%;
                 padding: 8vh;
             }
-        }
-
-        .card-title {
-            font-weight: 700;
-            font-size: 2.5em;
-        }
-
-        .nav {
-            display: flex;
         }
 
         .nav ul {
@@ -68,183 +87,41 @@
             margin-bottom: 6vh;
         }
 
-        .nav li {
-            padding: 1rem;
-        }
-
         .nav li a {
-            color: black;
             text-decoration: none;
         }
 
         .active {
-            border-bottom: 2px solid black;
-            font-weight: bold;
-        }
-
-        input {
-            border: none;
-            outline: none;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #000;
-            width: 100%;
-            min-width: unset;
-            background-color: transparent;
-            border-color: transparent;
-            margin: 0;
-        }
-
-        form a {
-            color: grey;
-            text-decoration: none;
-            font-size: 0.87rem;
+            border-bottom: 2px solid #007bff;
             font-weight: bold;
         }
 
         form a:hover {
-            color: grey;
-            text-decoration: none;
+            text-decoration: underline;
         }
 
-        form .row {
-            margin: 0;
-            overflow: hidden;
+        /* Additional styles for consistency */
+        #card-inner, .row, .col-2, .col-7, .col-3, .three {
+            font-size: 1rem; /* Adjusting font size for consistency */
         }
 
-        form .row-1 {
-            border: 1px solid rgba(0, 0, 0, 0.137);
-            padding: 0.5rem;
-            outline: none;
-            width: 100%;
-            min-width: unset;
-            border-radius: 5px;
-            background-color: rgba(221, 228, 236, 0.301);
-            border-color: rgba(221, 228, 236, 0.459);
-            margin: 2vh 0;
-            overflow: hidden;
-        }
-
-        form .row-2 {
-            border: none;
-            outline: none;
-            background-color: transparent;
-            margin: 0;
-            padding: 0 0.8rem;
-        }
-
-        form .row .row-2 {
-            border: none;
-            outline: none;
-            background-color: transparent;
-            margin: 0;
-            padding: 0 0.8rem;
-        }
-
-        form .row .col-2,
-        .col-7,
-        .col-3 {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding: 0 1vh;
-        }
-
-        form .row .col-2 {
-            padding-right: 0;
-        }
-
-        #card-header {
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        #card-inner {
-            font-size: 0.7rem;
-            color: gray;
-        }
-
-        .three .col-7 {
-            padding-left: 0;
-        }
-
-        .three {
-            overflow: hidden;
-            justify-content: space-between;
-        }
-
-        .three .col-2 {
-            border: 1px solid rgba(0, 0, 0, 0.137);
-            padding: 0.5rem;
-            outline: none;
-            width: 100%;
-            min-width: unset;
-            border-radius: 5px;
-            background-color: rgba(221, 228, 236, 0.301);
-            border-color: rgba(221, 228, 236, 0.459);
-            margin: 2vh 0;
-            width: fit-content;
-            overflow: hidden;
-        }
-
-        .three .col-2 input {
-            font-size: 0.7rem;
-            margin-left: 1vh;
-        }
-
-        .btn {
-            width: 100%;
-            background-color: rgb(65, 202, 127);
-            border-color: rgb(65, 202, 127);
-            color: white;
-            justify-content: center;
-            padding: 2vh 0;
-            margin-top: 3vh;
-        }
-
-        .btn:focus {
-            box-shadow: none;
-            outline: none;
-            box-shadow: none;
-            color: white;
-            -webkit-box-shadow: none;
-            -webkit-user-select: none;
-            transition: none;
-        }
-
-        .btn:hover {
-            color: white;
-        }
-
-        input:focus::-webkit-input-placeholder {
-            color: transparent;
-        }
-
-        input:focus:-moz-placeholder {
-            color: transparent;
-        }
-
-        input:focus::-moz-placeholder {
-            color: transparent;
-        }
-
-        input:focus:-ms-input-placeholder {
-            color: transparent;
-        }
+        /* Placeholder transparency adjustment */
+        input:focus::-webkit-input-placeholder { color: transparent; }
+        input:focus:-moz-placeholder { color: transparent; }
+        input:focus::-moz-placeholder { color: transparent; }
+        input:focus:-ms-input-placeholder { color: transparent; }
     </style>
 </head>
-
 <body>
     <header>
-
         <nav>
-
+            <!-- Navigation content here -->
         </nav>
     </header>
 
-
     <main>
         <div class="card mt-50 mb-50">
+
 
             <form>
 
@@ -315,13 +192,13 @@
 
 
             </form>
+
+
         </div>
     </main>
 
-
     <footer>
-
+        <!-- Footer content here -->
     </footer>
 </body>
-
 </html>
