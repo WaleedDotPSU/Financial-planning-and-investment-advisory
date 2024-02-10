@@ -5,9 +5,10 @@
       <img src="/css/img/BannerNoTitle.png" alt="Investopia Logo" class="banner-logo">
     </div>
     <div class="login-container">
-      <form class="login-form" action="/LoginPage">
+      <form method="post" class="login-form" action="/login">
         <input type="text" placeholder="Username" name="username" required>
         <input type="password" placeholder="Password" name="password" required>
+        <p class="login-noSucces"><%=message%></p>
         <button type="submit">Login</button>
       </form>
       <div class="login-actions">
