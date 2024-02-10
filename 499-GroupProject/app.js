@@ -21,8 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => { res.redirect("/LoginPage"); });
 app.get("/HomePage", (req, res) => { res.render("HomePage"); });
 app.get("/LoginPage", (req, res) => { res.render("LoginPage"); });
-app.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
-app.get("/depositPage", (req, res) => { res.render("DepositPage"); });
+app.get("/SignupPage", (req, res) => { res.render("SignupPage"); });
+app.get("/DepositPage", (req, res) => { res.render("DepositPage"); });
 app.get("/test", (req, res) => { res.render("test"); });
 
 // Login route
@@ -32,11 +32,17 @@ app.post('/login', (req, res) => {
   const user = users.find(u => u.username === username && u.password === password);
 
   if (user) {
-    res.redirect('HomePage')
+    res.redirect('/HomePage')
   } else {
     // Respond with an error status code and message if login fails
     res.status(404).json({message:"Wrong Username or Password"})
   }
+});
+
+
+app.post('/DepositPage',(req,res)=>{
+
+  res.redirect("/HomePage");
 });
 
 /* Toggle Function For PassWord */
