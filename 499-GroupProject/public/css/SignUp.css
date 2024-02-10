@@ -1,155 +1,94 @@
-section{
+body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #f4f4f4; 
     margin: 0;
-}
-
-/*Form Attrbutes*/
-form{
-
-    display: flex; flex-direction: column; 
-    align-items: center;justify-content: center;
-    background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/*EmailDiv Attrbutes*/
-.DivEmail{ 
-    margin: 30px; 
-    margin-bottom: 15px;
+  }
+  
+  /* BANNER */
+  .banner {
     display: flex;
-    flex-direction: column;}
-
-
-    .DivEmail input{ 
-        padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-    margin-top: 5px;
-
-        }
-
-    /*PasswordDiv Attrbutes*/
-.DivPassword{ 
-    margin: 30px; 
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;}
-
-
-    .DivPassword input{ 
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-/*ShowPassWordDiv Attrbutes*/
-    .DivShowPassWord{ margin: 30px; 
-        margin-bottom: 15px;
-        display: flex;
-        flex-direction: column;}
-
-        .DivShowPassWord input[type="checkbox"] {
-            margin-left: 50%;
-            margin-bottom:10px ;
-            margin-top: 5px;
-          }
-
-  /* Submit Button Attributes */
-.Formsubmit {
+    align-items: center;
+    justify-content: space-between;
     background-color: #007bff;
-    color: #fff;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 150px;
+    color: #ffffff;
+  }
+  
+  .banner h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .banner .logo {
+    height: 50px;
+  }
+  
+  /* SIGN UP */
+  form {
+    background-color: #ffffff;
+    padding: 20px;
+    padding-top: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    max-width: 400px;
+    margin: 20px auto; 
+    border-radius: 5px;
+  }
+  
+  form h2 {
+    color: #333333;
+    text-align: center;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form input[type=text], form input[type="text"],input[type=password] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+  }
+  
+  .DivShowPassWord label {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .Formsubmit{
+    width: 100%;
     padding: 10px;
     border: none;
-    border-radius: 5px;
+    background-color: #007bff; 
+    color: white;
+    font-size: 16px;
     cursor: pointer;
-    width: 100%;
-    transition: transform 0.5s;
-}
+    border-radius: 5px;
+  }
+  
+  .Formsubmit:hover {
+    background-color: #0056b3; 
+  }
 
-/* Submit Button Attributes When You Hover */
-.Formsubmit:hover {
-    background-color: #0056b3;
-    transform: scale(1.2) translateY(-10px); 
-    transition: transform 0.5s;
-    
-}
-
-.Formsubmit:active {
-    background-color: #0056b3;
-    transform: scale(0.9) translateY(-5px); 
-    transition: transform 0.5s;
- 
-}
-/* for the back link*/
-.LinkToLogin {
-    margin: 5px;
+  .LinkToLogin {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
     color: #007bff;
     text-decoration: none;
-    position: relative; 
-}
+  }
 
-.LinkToLogin::before {
-    content: '';
-    height: 2px; 
-    background-color: #007bff;
-    transition: width 0.5s; 
-    position: absolute;
-    bottom: -2px; 
-    left: 0;
-    width: 0; 
-}
-
-.LinkToLogin:hover::before {
-    width: 100%; 
-}
-
-
-
-    /* For Banner*/
-    .banner {
-        position: fixed;
-        top: -100px; 
-        left: -100%; 
-        width: 105%;
-        background-color: #f4f4f4;
-        color: black;
-        padding: 10px 0;
-        padding-top: 170px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        animation: slideIn 1s forwards; 
-    }
-    
-    .banner h1 {
-        margin: 0 10px 0 0;
-    }
-    
-    .logo {
-        width: 65px;
-        height: auto;
-    }
-    
-    @keyframes slideIn {
-        to {
-            left: 0;
-        }
-    }
-
-
-/* FOOTER */
-.page-footer {
-    background-color: #f2f2f2;
+  /* FOOTER */
+  .page-footer {
     color: #666;
     text-align: center;
     padding: 20px 0;
@@ -171,21 +110,9 @@ form{
     color: #007bff;
     text-decoration: none;
     margin: 0 10px;
-    position: relative; 
-    display: inline-block; 
 }
 
-.footer-links a::before {
-    content: '';
-    height: 2px; 
-    background-color: #007bff;
-    transition: width 0.5s; 
-    position: absolute;
-    bottom: 0; 
-    left: 0;
-    width: 0; 
+.footer-links a:hover {
+    text-decoration: underline;
 }
-
-.footer-links a:hover::before {
-    width: 100%; 
-}
+  

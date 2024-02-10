@@ -1,18 +1,14 @@
 <%- include("./part/Header") %>
   <main>
-    <!-- Here the user will be able to signout from the homepagee -->
     <section>
       <article>
-        <a href="LoginPage" class="signout-link">Sign Out</a>
+        <a href="/DepositPage" class="deposit-link">Add Money</a>
       </article>
     </section>
-
-    <!-- Here the user will be able to deeposit from the homepagee -->
     <section>
       <article>
-        <a href="DepositPage" class="deposit-link">Add Money</a>
+        <a href="/LoginPage" class="signout-link">Sign Out</a>
       </article>
-    </section>
-    
+    </section>   
   </main>
-  <%- include("./part/Footer") %>
+  <%- include("./part/LoginFoot.ejs") %>
