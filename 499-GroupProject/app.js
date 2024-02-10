@@ -19,10 +19,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/auth', loginRoutes);
 
 /* Get */
-app.get("/", (req, res) => { res.redirect("/loginPage"); });
-app.get("/home", (req, res) => { res.render("home"); });
-app.get("/loginPage", (req, res) => { res.render("LoginPage"); });
-app.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
+App.get("/", (req, res) => { res.redirect("/loginPage"); });
+App.get("/homePage", (req, res) => { res.render("home"); });
+App.get("/loginPage", (req, res) => { res.render("LoginPage"); });
+App.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
+App.get("/depositPage", (req, res) => { res.render("DepositPage"); });
 
 /* Toggle Function For PassWord */
 function Toggle() {
