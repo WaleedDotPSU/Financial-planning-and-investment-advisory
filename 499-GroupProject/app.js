@@ -26,13 +26,13 @@ app.get("/depositPage", (req, res) => { res.render("DepositPage"); });
 app.get("/test", (req, res) => { res.render("test"); });
 
 // Login route
-app.post('/LoginPage', (req, res) => {
+app.post('/login', (req, res) => {
   const { username, password } = req.body;
   // Find user in the dummy data
   const user = users.find(u => u.username === username && u.password === password);
 
   if (user) {
-    res.redirect('HomePage')
+    res.redirect('/HomePage')
   } else {
     // Respond with an error status code and message if login fails
     res.status(404).json({message:"Wrong Username or Password"})
