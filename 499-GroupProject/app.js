@@ -18,11 +18,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /* Get */
-app.get("/", (req, res) => { res.redirect("/loginPage"); });
-app.get("/HomePage", (req, res) => { res.render("home"); });
+app.get("/", (req, res) => { res.redirect("/LoginPage"); });
+app.get("/HomePage", (req, res) => { res.render("HomePage"); });
 app.get("/LoginPage", (req, res) => { res.render("LoginPage"); });
 app.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
-app.get("/DepositPage", (req, res) => { res.render("DepositPage"); });
+app.get("/depositPage", (req, res) => { res.render("DepositPage"); });
+app.get("/test", (req, res) => { res.render("test"); });
 
 // Login route
 app.post('/LoginPage', (req, res) => {
