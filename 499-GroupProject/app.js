@@ -1,11 +1,16 @@
 /* Imports */
-const bodyParser = require('body-parser');
 const { Console } = require("console");
 const express = require("express");
 
 const app = express();
 require("dotenv").config();
 app.set(("view engine"),("ejs"));
+
+// Dummy user data for testing
+const users = [
+  { username: "user1", password: "pass1" },
+  { username: "user2", password: "pass2" }
+];
 
 /* Use */
 app.use(express.static("public"));
@@ -14,12 +19,27 @@ app.use(express.urlencoded({ extended: true }));
 
 /* Get */
 app.get("/", (req, res) => { res.redirect("/loginPage"); });
-app.get("/homePage", (req, res) => { res.render("home"); });
-app.get("/loginPage", (req, res) => { res.render("LoginPage"); });
+app.get("/HomePage", (req, res) => { res.render("home"); });
+app.get("/LoginPage", (req, res) => { res.render("LoginPage"); });
 app.get("/SingupPage", (req, res) => { res.render("SingupPage"); });
-app.get("/depositPage", (req, res) => { res.render("DepositPage"); });
+app.get("/DepositPage", (req, res) => { res.render("DepositPage"); });
 
-/* Toggle Function For PassWord */
+// Login route
+app.post('/LoginPage', (req, res) => {
+  const { username, password } = req.body;
+  // Find user in the dummy data
+  const user = users.find(u => u.username === username && u.password === password);
+
+  if (user) {
+    res.json({ message: "Login successful" });
+    res.render('HomePage');
+  } else {
+    // Respond with an error status code and message if login fails
+    res.status(401).json({ message: "Invalid username or password" });
+  }
+});
+
+/* Toggle Function For PassWord 
 function Toggle() {
   let temp = document.getElementById("_Password_SignUp");
    
@@ -28,7 +48,7 @@ function Toggle() {
   } else {
       temp.type = "password";
   }
-}
+}*/
 
 /* Error */
 app.use((req,res)=>{res.status(404).render("ErrorPage");});
