@@ -146,3 +146,46 @@ form{
         }
     }
 
+
+/* FOOTER */
+.page-footer {
+    background-color: #f2f2f2;
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content p {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+    position: relative; 
+    display: inline-block; 
+}
+
+.footer-links a::before {
+    content: '';
+    height: 2px; 
+    background-color: #007bff;
+    transition: width 0.5s; 
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 0; 
+}
+
+.footer-links a:hover::before {
+    width: 100%; 
+}
