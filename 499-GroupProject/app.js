@@ -22,7 +22,7 @@ app.get("/", (req, res) => { res.redirect("/LoginPage"); });
 app.get("/HomePage", (req, res) => { res.render("HomePage"); });
 app.get("/LoginPage", (req, res) => { res.render("LoginPage"); });
 app.get("/SignupPage", (req, res) => { res.render("SignupPage"); });
-app.get("/depositPage", (req, res) => { res.render("DepositPage"); });
+app.get("/DepositPage", (req, res) => { res.render("DepositPage"); });
 app.get("/test", (req, res) => { res.render("test"); });
 
 // Login route
@@ -40,7 +40,7 @@ app.post('/login', (req, res) => {
 });
 
 
-app.post('/test',(req,res)=>{
+app.post('/DepositPage',(req,res)=>{
 
   res.redirect("/HomePage");
 });
