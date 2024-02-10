@@ -6,14 +6,18 @@
     </div>
     <div class="login-container">
       <form class="login-form">
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="password" placeholder="Password" name="password" required>
         <button type="submit">Login</button>
       </form>
       <div class="login-actions">
-        <a href="#" class="forgot-password">Forgot Password?</a>
-        <a href="#" class="signup-link">Sign Up</a>
+        <a href="/ForgetPassPage" class="forgot-password">Forgot Password?</a>
+        <a href="/SingupPage" class="signup-link">Sign Up</a>
       </div>
     </div>
   </main>
+
+   <!-- scripts -->
+   <script src="./499-GroupProject/scripts/script.js"></script>
+   <script src="./499-GroupProject/scripts/loginFunction.js"></script>
 <%- include("./part/LoginFoot") %>
