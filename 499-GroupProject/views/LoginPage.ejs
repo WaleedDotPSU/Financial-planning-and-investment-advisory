@@ -8,6 +8,7 @@
       <form method="post" class="login-form" action="/login">
         <input type="text" placeholder="Username" name="username" required>
         <input type="password" placeholder="Password" name="password" required>
+        <p class="error"><%=message%></p>
         <button type="submit">Login</button>
       </form>
       <div class="login-actions">

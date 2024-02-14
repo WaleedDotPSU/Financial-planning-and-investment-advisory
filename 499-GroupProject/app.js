@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 // Get
 app.get("/", (req, res) => { res.redirect("/LoginPage"); });
 app.get("/HomePage", (req, res) => { res.render("HomePage"); });
-app.get("/LoginPage", (req, res) => { res.render("LoginPage"); });
+app.get("/LoginPage", (req, res) => { res.render("LoginPage",{message:""}); });
 app.get("/SignupPage", (req, res) => { res.render("SignupPage"); });
 app.get("/DepositPage", (req, res) => { res.render("DepositPage"); });
 app.get("/test", (req, res) => { res.render("test"); });
@@ -33,7 +33,7 @@ app.post('/login', (req, res) => {
   if (user) {
     res.redirect('/HomePage')
   } else {
-    res.status(404).json({message:"Wrong Username or Password"})
+    res.render('LoginPage',{message:"Wrong Username or Password"})
   }
 });
 
