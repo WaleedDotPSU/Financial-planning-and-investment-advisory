@@ -42,6 +42,11 @@ app.post('/DepositPage',(req,res)=>{
   res.redirect("/HomePage");
 });
 
+app.post('/SignupPage',(req,res)=>{
+  res.redirect("/LoginPage");
+});
+
+
 // Error 
 app.use((req,res)=>{res.status(404).render("ErrorPage");});
 
