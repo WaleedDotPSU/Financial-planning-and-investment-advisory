@@ -78,6 +78,6 @@ app.use((req, res) => {
 });
 
 // Start the server
-app.listen(process.env.PORT, () => {
+app.listen(process.env.Port, () => {
   console.log(`Server is running on port ${process.env.Port}`);
 });
