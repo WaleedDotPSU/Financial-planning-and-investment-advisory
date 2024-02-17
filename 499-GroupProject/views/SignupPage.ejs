@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Site Specific Tags -->
-  <title>Page Title</title>
+  <title>Signup Page</title>
   
   <!-- Style Sheets -->
   <link rel="stylesheet" href="css/reset.css">
@@ -19,34 +19,40 @@
       <!-- Navigation content goes here -->
     </nav>
   </header>
-<main>
-  <section>
-    <div class="banner" id="banner">
-      <h1>Sign up using the form below:</h1>
-    </div>
-    <form method="post">
-
-      <div class="div-email">
-        <input id="email-signup" type="email" name="email" placeholder="email">
+  <main>
+    <section>
+      <div class="banner" id="banner">
+        <h1>Sign up using the form below:</h1>
+        <% if (typeof message !== 'undefined' && message) { %>
+          <p class="error-message"><%= message %></p>
+        <% } %>
       </div>
-
-      <div class="div-email">
-        <input id="email-signup" type="text" name="email" placeholder="Username">
-      </div>
-
-      <div class="div-password">
-        <input id="password-signup" type="password" name="password" placeholder="Password">
-      </div>
-
-      <div class="div-show-password">
-        <label for="show-password">Show Password</label>
-        <input id="show-password-signup" type="checkbox" onclick="togglePassword()">
-      </div>
-
-      <button class="form-submit" name="showPassword">Sign up</button>
-      <a class="link-to-login" href="/LoginPage">Back to Login</a>
-    </form>
-  </section>
+      <form method="post" action="/SignupPage">
+        <div class="form-field">
+          <label for="email-signup">Email:</label>
+          <input id="email-signup" type="email" name="email" placeholder="email" required>
+        </div>
+  
+        <div class="form-field">
+          <label for="username-signup">Username:</label>
+          <input id="username-signup" type="text" name="username" placeholder="Username" required>
+        </div>
+  
+        <div class="form-field">
+          <label for="password-signup">Password:</label>
+          <input id="password-signup" type="password" name="password" placeholder="Password" required>
+        </div>
+  
+        <div class="form-field">
+          <label for="show-password-signup">Show Password</label>
+          <input id="show-password-signup" type="checkbox" onclick="togglePassword()">
+        </div>
+  
+        <button type="submit" class="form-submit">Sign up</button>
+        <a class="link-to-login" href="/LoginPage">Back to Login</a>
+      </form>
+    </section>
+  </main>
   <script>
     function togglePassword() {
       var passwordInput = document.getElementById('password-signup');
@@ -57,5 +63,6 @@
       }
     }
   </script>
-</main>
   <%- include("./part/Footer.ejs") %>
+</body>
+</html>

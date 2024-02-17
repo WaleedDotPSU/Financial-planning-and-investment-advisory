@@ -10,9 +10,10 @@ app.set('view engine', 'ejs');
 
 // Dummy user data for testing
 const users = [
-  { username: 'user1', password: 'pass1' },
-  { username: 'user2', password: 'pass2' },
+  { username: 'user1', password: 'pass1', email: 'user1@hotmail.com' },
+  { username: 'user2', password: 'pass2', email: 'user2@hotmail.com' },
 ];
+
 
 // Middleware
 app.use(express.static('public'));
@@ -69,7 +70,16 @@ app.post('/DepositPage', (req, res) => {
 
 // Handle signup
 app.post('/SignupPage', (req, res) => {
-  res.redirect('/LoginPage');
+  const { username, email } = req.body;
+  const userExists = users.some(user => user.username === username || user.email === email);
+
+  if (userExists) {
+    // Username or email already in use
+    res.render('SignupPage', { message: 'Username or Email already in use.' });
+  } else {
+    // For demonstration, this will just redirect to the login page
+    res.redirect('/LoginPage');
+  }
 });
 
 // Handle 404 errors
