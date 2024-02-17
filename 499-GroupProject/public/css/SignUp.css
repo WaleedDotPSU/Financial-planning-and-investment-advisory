@@ -1,118 +1,115 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; 
-    margin: 0;
-    padding: 20px;
-  }
-  
-  /* BANNER */
-  .banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #007bff;
-    padding: 20px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 150px;
-    color: #ffffff;
-  }
-  
-  .banner h1 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  .banner .logo {
-    height: 50px;
-  }
-  
-  /* SIGN UP */
-  form {
-    background-color: #ffffff;
-    padding: 20px;
-    padding-top: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    max-width: 400px;
-    margin: 20px auto; 
-    border-radius: 5px;
-  }
-  
-  form h2 {
-    color: #333333;
-    text-align: center;
-  }
-  
-  form div {
-    margin-bottom: 15px;
-  }
-  
-  form label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  form input[type=text], form input[type="text"],input[type=password] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #ccc; 
-    border-radius: 5px;
-  }
-  
-  .DivShowPassWord label {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .Formsubmit{
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #007bff; 
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .Formsubmit:hover {
-    background-color: #0056b3; 
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
 
-  .LinkToLogin {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
-  }
+/* Banner */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #007bff;
+  padding: 20px 20px 30px;
+  margin-bottom: 150px;
+  color: #ffffff;
+}
 
-  /* FOOTER */
-  .page-footer {
-    color: #666;
-    text-align: center;
-    padding: 20px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.banner h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.banner .logo {
+  height: 50px;
+}
+
+/* Sign Up */
+form {
+  background-color: #ffffff;
+  padding: 20px 20px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+  border-radius: 5px;
+}
+
+form h2 {
+  color: #333;
+  text-align: center;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.div-show-password label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.form-submit:hover {
+  background-color: #0056b3;
+}
+
+.link-to-login {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Footer */
+.page-footer {
+  color: #666;
+  text-align: center;
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-content p {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .footer-links {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .footer-links a {
-    color: #007bff;
-    text-decoration: none;
-    margin: 0 10px;
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-  
