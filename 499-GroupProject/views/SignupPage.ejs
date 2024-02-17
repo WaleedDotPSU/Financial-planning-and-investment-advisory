@@ -1,34 +1,33 @@
 <%- include("./part/SignUpHead") %>
-  <main>
-    <section>
-      <div class="banner" id="banner">
-        <h1>Sign up using the form below:</h1>
+<main>
+  <section>
+    <div class="banner" id="banner">
+      <h1>Sign up using the form below:</h1>
+    </div>
+    <form method="post">
+      <div class="div-email">
+        <input id="email-signup" type="text" name="email" placeholder="Username">
       </div>
-      <form method="post">
-        <div class="DivEmail">
-          <input id="_Email_SignUp" type="text" name="Email" placeholder="Username">
-        </div>
-        <div class="DivPassword">
-          <input id="_Password_SignUp" type="password" name="Password" placeholder="Password">
-        </div>
-        <div class="DivShowPassWord">
-          <label for="ShowPassword">Show Password</label>
-          <input id="_ShowPassWord_SignUp" type="checkbox" onclick="Toggle()">
-        </div>
-        <button class="Formsubmit" name="ShowPassword">Sign up</button>
-        <a class="LinkToLogin" href="/LoginPage">Back to Login</a>
-      </form>
-    </section>
-    <script>
-      function Toggle() {
-        var passwordInput = document.getElementById('_Password_SignUp');
-        if (passwordInput.type === "password") {
-          passwordInput.type = "text";
-        } else {
-          passwordInput.type = "password";
-        }
+      <div class="div-password">
+        <input id="password-signup" type="password" name="password" placeholder="Password">
+      </div>
+      <div class="div-show-password">
+        <label for="show-password">Show Password</label>
+        <input id="show-password-signup" type="checkbox" onclick="togglePassword()">
+      </div>
+      <button class="form-submit" name="showPassword">Sign up</button>
+      <a class="link-to-login" href="/LoginPage">Back to Login</a>
+    </form>
+  </section>
+  <script>
+    function togglePassword() {
+      var passwordInput = document.getElementById('password-signup');
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
       }
-      </script>
-      
-  </main>
+    }
+  </script>
+</main>
   <%- include("./part/LoginFoot.ejs") %>

@@ -1,8 +1,8 @@
-body{
+body {
     background-color: #f0f0f0;
-}
-
-section{
+  }
+  
+  section {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     display: flex;
@@ -10,10 +10,10 @@ section{
     align-items: center;
     height: 100vh;
     margin: 0;
-}
-
-article{ 
-    display: flex; 
+  }
+  
+  article {
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -21,32 +21,33 @@ article{
     background-color: white;
     padding: 30px;
     border-radius: 5px;
-}
-
-h2{
-    text-align: center;  color: black;
-    margin: 50px;
-}
-
-
-.link{
-    margin: 5px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: black;
+    margin: 0 0 50px;
+  }
+  
+  .link {
+    margin: 5px 0;
     color: #007bff;
     text-decoration: none;
-    position: relative; 
-}
-
-.link::before {
+    position: relative;
+  }
+  
+  .link::before {
     content: '';
-    height: 2px; 
-    background-color: royalblue;
-    transition: width 0.5s; 
     position: absolute;
-    bottom: -2px; 
+    bottom: -2px;
     left: 0;
-    width: 0; 
-}
-
-.link:hover::before {
-    width: 100%; 
-}
+    width: 0;
+    height: 2px;
+    background-color: royalblue;
+    transition: width 0.5s;
+  }
+  
+  .link:hover::before {
+    width: 100%;
+  }
+  

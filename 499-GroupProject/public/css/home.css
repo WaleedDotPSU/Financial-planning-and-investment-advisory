@@ -1,79 +1,80 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f0f2; 
-  }
-  
-  main {
-    max-width: 800px; 
-    margin: 0 auto; 
-    padding: 20px;
-    background-color: #ffffff; 
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-  }
-  
-  section {
-    margin-bottom: 20px; 
-  }
-  
-  article {
-    padding: 15px;
-    border-bottom: 1px solid #eaeaea; 
-  }
-  
-  a.signout-link, a.deposit-link {
-    text-decoration: none;
-    color: #007bff;
-    background-color: #f8f9fa;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: 1px solid #dee2e6;
-    transition: all 0.3s ease;
-  }
-  
-  a.signout-link:hover, a.deposit-link:hover {
-    background-color: #e2e6ea;
-    border-color: #dae0e5;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f2;
+}
 
-  h1, h2, h3 {
-    color: #333;
-  }
-  
-  .welcome-text {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 20px; 
-  }
-  
-  /* FOOTER */
-  .page-footer {
-    color: #666;
-    text-align: center;
-    padding: 20px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+article {
+  padding: 15px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+a.signout-link, 
+a.deposit-link {
+  text-decoration: none;
+  color: #007bff;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+a.signout-link:hover, 
+a.deposit-link:hover {
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+.welcome-text {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.page-footer {
+  color: #666;
+  text-align: center;
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-content p {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .footer-links {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .footer-links a {
-    color: #007bff;
-    text-decoration: none;
-    margin: 0 10px;
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-  
