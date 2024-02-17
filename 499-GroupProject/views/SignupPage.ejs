@@ -5,16 +5,24 @@
       <h1>Sign up using the form below:</h1>
     </div>
     <form method="post">
+
+      <div class="div-email">
+        <input id="email-signup" type="email" name="email" placeholder="email">
+      </div>
+
       <div class="div-email">
         <input id="email-signup" type="text" name="email" placeholder="Username">
       </div>
+
       <div class="div-password">
         <input id="password-signup" type="password" name="password" placeholder="Password">
       </div>
+
       <div class="div-show-password">
         <label for="show-password">Show Password</label>
         <input id="show-password-signup" type="checkbox" onclick="togglePassword()">
       </div>
+
       <button class="form-submit" name="showPassword">Sign up</button>
       <a class="link-to-login" href="/LoginPage">Back to Login</a>
     </form>
