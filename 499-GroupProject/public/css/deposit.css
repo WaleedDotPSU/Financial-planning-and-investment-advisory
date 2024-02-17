@@ -1,93 +1,122 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.card {
-    background-color: #fff;
-    margin: auto;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .payment-card {
     width: 600px;
+    margin: 20px auto 90px; 
     padding: 20px;
+    background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  }
+  
+  .card-logo-img,
+  .payment-details label,
+  .payment-details a {
+    color: #007bff;
+  }
 
-.card-title, .nav li a, #card-header, span, input, form a, .btn {
-    color: #007bff; 
-}
-
-input, .row-1 {
+  .legend{
+    margin-bottom: 15px;
+  }
+  
+  .payment-details button {
+    color: white;
+  }
+  
+  .payment-details input {
+    color: black;
+    width: calc(100% - 20px);
     padding: 10px;
     margin: 15px 0;
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: calc(100% - 20px);
-}
-
-.btn {
-    background-color: #007bff;
-    color: #fff;
+  }
+  
+  .pay-btn {
+    width: 100%;
     padding: 10px;
     border: none;
+    background-color: #007bff;
+    font-size: 16px;
+    cursor: pointer;
     border-radius: 5px;
     margin-bottom: 10px;
+  }
+  
+  .back-btn {
+    font-size: 16px;
     cursor: pointer;
-    width: 100%;
-    transition: transform 0.5s, background-color 0.5s;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-.btn:active {
-    transform: scale(0.9);
-}
-
-@media(max-width:767px) {
-    .card {
-        width: 90%;
-        padding: 1.5rem;
-    }
-}
-
-@media(height:1366px) {
-    .card {
-        padding: 8vh;
-    }
-}
-
-.nav ul {
-    list-style-type: none;
-    display: flex;
-    padding-inline-start: unset;
-    margin-bottom: 6vh;
-}
-
-.nav li a {
     text-decoration: none;
-}
-
-.active {
-    border-bottom: 2px solid #007bff;
     font-weight: bold;
-}
-
-form a:hover {
+  }
+  
+  .pay-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 767px) {
+    .payment-card {
+      width: 90%;
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (height: 1366px) {
+    .payment-card {
+      padding: 8vh;
+    }
+  }
+  
+  .payment-details a:hover,
+  .footer-links a:hover {
     text-decoration: underline;
-}
-
-/* Additional styles for consistency */
-#card-inner, .row, .col-2, .col-7, .col-3, .three {
-    font-size: 1rem; /* Adjusting font size for consistency */
-}
-
-/* Placeholder transparency adjustment */
-input:focus::-webkit-input-placeholder { color: transparent; }
-input:focus:-moz-placeholder { color: transparent; }
-input:focus::-moz-placeholder { color: transparent; }
-input:focus:-ms-input-placeholder { color: transparent; }
+  }
+  
+  .payment-details input:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+  
+  .payment-details input:focus:-moz-placeholder {
+    color: transparent;
+  }
+  
+  .payment-details input:focus::-moz-placeholder {
+    color: transparent;
+  }
+  
+  .payment-details input:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+  
+  /* Footer Styles */
+  .page-footer {
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-content p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer-links {
+    margin-top: 10px;
+  }
+  
+  .footer-links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  

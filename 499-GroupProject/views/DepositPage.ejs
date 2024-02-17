@@ -1,50 +1,37 @@
-<%- include("./part/Header") %>
+<%- include("./part/DepositHeader") %>
 <main>
     <div class="payment-card mt-50 mb-50">
-        <form method="post">
-            <div class="card-type-logo">
-                <img class="card-logo-img" src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="Mastercard Logo">
+      <form method="post">
+        <fieldset class="card-type-logo">
+          <img class="card-logo-img" src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="Mastercard Logo">
+          <img class="card-logo-img" src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa Logo">
+        </fieldset>
+        <fieldset class="payment-details">
+          <legend class="legend">Card Information:</legend>
+          <div class="card-holder-info">
+            <label for="cardholder-name" class="form-label">Cardholder Name</label>
+            <input id="cardholder-name" type="text" placeholder="e.g: Abdullah Ahmad" required pattern="[A-Za-z\s'.-]+" title="Cardholder name should contain letters only.">
+          </div>
+          <div class="card-number-exp-cvv">
+            <label for="card-number" class="form-label">Card Number</label>
+            <input id="card-number" type="text" placeholder="e.g: 1234567890123" required pattern="\d{13,19}" title="Card number must be between 13 and 19 digits.">
+            <div class="exp-date">
+              <label for="exp-date" class="form-label">Exp. Date</label>
+              <input id="exp-date" type="month" required title="Expiration Date.">
             </div>
-            <div class="payment-details">
-                <div class="card-type-logo">
-                    <img class="card-logo-img" src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa Logo">
-                    <span class="card-header">Card Information:</span>
-                    <div class="card-holder-info">
-                        <div class="form-row">
-                            <span class="form-label">Cardholder Name</span>
-                            <input type="text" placeholder="Bojan Viner" required pattern="[A-Za-z\s]+" title="Cardholder name must contain letters only.">
-                        </div>
-                    </div>
-                    <div class="card-number-exp-cvv">
-                        <div class="form-row">
-                            <span class="form-label">Card Number</span>
-                            <input type="text" placeholder="513452644444" required pattern="\d{12}" title="Card number must be 12 digits.">
-                        </div>
-                        <div class="form-row">
-                            <div class="exp-date">
-                                <span class="form-label">Exp. Date</span>
-                                <!-- Input type="month" captures month and year -->
-                                <input type="month" required title="Please enter the expiration date.">
-                            </div>
-                            <div class="cvv">
-                                <span class="form-label">CVV</span>
-                                <input type="text" placeholder="123" required pattern="\d{3}" title="CVV must be 3 digits.">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="payment-amount">
-                        <div class="form-row">
-                            <span class="form-label">Amount</span>
-                            <!-- Adjusted placeholder and removed pattern as it's a numeric input -->
-                            <input type="number" placeholder="1000" required title="Please enter the amount.">
-                        </div>
-                    </div>
-                    <button type="submit" class="pay-btn d-flex mx-auto"><b>Pay</b></button>
-                    <!-- Added type="button" to prevent form submission on click -->
-                    <button type="button" class="back-btn d-flex mx-auto" onclick="location.href='/'"><b>Back to Homepage</b></button>
-                </div>
+            <div class="cvv">
+              <label for="cvv" class="form-label">CVV</label>
+              <input id="cvv" type="text" placeholder="e.g: 123" required pattern="\d{3}" title="CVV must be 3 digits.">
             </div>
-        </form>
+          </div>
+          <div class="payment-amount">
+            <label for="amount" class="form-label">Amount</label>
+            <input id="amount" type="number" placeholder="100,000" required title="Please enter the amount.">
+          </div>
+          <button type="submit" class="pay-btn">Deposit</button>
+          <a href="/HomePage" class="back-btn">Back to Homepage</a>
+        </fieldset>
+      </form>
     </div>
-</main>
+  </main>  
 <%- include("./part/Footer") %>
