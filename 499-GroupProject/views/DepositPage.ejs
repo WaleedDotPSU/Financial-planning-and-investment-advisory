@@ -17,7 +17,10 @@
             <input id="card-number" type="text" placeholder="e.g: 1234567890123" required pattern="\d{13,19}" title="Card number must be between 13 and 19 digits.">
             <div class="exp-date">
               <label for="exp-date" class="form-label">Exp. Date</label>
-              <input id="exp-date" type="month" required title="Expiration Date.">
+              <% if (message) { %>
+                <div class="error-message"><%= message %></div>
+              <% } %>
+              <input id="exp-date" type="month" name="expirationDate" required title="Expiration Date.">
             </div>
             <div class="cvv">
               <label for="cvv" class="form-label">CVV</label>

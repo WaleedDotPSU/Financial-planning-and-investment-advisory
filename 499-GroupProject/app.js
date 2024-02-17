@@ -43,7 +43,7 @@ app.get('/SignupPage', (req, res) => {
 
 // Render deposit page
 app.get('/DepositPage', (req, res) => {
-  res.render('DepositPage');
+  res.render('DepositPage', {message:''});
 });
 
 // Test route
@@ -63,9 +63,25 @@ app.post('/login', (req, res) => {
   }
 });
 
+// NEEDS FIXING
 // Handle deposit
 app.post('/DepositPage', (req, res) => {
-  res.redirect('/HomePage');
+  const currentDate = new Date();
+  const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
+
+  // Parse the month and year from the expiration input
+  const [month, year] = expirationInput.split('/');
+  // Adjust to create a Date object for the last moment of the expiration month
+  const expirationDate = new Date(year, month, 0, 23, 59, 59, 999);
+
+  // Compare current date to expiration date
+  if (currentDate > expirationDate) {
+    // If the card is expired, render the DepositPage with an error message
+    res.render('DepositPage', { message: 'Card is expired' });
+  } else {
+    // If the card is not expired, redirect to the HomePage
+    res.redirect('/HomePage');
+  }
 });
 
 // Handle signup
@@ -75,7 +91,7 @@ app.post('/SignupPage', (req, res) => {
 
   if (userExists) {
     // Username or email already in use
-    res.render('SignupPage', { message: 'Username or Email already in use.' });
+    res.render('SignupPage', { message: 'Username or Email is already in use.' });
   } else {
     // For demonstration, this will just redirect to the login page
     res.redirect('/LoginPage');

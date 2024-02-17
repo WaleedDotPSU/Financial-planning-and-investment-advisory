@@ -23,19 +23,16 @@
     <section>
       <div class="banner" id="banner">
         <h1>Sign up using the form below:</h1>
-        <% if (typeof message !== 'undefined' && message) { %>
-          <p class="error-message"><%= message %></p>
-        <% } %>
       </div>
       <form method="post" action="/SignupPage">
         <div class="form-field">
-          <label for="email-signup">Email:</label>
-          <input id="email-signup" type="email" name="email" placeholder="email" required>
-        </div>
-  
-        <div class="form-field">
           <label for="username-signup">Username:</label>
           <input id="username-signup" type="text" name="username" placeholder="Username" required>
+        </div>
+
+        <div class="form-field">
+          <label for="email-signup">Email:</label>
+          <input id="email-signup" type="email" name="email" placeholder="Email" required>
         </div>
   
         <div class="form-field">
@@ -47,6 +44,10 @@
           <label for="show-password-signup">Show Password</label>
           <input id="show-password-signup" type="checkbox" onclick="togglePassword()">
         </div>
+
+        <% if (typeof message !== 'undefined' && message) { %>
+          <p class="error-message"><%= message %></p>
+        <% } %>
   
         <button type="submit" class="form-submit">Sign up</button>
         <a class="link-to-login" href="/LoginPage">Back to Login</a>
