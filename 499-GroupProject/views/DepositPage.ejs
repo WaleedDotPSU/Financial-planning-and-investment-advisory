@@ -1,71 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- General meta tags -->
-    <meta charset="utf-8">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Site specific tags -->
-    <title>Deposit</title>
-    <!-- Style sheets -->
-    <link rel="stylesheet" href="css/css-reset.css">
-    <link rel="stylesheet" href="css/deposit.css">
-</head>
+<%- include("./part/Header") %>
 <body>
     <header>
         <nav>
-            
+            <!-- Navigation content goes here -->
         </nav>
     </header>
     <main>
-        <div class="card mt-50 mb-50">
+        <div class="payment-card mt-50 mb-50">
             <form method="post">
-                <div class="col-2"><img class="img-fluid"
-                    src="https://img.icons8.com/color/48/000000/mastercard-logo.png" /></div>
-                 <div class="col-7">
-                <div class="col-2"><img class="img-fluid" src="https://img.icons8.com/color/48/000000/visa.png" />
-                <span id="card-header">Card information:</span>
-                <div class="row-1">
-                    <div class="row row-2">
-                        <span id="card-inner">Card holder name</span>
-                    </div>
-                    <div class="row row-2">
-                        <input type="text" placeholder="Bojan Viner">
-                    </div>
+                <div class="card-type-logo">
+                    <img class="card-logo-img" src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+                        alt="Mastercard Logo">
                 </div>
-                <div class="row three">
-                    <div class="col-7">
-                        <div class="row-1">
-                            <div class="row row-2">
-                                <span id="card-inner">Card number</span>
-                            </div>
-                            <div class="row row-2">
-                                <input type="text" placeholder="5134-5264-4">
+                <div class="payment-details">
+                    <div class="card-type-logo">
+                        <img class="card-logo-img" src="https://img.icons8.com/color/48/000000/visa.png"
+                            alt="Visa Logo">
+                        <span class="card-header">Card Information:</span>
+                        <div class="card-holder-info">
+                            <div class="form-row">
+                                <span class="form-label">Cardholder Name</span>
+                                <input type="text" placeholder="Bojan Viner">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <input type="text" placeholder="Exp. date">
-                    </div>
-                    <div class="col-2">
-                        <input type="text" placeholder="CVV">
+                        <div class="card-number-exp-cvv">
+                            <div class="form-row">
+                                <span class="form-label">Card Number</span>
+                                <input type="text" placeholder="5134-5264-4">
+                            </div>
+                            <div class="form-row">
+                                <div class="exp-date">
+                                    <span class="form-label">Exp. Date</span>
+                                    <input type="text" placeholder="MM/YY">
+                                </div>
+                                <div class="cvv">
+                                    <span class="form-label">CVV</span>
+                                    <input type="text" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-amount">
+                            <div class="form-row">
+                                <span class="form-label">Amount</span>
+                                <input type="text" placeholder="1000 SAR">
+                            </div>
+                        </div>
+                        <button class="pay-btn d-flex mx-auto"><b>Pay</b></button>
+                        <button class="back-btn d-flex mx-auto"><b>Back to Homepage</b></button>
                     </div>
                 </div>
-                <div class="row-pay">
-                    <div class="row row-pay">
-                        <span id="pay">Amount</span>
-                    </div>
-                    <div class="row row-pay">
-                        <input type="text" placeholder="1000 SAR">
-                    </div>
-                </div>
-                <button class="btn d-flex mx-auto"><b>Pay</b></button>
-                <button class="btn d-flex mx-auto"><b>Back to Homepage</b></button>
             </form>
         </div>
     </main>
-    <footer>
-        
-    </footer>
-</body>
-</html>
+<%- include("./part/Footer") %>
