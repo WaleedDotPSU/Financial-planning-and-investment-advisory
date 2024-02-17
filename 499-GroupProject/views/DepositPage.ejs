@@ -20,29 +20,29 @@
                         <div class="card-holder-info">
                             <div class="form-row">
                                 <span class="form-label">Cardholder Name</span>
-                                <input type="text" placeholder="Bojan Viner">
+                                <input type="text" placeholder="Bojan Viner" pattern="[a-z],[A-Z]">
                             </div>
                         </div>
                         <div class="card-number-exp-cvv">
                             <div class="form-row">
                                 <span class="form-label">Card Number</span>
-                                <input type="text" placeholder="5134-5264-4">
+                                <input type="number" placeholder="5134-5264-4" pattern="[0-10]">
                             </div>
                             <div class="form-row">
                                 <div class="exp-date">
                                     <span class="form-label">Exp. Date</span>
-                                    <input type="text" placeholder="MM/YY">
+                                    <input type="date" placeholder="MM/YY">
                                 </div>
                                 <div class="cvv">
                                     <span class="form-label">CVV</span>
-                                    <input type="text" placeholder="123">
+                                    <input type="number" placeholder="123" required pattern="[0-10]">
                                 </div>
                             </div>
                         </div>
                         <div class="payment-amount">
                             <div class="form-row">
                                 <span class="form-label">Amount</span>
-                                <input type="text" placeholder="1000 SAR">
+                                <input type="number" placeholder="1000 SAR" pattern="[0-10]">
                             </div>
                         </div>
                         <button class="pay-btn d-flex mx-auto"><b>Pay</b></button>
