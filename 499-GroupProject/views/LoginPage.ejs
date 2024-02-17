@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%- include("./part/Header") %>
   <main>
     <div class="banner-container">
@@ -9,7 +8,9 @@
       <form method="post" class="login-form" action="/login">
         <input type="text" placeholder="Username" name="username" required>
         <input type="password" placeholder="Password" name="password" required>
-        <p class="error"><%=message%></p>
+        <p class="error">
+          <%=message%>
+        </p>
         <button type="submit">Login</button>
       </form>
       <div class="login-actions">
@@ -18,26 +19,25 @@
       </div>
     </div>
   </main>
-<%- include("./part/Footer") %>
-=======
-<%- include("./part/LoginHead") %>
-<main>
-  <div class="banner-container">
-    <div class="sliding-banner">Welcome to Investopia</div>
-    <img src="/css/img/BannerNoTitle.png" alt="Investopia Logo" class="banner-logo">
-  </div>
-  <div class="login-container">
-    <form method="post" class="login-form" action="/login">
-      <input type="text" placeholder="Username" name="username" required>
-      <input type="password" placeholder="Password" name="password" required>
-      <p class="error"><%= message %></p>
-      <button type="submit">Login</button>
-    </form>
-    <div class="login-actions">
-      <a href="/ForgetPassPage" class="forgot-password">Forgot Password?</a>
-      <a href="/SignupPage" class="signup-link">Sign Up</a>
+
+  <main>
+    <div class="banner-container">
+      <div class="sliding-banner">Welcome to Investopia</div>
+      <img src="/css/img/BannerNoTitle.png" alt="Investopia Logo" class="banner-logo">
     </div>
-  </div>
-</main>
-<%- include("./part/LoginFoot") %>
->>>>>>> a0c2d5a104936d2cd371e86f83095d78b1a246ad
+    <div class="login-container">
+      <form method="post" class="login-form" action="/login">
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <p class="error">
+          <%= message %>
+        </p>
+        <button type="submit">Login</button>
+      </form>
+      <div class="login-actions">
+        <a href="/ForgetPassPage" class="forgot-password">Forgot Password?</a>
+        <a href="/SignupPage" class="signup-link">Sign Up</a>
+      </div>
+    </div>
+  </main>
+  <%- include("./part/Footer") %>
