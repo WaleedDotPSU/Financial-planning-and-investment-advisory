@@ -91,3 +91,21 @@ h3 {
 .footer-links a:hover {
   text-decoration: underline;
 }
+
+
+
+/* Dummy Data */
+header {
+  position: relative; /* Allows absolute positioning within the header */
+}
+
+.wallet-balance {
+  position: absolute;
+  top: 20px; /* Adjust as needed to align with your header's height */
+  right: 20px; /* Adjust based on your layout's spacing */
+  background-color: #f8f9fa; /* Optional: to match link styles or stand out */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+  color: #007bff; /* Optional: to match link colors */
+}
