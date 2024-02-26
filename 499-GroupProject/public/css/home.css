@@ -17,7 +17,7 @@ main {
 section {
   margin-bottom: 20px;
 
-  
+
 
 }
 
@@ -28,9 +28,10 @@ article {
   align-items: center;
 }
 
-a.signout-link, 
+a.signout-link,
 a.deposit-link,
-a.withdraw-link {
+a.withdraw-link,
+a.Risk-link {
   text-decoration: none;
   color: #007bff;
   background-color: #f8f9fa;
@@ -40,14 +41,17 @@ a.withdraw-link {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-a.signout-link:hover, 
+a.signout-link:hover,
 a.deposit-link:hover,
-a.withdraw-link:hover {
+a.withdraw-link:hover,
+a.Risk-link:hover {
   background-color: #e2e6ea;
   border-color: #dae0e5;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #333;
 }
 

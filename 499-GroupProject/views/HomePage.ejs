@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- General Meta Tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Site Specific Tags -->
   <title>Page Title</title>
-  
+
   <!-- Style Sheets -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/root.css">
 </head>
+
 <body>
   <header>
     <nav>
@@ -25,14 +27,23 @@
         <a href="/DepositPage" class="deposit-link">Add Money</a>
       </article>
     </section>
-    <article>
-      <a href="/withdrawPage" class="withdraw-link">withdraw Money</a>
-    </article>
-  </section>
+
+    <section>
+      <article>
+        <a href="/withdrawPage" class="withdraw-link">withdraw Money</a>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <a href="/RiskPage" class="Risk-link">Option's To Select</a>
+      </article>
+    </section>
+
     <section>
       <article>
         <a href="/LoginPage" class="signout-link">Sign Out</a>
       </article>
-    </section>   
+    </section>
   </main>
   <%- include("./part/Footer.ejs") %>
