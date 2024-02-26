@@ -43,7 +43,7 @@ app.get('/SignupPage', (req, res) => {
 
 // Render deposit page
 app.get('/DepositPage', (req, res) => {
-  res.render('DepositPage', {message:''});
+  res.render('DepositPage', { message: '' });
 });
 
 // Render RiskPage

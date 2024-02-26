@@ -16,15 +16,21 @@ main {
 
 section {
   margin-bottom: 20px;
+
+  
+
 }
 
 article {
   padding: 15px;
   border-bottom: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
 }
 
 a.signout-link, 
-a.deposit-link {
+a.deposit-link,
+a.withdraw-link {
   text-decoration: none;
   color: #007bff;
   background-color: #f8f9fa;
@@ -35,7 +41,8 @@ a.deposit-link {
 }
 
 a.signout-link:hover, 
-a.deposit-link:hover {
+a.deposit-link:hover,
+a.withdraw-link:hover {
   background-color: #e2e6ea;
   border-color: #dae0e5;
 }
