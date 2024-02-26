@@ -53,7 +53,7 @@ app.get('/RiskPage', (req, res) => {
 
 // Render WithdrawPage
 app.get('/WithdrawPage', (req, res) => {
-  res.render('withdrawPage');
+  res.render('withdrawPage', { message: '' });
 });
 
 // Test route
@@ -93,6 +93,31 @@ app.post('/DepositPage', (req, res) => {
     res.redirect('/HomePage');
   }
 });
+
+
+
+// Handle withdrawPage
+app.post('/WithdrawPage', (req, res) => {
+  const currentDate = new Date();
+  const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
+
+  // Parse the month and year from the expiration input
+  const [month, year] = expirationInput.split('/');
+  // Adjust to create a Date object for the last moment of the expiration month
+  const expirationDate = new Date(year, month, 0, 23, 59, 59, 999);
+
+  // Compare current date to expiration date
+  if (currentDate > expirationDate) {
+    // If the card is expired, render the WithdrawPage with an error message
+    res.render('withdrawPage', { message: 'Card is expired' });
+  } else {
+    // If the card is not expired, redirect to the HomePage
+    res.redirect('/HomePage');
+  }
+});
+
+
+
 
 // Handle signup
 app.post('/SignupPage', (req, res) => {
