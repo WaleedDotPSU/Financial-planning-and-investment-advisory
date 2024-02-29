@@ -73,8 +73,9 @@ app.post('/login', (req, res) => {
   }
 });
 
-// NEEDS FIXING
 // Handle deposit
+// NEEDS FIXING, the date not to be older than the current date, e.g. Feb, 24. I don't think it's working yet
+//Check for the amount not to be negative
 app.post('/DepositPage', (req, res) => {
   const currentDate = new Date();
   const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
@@ -96,7 +97,8 @@ app.post('/DepositPage', (req, res) => {
 
 
 
-// Handle withdrawPage
+// Handle withdrawPage. 
+//Only make it to check the wallet balance + add the IBAN for instance to withdraw
 app.post('/WithdrawPage', (req, res) => {
   const currentDate = new Date();
   const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
