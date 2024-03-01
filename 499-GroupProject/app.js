@@ -8,12 +8,18 @@ const app = express();
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
 
+
 // Dummy user data for testing
 const users = [
   { username: 'user1', password: 'pass1', email: 'user1@hotmail.com' },
   { username: 'user2', password: 'pass2', email: 'user2@hotmail.com' },
 ];
 
+// Dummy card data for testing
+const cards = [
+  { cardNumber: '1234 5678 9012 3456', cardHolder: 'Mohammed M', expirationDate: '12/25', cvv: '123' },
+  { cardNumber: '9876 5432 1098 7654', cardHolder: 'Faleh F', expirationDate: '06/23', cvv: '456' },
+];
 
 // Middleware
 app.use(express.static('public'));
