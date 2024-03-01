@@ -51,6 +51,8 @@ app.get('/RiskPage', (req, res) => {
   res.render('RiskPage');
 });
 
+
+
 // Render WithdrawPage
 app.get('/WithdrawPage', (req, res) => {
   res.render('withdrawPage', { message: '' });
