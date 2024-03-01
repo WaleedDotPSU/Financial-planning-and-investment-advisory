@@ -57,8 +57,6 @@ app.get('/RiskPage', (req, res) => {
   res.render('RiskPage');
 });
 
-
-
 // Render WithdrawPage
 app.get('/WithdrawPage', (req, res) => {
   res.render('withdrawPage', { message: '' });
@@ -84,22 +82,53 @@ app.post('/login', (req, res) => {
 // Handle deposit
 // NEEDS FIXING, the date not to be older than the current date, e.g. Feb, 24. I don't think it's working yet
 //Check for the amount not to be negative
+// The date cheking is NOT working and have been doing run-time errors so I decided to comment it
+// app.post('/DepositPage', (req, res) => {
+//   const currentDate = new Date();
+//   const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
+
+//   // Parse the month and year from the expiration input
+//   const [month, year] = expirationInput.split('/');
+//   // Adjust to create a Date object for the last moment of the expiration month
+//   const expirationDate = new Date(year, month, 0, 23, 59, 59, 999);
+//   // Compare current date to expiration date
+//   if (currentDate > expirationDate) {
+//     // If the card is expired, render the DepositPage with an error message
+//     res.render('DepositPage', { message: 'Card is expired' });
+//   } else {
+//     // If the card is not expired, redirect to the HomePage
+//     res.redirect('/HomePage');
+//   }
+// });    
+
+//HERE'S THE ADDED SNIPPET for card validation (It's working correctly, however it needs some work:
+// -make the namings consistent across both app.js & DepositPage.ejs -make consistent way of validating
+// the expDate):
 app.post('/DepositPage', (req, res) => {
-  const currentDate = new Date();
-  const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
+  // Extract card details from the request body
+  const { cardNumber, cardHolder, expDate, cvv } = req.body;
 
-  // Parse the month and year from the expiration input
-  const [month, year] = expirationInput.split('/');
-  // Adjust to create a Date object for the last moment of the expiration month
-  const expirationDate = new Date(year, month, 0, 23, 59, 59, 999);
+  // Validate card details
+  const card = cards.find(c =>
+    c.cardNumber === cardNumber &&
+    c.cardHolder === cardHolder &&
+    c.expDate === expDate &&
+    c.cvv === cvv
+  );
 
-  // Compare current date to expiration date
-  if (currentDate > expirationDate) {
-    // If the card is expired, render the DepositPage with an error message
-    res.render('DepositPage', { message: 'Card is expired' });
+  if (card) {
+    // Card details are valid, proceed with deposit logic
+    // For example, save the deposit amount to the user's account
+    // and then redirect to the success page:
+    // ...
+    // Your deposit logic here
+    // ...
+
+    // Redirect to the success page (adjust the route as needed)
+    res.redirect('/DepositSuccessPage');
   } else {
-    // If the card is not expired, redirect to the HomePage
-    res.redirect('/HomePage');
+    // Invalid card details, render the DepositPage with an error message
+    res.render('DepositPage', { message: 'Invalid card details' });
   }
 });
 
