@@ -1,40 +1,39 @@
-<%- include("./part/DepositHeader") %>
-<main>
-    <div class="payment-card mt-50 mb-50">
-      <form method="post">
-        <fieldset class="card-type-logo">
-          <img class="card-logo-img" src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="Mastercard Logo">
-          <img class="card-logo-img" src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa Logo">
-        </fieldset>
-        <fieldset class="payment-details">
-          <legend class="legend">Card Information:</legend>
-          <div class="card-holder-info">
-            <label for="cardholder-name" class="form-label">Cardholder Name</label>
-            <input id="cardholder-name" type="text" placeholder="e.g: Abdullah Ahmad" required pattern="[A-Za-z\s'.-]+" title="Cardholder name should contain letters only.">
-          </div>
-          <div class="card-number-exp-cvv">
-            <label for="card-number" class="form-label">Card Number</label>
-            <input id="card-number" type="text" placeholder="e.g: 1234567890123" required pattern="\d{13,19}" title="Card number must be between 13 and 19 digits.">
-            <div class="exp-date">
-              <label for="exp-date" class="form-label">Exp. Date</label>
-              <% if (message) { %>
-                <div class="error-message"><%= message %></div>
-              <% } %>
-              <input id="exp-date" type="month" name="expirationDate" required title="Expiration Date.">
-            </div>
-            <div class="cvv">
-              <label for="cvv" class="form-label">CVV</label>
-              <input id="cvv" type="text" placeholder="e.g: 123" required pattern="\d{3}" title="CVV must be 3 digits.">
-            </div>
-          </div>
-          <div class="payment-amount">
-            <label for="amount" class="form-label">Amount</label>
-            <input id="amount" type="number" placeholder="100,000" required title="Please enter the amount.">
-          </div>
-          <button type="submit" class="pay-btn">Withdraw</button>
-          <a href="/HomePage" class="back-btn">Back to Homepage</a>
-        </fieldset>
-      </form>
-    </div>
-  </main>  
-<%- include("./part/Footer") %>
+<%- include("./part/TransactionHeader.ejs") %>
+<main class="main-content">
+  <div class="payment-card mt-50 mb-50">
+    <form method="post" class="payment-form">
+      <div class="card-logos">
+        <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="Mastercard Logo" class="card-logo">
+        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa Logo" class="card-logo">
+      </div>
+      <fieldset class="payment-details">
+        <div class="form-group">
+          <label for="cardholder-name">Cardholder Name</label>
+          <input id="cardholder-name" type="text" placeholder="e.g: Abdullah Ahmad" required pattern="[A-Za-z\s'.-]+" title="Cardholder name should contain letters only.">
+        </div>
+        <div class="form-group">
+          <label for="card-number">Card Number</label>
+          <input id="card-number" type="text" placeholder="e.g: 1234567890123456" required pattern="\d{13,19}" title="Card number must be between 13 and 19 digits.">
+        </div>
+        <div class="form-group half-width">
+          <label for="exp-date">Exp. Date</label>
+          <% if (message) { %>
+            <div class="error-message"><%= message %></div>
+          <% } %>
+          <input id="exp-date" type="month" name="expirationDate" required title="Expiration Date.">
+        </div>
+        <div class="form-group half-width">
+          <label for="cvv">CVV</label>
+          <input id="cvv" type="text" placeholder="e.g: 123" required pattern="\d{3}" title="CVV must be 3 digits.">
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input id="amount" type="number" placeholder="e.g: 100000" required title="Please enter the amount.">
+        </div>
+        <button type="submit" class="btn pay-btn">Withdraw</button>
+        <a href="/HomePage" class="btn back-btn">Back to Homepage</a>
+      </fieldset>
+    </form>
+  </div>
+</main>
+<%- include("./part/Footer.ejs") %>

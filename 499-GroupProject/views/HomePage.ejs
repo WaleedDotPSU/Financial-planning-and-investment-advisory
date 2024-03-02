@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- General Meta Tags -->
   <meta charset="utf-8">
@@ -12,30 +11,27 @@
   <!-- Style Sheets -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/root.css">
 </head>
-
 <body>
   <header>
-      <!--Dummy data where our app wallet will be displayed thus it the mid point btween the width draw and deposit -->
     <div class="wallet-balance">Wallet Balance: $1000</div>
     <a href="/LoginPage" class="signout-link">Sign Out</a>
   </header>
-  <main>
-    <section>
-      <article>
+  
+  <main class="home-options">
+    <section class="home-option">
         <a href="/DepositPage" class="deposit-link">Add money to account</a>
-      </article>
     </section>
-    <section>
-      <article>
-        <a href="/withdrawPage" class="withdraw-link">Withdraw money from account</a>
-      </article>
+    <section class="home-option">
+        <a href="/WithdrawPage" class="withdraw-link">Withdraw money from account</a>
     </section>
-    <section>
-      <article>
-        <a href="/RiskPage" class="Risk-link">Investement options</a>
-      </article>
+    <section class="home-option">
+        <a href="/RiskPage" class="risk-link">Investment options</a>
     </section>
   </main>
+  
   <%- include("./part/Footer.ejs") %>
+</body>
+</html>
+
+

@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- general meta tags -->
+    <!-- General Meta Tags -->
     <meta charset="utf-8">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- site specific tags -->
+
+    <!-- Site Specific Tags -->
     <title>RiskPage</title>
-    <!-- style sheets -->
+
+    <!-- Style Sheets -->
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/Risk.css">
-    <link rel="stylesheet" href="css/root.css">
-
+    <link rel="stylesheet" href="css/risk.css">
 </head>
-
 <body>
     <header>
+        <div class="wallet-balance">Wallet Balance: $1000</div>
+        <a href="/LoginPage" class="signout-link">Sign Out</a>
+      </header>
 
-    </header>
-
-    <main>
-        <section>
-            <article>
-                <a href="/LowRiskPage" class="One">High risk</a>
-            </article>
+    <main class="risk-options">
+        <section class="risk-option">
+            <a href="/HighRiskPage" class="high-risk-link">High Risk</a>
         </section>
-        <section>
-            <article>
-                <a href="/MidRiskPage" class="Two">Medium risk</a>
-            </article>
+        <section class="risk-option">
+            <a href="/MidRiskPage" class="medium-risk-link">Medium Risk</a>
         </section>
-        <section>
-            <article>
-                <a href="/HighRiskPage" class="Three">Low risk</a>
-            </article>
+        <section class="risk-option">
+            <a href="/LowRiskPage" class="low-risk-link">Low Risk</a>
         </section>
-        <section>
-            <article>
-                <a href="/HomePage" class="Back">Back to homepage</a>
-            </article>
+        <section class="navigation-option">
+            <a href="/HomePage" class="back-home-link">Back to Homepage</a>
         </section>
     </main>
 
-    <script>
-
-    </script>
     <%- include("./part/Footer.ejs") %>
+</body>
+</html>

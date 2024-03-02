@@ -1,3 +1,7 @@
+header {
+  margin-bottom: 75px;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,9 +9,10 @@ body {
   background-color: #f0f0f2;
 }
 
-main {
+.home-options {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 100px;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -16,24 +21,30 @@ main {
 
 section {
   margin-bottom: 20px;
-
-
-
 }
 
-article {
+.action {
   display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
+  justify-content: center; 
+  align-items: center; 
   padding: 15px;
   border-bottom: 1px solid #eaeaea;
-  flex-direction: column; /* Stack children vertically */
+  flex-direction: column;
+}
+
+.home-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eaeaea;
+  flex-direction: column;
 }
 
 a.signout-link,
 a.deposit-link,
 a.withdraw-link,
-a.Risk-link {
+a.risk-link {
   text-decoration: none;
   color: #007bff;
   background-color: #f8f9fa;
@@ -45,26 +56,27 @@ a.Risk-link {
 
 a.signout-link{
   position: absolute;
+  top: 21px;
+  left: 20px;
 }
 
 a.signout-link:hover,
 a.deposit-link:hover,
 a.withdraw-link:hover,
-a.Risk-link:hover {
+a.risk-link:hover {
   background-color: #e2e6ea;
   border-color: #dae0e5;
 }
 
-h1,
-h2,
-h3 {
-  color: #333;
-}
-
-.welcome-text {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 20px;
+.wallet-balance {
+  position: absolute;
+  top: 20px;
+  right: 20px; 
+  background-color: #f8f9fa; 
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+  color: #007bff;
 }
 
 /* Footer */
@@ -74,7 +86,8 @@ h3 {
   padding: 20px 0;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 90%;
+  margin-left: 4.5%;
 }
 
 .footer-content p {
@@ -94,23 +107,4 @@ h3 {
 
 .footer-links a:hover {
   text-decoration: underline;
-}
-
-
-
-/* Dummy Data */
-header {
-   /* Allows absolute positioning within the header */
-  margin-bottom: 75px;
-}
-
-.wallet-balance {
-  position: absolute;
-  top: 20px; /* Adjust as needed to align with your header's height */
-  right: 20px; /* Adjust based on your layout's spacing */
-  background-color: #f8f9fa; /* Optional: to match link styles or stand out */
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #dee2e6;
-  color: #007bff; /* Optional: to match link colors */
 }

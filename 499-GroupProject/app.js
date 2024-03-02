@@ -8,19 +8,6 @@ const app = express();
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
 
-
-// Dummy user data for testing
-const users = [
-  { username: 'user1', password: 'pass1', email: 'user1@hotmail.com' },
-  { username: 'user2', password: 'pass2', email: 'user2@hotmail.com' },
-];
-
-// Dummy card data for testing
-const cards = [
-  { cardNumber: '1234 5678 9012 3456', cardHolder: 'Mohammed M', expirationDate: '12/25', cvv: '123' },
-  { cardNumber: '9876 5432 1098 7654', cardHolder: 'Faleh F', expirationDate: '06/23', cvv: '456' },
-];
-
 // Middleware
 app.use(express.static('public'));
 app.use(express.json());
@@ -79,34 +66,29 @@ app.post('/login', (req, res) => {
   }
 });
 
-// Handle deposit
-// NEEDS FIXING, the date not to be older than the current date, e.g. Feb, 24. I don't think it's working yet
-//Check for the amount not to be negative
+// Handle deposit "NEEDS FIXING", [Check for the amount not to be negative]
 // The date cheking is NOT working and have been doing run-time errors so I decided to comment it
-// app.post('/DepositPage', (req, res) => {
-//   const currentDate = new Date();
-//   const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
+/*app.post('/DepositPage', (req, res) => {
+   const currentDate = new Date();
+   const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
+   const [month, year] = expirationInput.split('/'); // Parse the month and year from the expiration input
+   const expirationDate = new Date(year, month, 0, 23, 59, 59, 999); // Adjust to create a Date object for the last moment of the expiration month
 
-//   // Parse the month and year from the expiration input
-//   const [month, year] = expirationInput.split('/');
-//   // Adjust to create a Date object for the last moment of the expiration month
-//   const expirationDate = new Date(year, month, 0, 23, 59, 59, 999);
-//   // Compare current date to expiration date
-//   if (currentDate > expirationDate) {
-//     // If the card is expired, render the DepositPage with an error message
-//     res.render('DepositPage', { message: 'Card is expired' });
-//   } else {
-//     // If the card is not expired, redirect to the HomePage
-//     res.redirect('/HomePage');
-//   }
-// });    
+   // Compare current date to expiration date
+   if (currentDate > expirationDate) {
+     // If the card is expired, render the DepositPage with an error message
+     res.render('DepositPage', { message: 'Card is expired' });
+   } else {
+     // If the card is not expired, redirect to the HomePage
+     res.redirect('/HomePage');
+   }
+});*/
 
-//HERE'S THE ADDED SNIPPET for card validation (It's working correctly, however it needs some work:
-// -make the namings consistent across both app.js & DepositPage.ejs -make consistent way of validating
+// Card validation  (It's working), [NEEDS WORK STILL]
+// [MAKE NAMINGS CONSISTENT, for app.js and Deposit.ejs]
 // the expDate):
 app.post('/DepositPage', (req, res) => {
-  // Extract card details from the request body
-  const { cardNumber, cardHolder, expDate, cvv } = req.body;
+  const { cardNumber, cardHolder, expDate, cvv } = req.body; // Extract card details from the request body
 
   // Validate card details
   const card = cards.find(c =>
@@ -123,40 +105,26 @@ app.post('/DepositPage', (req, res) => {
     // ...
     // Your deposit logic here
     // ...
-
-    // Redirect to the success page (adjust the route as needed)
-    res.redirect('/DepositSuccessPage');
+    res.redirect('/DepositSuccessPage'); // Redirect to the success page (adjust the route as needed)
   } else {
-    // Invalid card details, render the DepositPage with an error message
-    res.render('DepositPage', { message: 'Invalid card details' });
+    res.render('DepositPage', { message: 'Invalid card details' }); // Invalid card details, render the DepositPage with an error message
   }
 });
-
-
 
 // Handle withdrawPage. 
 //Only make it to check the wallet balance + add the IBAN for instance to withdraw
 app.post('/WithdrawPage', (req, res) => {
   const currentDate = new Date();
   const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
+  const [month, year] = expirationInput.split('/'); // Parse the month and year from the expiration input
+  const expirationDate = new Date(year, month, 0, 23, 59, 59, 999); // Adjust to create a Date object for the last moment of the expiration month
 
-  // Parse the month and year from the expiration input
-  const [month, year] = expirationInput.split('/');
-  // Adjust to create a Date object for the last moment of the expiration month
-  const expirationDate = new Date(year, month, 0, 23, 59, 59, 999);
-
-  // Compare current date to expiration date
-  if (currentDate > expirationDate) {
-    // If the card is expired, render the WithdrawPage with an error message
-    res.render('withdrawPage', { message: 'Card is expired' });
+  if (currentDate > expirationDate) { // Compare current date to expiration date
+    res.render('withdrawPage', { message: 'Card is expired' }); // If the card is expired, render the WithdrawPage with an error message
   } else {
-    // If the card is not expired, redirect to the HomePage
-    res.redirect('/HomePage');
+    res.redirect('/HomePage'); // If the card is not expired, redirect to the HomePage
   }
 });
-
-
-
 
 // Handle signup
 app.post('/SignupPage', (req, res) => {
@@ -164,11 +132,9 @@ app.post('/SignupPage', (req, res) => {
   const userExists = users.some(user => user.username === username || user.email === email);
 
   if (userExists) {
-    // Username or email already in use
-    res.render('SignupPage', { message: 'Username or Email is already in use.' });
+    res.render('SignupPage', { message: 'Username or Email is already in use.' }); // Username or email already in use
   } else {
-    // For demonstration, this will just redirect to the login page
-    res.redirect('/LoginPage');
+    res.redirect('/LoginPage'); // For demonstration, this will just redirect to the login page
   }
 });
 
@@ -181,3 +147,16 @@ app.use((req, res) => {
 app.listen(process.env.Port, () => {
   console.log(`Server is running on port ${process.env.Port}`);
 });
+
+//Dummy data
+// Dummy user data for testing
+const users = [
+  { username: 'user1', password: 'pass1', email: 'user1@hotmail.com' },
+  { username: 'user2', password: 'pass2', email: 'user2@hotmail.com' },
+];
+
+// Dummy card data for testing
+const cards = [
+  { cardNumber: '1234 5678 9012 3456', cardHolder: 'Mohammed M', expirationDate: '12/25', cvv: '123' },
+  { cardNumber: '9876 5432 1098 7654', cardHolder: 'Faleh F', expirationDate: '06/23', cvv: '456' },
+];

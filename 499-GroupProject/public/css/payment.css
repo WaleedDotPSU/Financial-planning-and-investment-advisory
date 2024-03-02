@@ -13,7 +13,6 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #0C4160;
-
     padding: 30px 10px;
 }
 
@@ -48,14 +47,11 @@ p {
 
 }
 
-
 .btn.btn.btn-primary:hover {
     background-position: right center;
     color: #fff;
     text-decoration: none;
 }
-
-
 
 .btn.btn-primary:hover .fas.fa-arrow-right {
     transform: translate(15px);

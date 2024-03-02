@@ -22,10 +22,6 @@ body {
     color: #007bff;
   }
 
-  .legend{
-    margin-bottom: 15px;
-  }
-  
   .payment-details button {
     color: white;
   }
@@ -50,15 +46,15 @@ body {
     margin-bottom: 10px;
   }
   
+  .pay-btn:hover {
+    background-color: #0056b3;
+  }
+
   .back-btn {
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
-  }
-  
-  .pay-btn:hover {
-    background-color: #0056b3;
   }
 
   .error-message{
@@ -108,7 +104,8 @@ body {
     padding: 20px 0;
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 90%;
+    margin-left: 1.6%;
   }
   
   .footer-content p {

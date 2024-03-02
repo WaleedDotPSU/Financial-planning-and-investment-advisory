@@ -11,20 +11,20 @@
   <!-- Style Sheets -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/signup.css">
-  <link rel="stylesheet" href="css/root.css">
 </head>
 <body>
   <header>
     <nav>
-      <!-- Navigation content goes here -->
+      <!-- Navigation content -->
     </nav>
   </header>
+  
   <main>
-    <section>
+    <section class="signup-section">
       <div class="banner" id="banner">
         <h1>Sign up using the form below:</h1>
       </div>
-      <form method="post" action="/SignupPage">
+      <form method="post" action="/SignupPage" class="signup-form">
         <div class="form-field">
           <label for="username-signup">Username:</label>
           <input id="username-signup" type="text" name="username" placeholder="Username" required>
@@ -50,10 +50,11 @@
         <% } %>
   
         <button type="submit" class="form-submit">Sign up</button>
-        <a class="link-to-login" href="/LoginPage">Back to Login</a>
+        <a href="/LoginPage" class="link-to-login">Back to Login</a>
       </form>
     </section>
   </main>
+  
   <script>
     function togglePassword() {
       var passwordInput = document.getElementById('password-signup');
@@ -64,6 +65,7 @@
       }
     }
   </script>
+  
   <%- include("./part/Footer.ejs") %>
 </body>
 </html>
