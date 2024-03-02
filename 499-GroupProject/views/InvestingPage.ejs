@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- General Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Specific Tags -->
+    <title>Investing Page</title>
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/home.css">
+  </head>
+
+  <body>
+
+    <header>
+      <!-- To be fetched dynamically from the user's-->
+      <div class="wallet-balance" id="wallet-balance">Wallet Balance: $1000</div>
+    </header>
+    
+      <main class="main-content">
+        <div class="payment-card mt-50 mb-50">
+     <!--change it to investing-form-->
+          <form method="post" class="payment-form">
+            <!-- Input for investing amount -->
+            <fieldset class="withdraw-details">
+              <div class="form-group">
+                <label for="amount">Amount</label>
+                <!-- step="0.01": To for Allow fractions (decimal numbers) & min="0" To repvent negative numbers-->
+                <input id="amount" type="number" step="0.01" min="0" placeholder="e.g: 1000.00 SAR" required title="Please enter amount to be invested">
+              </div>
+   
+              <button type="submit" class="btn withdraw-btn">Invest!</button>
+              <a href="/HomePage" class="btn back-btn">Back to Homepage</a>
+            </fieldset>
+    
+          </form>
+        </div>
+      </main>
+
+  
+  </body>
+</html>
+
+
