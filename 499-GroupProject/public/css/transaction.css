@@ -7,6 +7,17 @@ body {
     background-color: #f4f4f4;
   }
   
+  .wallet-balance {
+    position: absolute;
+    top: 20px;
+    right: 20px; 
+    background-color: #f8f9fa; 
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    color: #007bff;
+  }
+  
   .payment-card {
     width: 600px;
     margin: 20px auto 90px; 
