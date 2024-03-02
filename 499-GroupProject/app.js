@@ -52,6 +52,15 @@ app.get('/WithdrawPage', (req, res) => {
   res.render('withdrawPage', { message: '' });
 });
 
+// Render InvestingPage
+app.get('/InvestingPage', (req, res) => {
+  res.render('InvestingPage');
+});
+
+// Render InvestmentsPage
+app.get('/InvestmentsPage', (req, res) => {
+  res.render('InvestmentsPage');
+});
 
 // Handle login
 app.post('/login', (req, res) => {
