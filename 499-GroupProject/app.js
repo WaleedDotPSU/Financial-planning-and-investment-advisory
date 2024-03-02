@@ -13,7 +13,7 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
+// Routes:
 // Redirect to login page
 app.get('/', (req, res) => {
   res.redirect('/LoginPage');
@@ -25,6 +25,7 @@ app.get('/HomePage', (req, res) => {
 });
 
 // Render login page
+// DO WE NEED THIS PART OF THE CODE?? (, { message: '' })
 app.get('/LoginPage', (req, res) => {
   res.render('LoginPage', { message: '' });
 });
@@ -35,6 +36,7 @@ app.get('/SignupPage', (req, res) => {
 });
 
 // Render deposit page
+// DO WE NEED THIS PART OF THE CODE?? (, { message: '' })
 app.get('/DepositPage', (req, res) => {
   res.render('DepositPage', { message: '' });
 });
@@ -45,14 +47,11 @@ app.get('/RiskPage', (req, res) => {
 });
 
 // Render WithdrawPage
+// DO WE NEED THIS PART OF THE CODE?? (, { message: '' })
 app.get('/WithdrawPage', (req, res) => {
   res.render('withdrawPage', { message: '' });
 });
 
-// Test route
-app.get('/test', (req, res) => {
-  res.render('test');
-});
 
 // Handle login
 app.post('/login', (req, res) => {
@@ -157,6 +156,6 @@ const users = [
 
 // Dummy card data for testing
 const cards = [
-  { cardNumber: '1234 5678 9012 3456', cardHolder: 'Mohammed M', expirationDate: '12/25', cvv: '123' },
+  { cardNumber: '1234567890123456', cardHolder: 'Mohammed M', expirationDate: '12/24', cvv: '123' },
   { cardNumber: '9876 5432 1098 7654', cardHolder: 'Faleh F', expirationDate: '06/23', cvv: '456' },
 ];
