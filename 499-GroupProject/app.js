@@ -1,6 +1,8 @@
 // Import dependencies
 const express = require('express');
+const mongoose = require('mongoose');
 require('dotenv').config();
+const User = require('./models/User');
 
 // Initialize Express app
 const app = express();
