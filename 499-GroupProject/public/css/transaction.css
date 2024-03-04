@@ -26,6 +26,17 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+
+  .withdraw-label {
+    display: flex;
+    align-items: center; /* Aligns checkbox and text vertically */
+    margin-right: 5px; /* Adjust spacing as needed */
+  }
+  
+  .withdraw-checkbox {
+    margin-right: 5px; /* Adjust spacing as needed */
+  }
+  
   
   .card-logo-img,
   .payment-details label,
@@ -33,11 +44,13 @@ body {
     color: #007bff;
   }
 
+  .withdraw-details button,
   .payment-details button {
     color: white;
   }
-  
-  .payment-details input {
+   
+  .payment-details input,
+  .withdraw-details input {
     color: black;
     width: calc(100% - 20px);
     padding: 10px;
@@ -46,6 +59,7 @@ body {
     border-radius: 5px;
   }
   
+  .withdraw-btn,
   .pay-btn {
     width: 100%;
     padding: 10px;
@@ -57,6 +71,7 @@ body {
     margin-bottom: 10px;
   }
   
+  .withdraw-btn:hover,
   .pay-btn:hover {
     background-color: #0056b3;
   }

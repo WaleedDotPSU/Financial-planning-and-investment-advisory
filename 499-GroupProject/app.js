@@ -44,8 +44,8 @@ app.get('/DepositPage', (req, res) => {
 });
 
 // Render RiskPage
-app.get('/RiskPage', (req, res) => {
-  res.render('RiskPage');
+app.get('/InvestmentsManagementPage', (req, res) => {
+  res.render('InvestmentsManagementPage');
 });
 
 // Render WithdrawPage

@@ -9,7 +9,7 @@ body {
   background-color: #f0f0f2;
 }
 
-.risk-options {
+.investments-options {
   max-width: 800px;
   margin: 0 auto;
   margin-top: 100px;
@@ -23,7 +23,7 @@ section {
   margin-bottom: 20px;
 }
 
-.risk-option,
+.investments-option,
 .navigation-option {
   display: flex;
   justify-content: center;
@@ -37,6 +37,7 @@ a.signout-link,
 a.low-risk-link,
 a.medium-risk-link,
 a.high-risk-link,
+a.investments-link,
 a.back-home-link {
   text-decoration: none;
   color: #007bff;
@@ -57,6 +58,7 @@ a.signout-link:hover,
 a.low-risk-link:hover,
 a.medium-risk-link:hover,
 a.high-risk-link:hover,
+a.investments-link:hover,
 a.back-home-link:hover {
   background-color: #e2e6ea;
   border-color: #dae0e5;
