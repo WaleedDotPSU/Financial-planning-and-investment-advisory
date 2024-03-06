@@ -12,19 +12,15 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/home.css">
   </head>
-
   <body>
-
     <header>
-      
       <div class="wallet-balance" id="wallet-balance">Wallet Balance: $1000</div>
-
       <a href="/LoginPage" class="signout-link">Sign Out</a>
     </header>
     
     <main class="home-options">
       <section class="home-option">
-          <a href="/DepositPage" class="deposit-link">Add money to account</a>
+          <a href="/DepositPage" class="deposit-link">Deposit money to account</a>
       </section>
       <section class="home-option">
           <a href="/WithdrawPage" class="withdraw-link">Withdraw money from account</a>
@@ -33,22 +29,20 @@
           <a href="/InvestmentsManagementPage" class="risk-link">Investment options</a>
       </section>
     </main>
+
+    <script>
+      // Assuming we have a function to fetch the actual wallet balance
+      // For demonstration purposes, let's set a sample balance
+      const newBalance = 1200;
+  
+      // Update the wallet balance dynamically
+      const walletBalanceElement = document.getElementById('wallet-balance');
+      walletBalanceElement.innerHTML = `Wallet Balance: $${newBalance}`;
+  
+      // Store the updated balance globally (accessible by other parts of your code)
+      window.walletBalance = newBalance;
+    </script>
     
   <%- include("./part/Footer.ejs") %>
-  <script>
-    // Assuming we have a function to fetch the actual wallet balance
-    // For demonstration purposes, let's set a sample balance
-    const newBalance = 1200;
-
-    // Update the wallet balance dynamically
-    const walletBalanceElement = document.getElementById('wallet-balance');
-    walletBalanceElement.innerHTML = `Wallet Balance: $${newBalance}`;
-
-    // Store the updated balance globally (accessible by other parts of your code)
-    window.walletBalance = newBalance;
-  </script>
-
-  </body>
-</html>
 
 

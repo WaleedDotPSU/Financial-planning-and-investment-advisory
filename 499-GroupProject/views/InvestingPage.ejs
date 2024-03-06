@@ -1,19 +1,26 @@
 <%- include("./part/TransactionHeader.ejs") %>
-      <main class="main-content">
-        <div class="payment-card mt-50 mb-50">
-          <form method="post" class="investing-form">
-            <fieldset class="investing-details">
-              <div class="form-group">
-                <label for="amount">Amount</label>
-                <input id="amount" type="number" step="0.01" min="0" placeholder="e.g: 1000.00 SAR" required title="Please enter amount to be invested">
-              </div>
-              <button type="submit" class="btn withdraw-btn">Invest!</button>
-              <a href="/InvestmentsManagementPage" class="btn back-btn">Back to Investments Management Page</a>
-            </fieldset>
-    
-          </form>
+<main class="main-content">
+  <div class="payment-card mt-50 mb-50">
+    <form method="post" class="investing-form">
+      <fieldset class="investing-details">
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input 
+            type="number"
+            id="amount"
+            step="0.01"
+            min="0"
+            placeholder="e.g: 1000.00 SAR"
+            required
+            title="Please enter amount to be invested">
         </div>
-      </main>
+        <button type="submit" class="btn withdraw-btn">Invest</button>
+        <a href="/InvestmentsManagementPage" class="btn back-btn">Back to Investments Page</a>
+      </fieldset>
+    </form>
+  </div>
+</main>
+
 <%- include("./part/Footer.ejs") %>
 
 

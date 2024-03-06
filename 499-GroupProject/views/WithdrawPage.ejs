@@ -15,9 +15,10 @@
             <input id="card-number" type="text" placeholder="e.g: SA1234567890123456789012" required pattern="[A-Za-z0-9]{20,34}" title="Please enter a valid IBAN.">
           </div>
           <!-- Checkbox for confirmation -->
-          <label for="confirmation-checkbox" class="withdraw-label">I confirm this withdrawal.
+          <div class="withdraw-container">
+          <label for="confirmation-checkbox" class="withdraw-label">I confirm this withdrawal</label>
           <input id="confirmation-checkbox" type="checkbox" required name="confirmation" class="withdraw-checkbox">
-          </label>
+          </div>
           <button type="submit" class="btn withdraw-btn">Withdraw</button>
           <a href="/HomePage" class="btn back-btn">Back to Homepage</a>
         </fieldset>

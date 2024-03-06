@@ -29,26 +29,21 @@
           <label for="username-signup">Username:</label>
           <input id="username-signup" type="text" name="username" placeholder="Username" required>
         </div>
-
         <div class="form-field">
           <label for="email-signup">Email:</label>
           <input id="email-signup" type="email" name="email" placeholder="Email" required>
         </div>
-  
         <div class="form-field">
           <label for="password-signup">Password:</label>
           <input id="password-signup" type="password" name="password" placeholder="Password" required>
         </div>
-  
         <div class="form-field">
-          <label for="show-password-signup">Show Password</label>
+          <label for="show-password-signup" id="show-password-signup">Show Password</label>
           <input id="show-password-signup" type="checkbox" onclick="togglePassword()">
         </div>
-
         <% if (typeof message !== 'undefined' && message) { %>
           <p class="error-message"><%= message %></p>
         <% } %>
-  
         <button type="submit" class="form-submit">Sign up</button>
         <a href="/LoginPage" class="link-to-login">Back to Login</a>
       </form>
