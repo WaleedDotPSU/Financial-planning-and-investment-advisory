@@ -21,6 +21,13 @@
   </div>
 </main>
 
+<script>
+  var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>')+' ريال';
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelector('span').textContent = g_walletBalance;
+  });
+</script>
 <%- include("./part/Footer.ejs") %>
 
 

@@ -7,6 +7,9 @@ const User = require('./models/User');
 // Initialize Express app
 const app = express();
 
+// Initialize Global variable
+const g_walletBalance = 1000;
+
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
 
@@ -22,8 +25,8 @@ app.get('/', (req, res) => {
 });
 
 // Render home page
-app.get('/HomePage', (req, res) => {
-  res.render('HomePage');
+app.get('/HomePage', (req, res) => { 
+  res.render('HomePage',{g_walletBalance});
 });
 
 // Render login page
@@ -40,28 +43,28 @@ app.get('/SignupPage', (req, res) => {
 // Render deposit page
 // DO WE NEED THIS PART OF THE CODE?? (, { message: '' })
 app.get('/DepositPage', (req, res) => {
-  res.render('DepositPage', { message: '' });
+  res.render('DepositPage', { message: '', g_walletBalance});
 });
 
 // Render RiskPage
 app.get('/InvestmentsManagementPage', (req, res) => {
-  res.render('InvestmentsManagementPage');
+  res.render('InvestmentsManagementPage',{g_walletBalance});
 });
 
 // Render WithdrawPage
 // DO WE NEED THIS PART OF THE CODE?? (, { message: '' })
 app.get('/WithdrawPage', (req, res) => {
-  res.render('withdrawPage', { message: '' });
+  res.render('withdrawPage', { message: '', g_walletBalance });
 });
 
 // Render InvestingPage
 app.get('/InvestingPage', (req, res) => {
-  res.render('InvestingPage');
+  res.render('InvestingPage',{g_walletBalance});
 });
 
 // Render InvestmentsPage
 app.get('/InvestmentsPage', (req, res) => {
-  res.render('InvestmentsPage');
+  res.render('InvestmentsPage', {g_walletBalance});
 });
 
 // Handle login

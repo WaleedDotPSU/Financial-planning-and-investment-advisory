@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- General Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Site Specific Tags -->
-    <title>Investements</title>
-
+    <title>Investments</title>
     <!-- Style Sheets -->
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/home.css">
-  </head>
-  <body>
-    <header>
-      <!-- To be fetched dynamically from the user's-->
-      <div>Initial value: $1000</div>
-      <div>Current value: $1000</div>
-      <div>Percentage of Profit/Loss: +10.6%</div>
-      <div>View Anallysis: </div>
-    </header>
-    <a href="/HomePage" class="btn back-btn">Back to Homepage</a>
-    <a href="/HomePage" class="btn back-btn">Stop Investment!</a>
+    <link rel="stylesheet" href="css/investmentsPage.css">
+</head>
+<body>
+    <div class="main-content"> <!-- Central container for content -->
+        <header>
+            <div class="wallet-balance" id="wallet-balance"><p>Wallet Balance: <span><%= g_walletBalance %></p></span></div>
+            <a href="/LoginPage" class="signout-link">Sign Out</a>
+            <div>Initial value: $1000</div>
+            <div>Current value: $1000</div>
+            <div>Percentage of Profit/Loss: +10.6%</div>
+            <div>View Analysis: </div>
+        </header>
+        <a href="/HomePage" class="btn back-btn">Back to Homepage</a>
+        <a href="/InvestmentsManagementPage" class="btn back-btn">Stop Investment!</a>
+    </div>
 
-  </body>
-</html>
+    <script>
+      var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>')+' ريال';
 
-
+      document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelector('span').textContent = g_walletBalance;
+      });
+    </script>
+<%- include("./part/Footer.ejs") %>

@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <div class="wallet-balance">Wallet Balance: $1000</div>
+        <div class="wallet-balance"><p>Wallet Balance: <span><%= g_walletBalance %></p></span></div>
         <a href="/LoginPage" class="signout-link">Sign Out</a>
       </header>
 
@@ -41,6 +41,11 @@
         </section>
     </main>
 
+    <script>
+        var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>')+' ريال';
+  
+        document.addEventListener('DOMContentLoaded', (event) => {
+          document.querySelector('span').textContent = g_walletBalance;
+        });
+      </script>
     <%- include("./part/Footer.ejs") %>
-</body>
-</html>
