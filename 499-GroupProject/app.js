@@ -24,15 +24,15 @@ app.get('/', (req, res) => {
   res.redirect('/LoginPage');
 });
 
+// Render login page
+// We do need "message"
+app.get('/LoginPage', (req, res) => {
+  res.render('LoginPage', { message: '' });
+});
+
 // Render home page
 app.get('/HomePage', (req, res) => { 
   res.render('HomePage',{g_walletBalance});
-});
-
-// Render login page
-// DO WE NEED THIS PART OF THE CODE?? (, { message: '' })
-app.get('/LoginPage', (req, res) => {
-  res.render('LoginPage', { message: '' });
 });
 
 // Render signup page
@@ -41,61 +41,55 @@ app.get('/SignupPage', (req, res) => {
 });
 
 // Render deposit page
-// DO WE NEED THIS PART OF THE CODE?? (, { message: '' })
+// We do need "message"
 app.get('/DepositPage', (req, res) => {
   res.render('DepositPage', { message: '', g_walletBalance});
 });
 
-// Render RiskPage
+// Render Withdraw page
+app.get('/WithdrawPage', (req, res) => {
+  res.render('withdrawPage', { g_walletBalance });
+});
+
+// Render Investments management page
 app.get('/InvestmentsManagementPage', (req, res) => {
   res.render('InvestmentsManagementPage',{g_walletBalance});
 });
 
-// Render WithdrawPage
-// DO WE NEED THIS PART OF THE CODE?? (, { message: '' })
-app.get('/WithdrawPage', (req, res) => {
-  res.render('withdrawPage', { message: '', g_walletBalance });
-});
-
-// Render InvestingPage
+// Render Investing page
 app.get('/InvestingPage', (req, res) => {
   res.render('InvestingPage',{g_walletBalance});
 });
 
-// Render InvestmentsPage
+// Render Investments page
 app.get('/InvestmentsPage', (req, res) => {
   res.render('InvestmentsPage', {g_walletBalance});
 });
 
+// Validation:
 // Handle login
 app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  const user = users.find(u => u.username === username && u.password === password);
+    const { username, password } = req.body;
+    const user = users.find(u => u.username === username && u.password === password);
+  
+    if (user) {
+      res.redirect('/HomePage');
+    } else {
+      res.render('LoginPage', { message: 'Wrong Username or Password' });
+    }
+  });
 
-  if (user) {
-    res.redirect('/HomePage');
+// Handle signup
+app.post('/SignupPage', (req, res) => {
+  const { username, email } = req.body;
+  const userExists = users.some(user => user.username === username || user.email === email);
+
+  if (userExists) {
+    res.render('SignupPage', { message: 'Username or Email is already in use.' });
   } else {
-    res.render('LoginPage', { message: 'Wrong Username or Password' });
+    res.redirect('/LoginPage');
   }
 });
-
-// Handle deposit "NEEDS FIXING", [Check for the amount not to be negative]
-// The date cheking is NOT working and have been doing run-time errors so I decided to comment it
-/*app.post('/DepositPage', (req, res) => {
-   const currentDate = new Date();
-   const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
-   const [month, year] = expirationInput.split('/'); // Parse the month and year from the expiration input
-   const expirationDate = new Date(year, month, 0, 23, 59, 59, 999); // Adjust to create a Date object for the last moment of the expiration month
-
-   // Compare current date to expiration date
-   if (currentDate > expirationDate) {
-     // If the card is expired, render the DepositPage with an error message
-     res.render('DepositPage', { message: 'Card is expired' });
-   } else {
-     // If the card is not expired, redirect to the HomePage
-     res.redirect('/HomePage');
-   }
-});*/
 
 // Card validation  (It's working), [NEEDS WORK STILL]
 // [MAKE NAMINGS CONSISTENT, for app.js and Deposit.ejs]
@@ -124,6 +118,19 @@ app.post('/DepositPage', (req, res) => {
   }
 });
 
+// Dummy data
+// Dummy user data for testing
+const users = [
+  { username: 'user1', password: 'pass1', email: 'user1@hotmail.com' },
+  { username: 'user2', password: 'pass2', email: 'user2@hotmail.com' },
+];
+
+// Dummy card data for testing
+const cards = [
+  { cardNumber: '1234567890123456', cardHolder: 'Mohammed M', expirationDate: '12/24', cvv: '123' },
+  { cardNumber: '9876 5432 1098 7654', cardHolder: 'Faleh F', expirationDate: '06/23', cvv: '456' },
+];
+
 // Handle withdrawPage. 
 //Only make it to check the wallet balance + add the IBAN for instance to withdraw
 app.post('/WithdrawPage', (req, res) => {
@@ -139,18 +146,6 @@ app.post('/WithdrawPage', (req, res) => {
   }
 });
 
-// Handle signup
-app.post('/SignupPage', (req, res) => {
-  const { username, email } = req.body;
-  const userExists = users.some(user => user.username === username || user.email === email);
-
-  if (userExists) {
-    res.render('SignupPage', { message: 'Username or Email is already in use.' }); // Username or email already in use
-  } else {
-    res.redirect('/LoginPage'); // For demonstration, this will just redirect to the login page
-  }
-});
-
 // Handle 404 errors
 app.use((req, res) => {
   res.status(404).render('ErrorPage');
@@ -160,16 +155,3 @@ app.use((req, res) => {
 app.listen(process.env.Port, () => {
   console.log(`Server is running on port ${process.env.Port}`);
 });
-
-//Dummy data
-// Dummy user data for testing
-const users = [
-  { username: 'user1', password: 'pass1', email: 'user1@hotmail.com' },
-  { username: 'user2', password: 'pass2', email: 'user2@hotmail.com' },
-];
-
-// Dummy card data for testing
-const cards = [
-  { cardNumber: '1234567890123456', cardHolder: 'Mohammed M', expirationDate: '12/24', cvv: '123' },
-  { cardNumber: '9876 5432 1098 7654', cardHolder: 'Faleh F', expirationDate: '06/23', cvv: '456' },
-];

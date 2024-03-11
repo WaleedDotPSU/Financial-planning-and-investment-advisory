@@ -50,17 +50,7 @@
     </section>
   </main>
   
-  <script>
-    function togglePassword() {
-      let passwordInput = document.getElementById('password-signup');
-      if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-      } else {
-        passwordInput.type = "password";
-      }
-    }
-  </script>
-  
+  <!-- Include the JavaScript file -->
+  <script src="/js/signupValidation.js"></script>
+  <script src="/js/togglePassword.js"></script>
   <%- include("./part/Footer.ejs") %>
-</body>
-</html>
