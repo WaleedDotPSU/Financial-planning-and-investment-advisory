@@ -30,14 +30,19 @@ app.get('/LoginPage', (req, res) => {
   res.render('LoginPage', { message: '' });
 });
 
-// Render home page
-app.get('/HomePage', (req, res) => { 
-  res.render('HomePage',{g_walletBalance});
-});
-
 // Render signup page
 app.get('/SignupPage', (req, res) => {
   res.render('SignupPage');
+});
+
+// Render forget password page
+app.get('/ForgetPassPage', (req, res) => {
+  res.render('ForgetPassPage');
+});
+
+// Render home page
+app.get('/HomePage', (req, res) => { 
+  res.render('HomePage',{g_walletBalance});
 });
 
 // Render deposit page
@@ -46,22 +51,22 @@ app.get('/DepositPage', (req, res) => {
   res.render('DepositPage', { message: '', g_walletBalance});
 });
 
-// Render Withdraw page
+// Render withdraw page
 app.get('/WithdrawPage', (req, res) => {
   res.render('withdrawPage', { g_walletBalance });
 });
 
-// Render Investments management page
+// Render investments management page
 app.get('/InvestmentsManagementPage', (req, res) => {
   res.render('InvestmentsManagementPage',{g_walletBalance});
 });
 
-// Render Investing page
+// Render investing page
 app.get('/InvestingPage', (req, res) => {
   res.render('InvestingPage',{g_walletBalance});
 });
 
-// Render Investments page
+// Render investments page
 app.get('/InvestmentsPage', (req, res) => {
   res.render('InvestmentsPage', {g_walletBalance});
 });

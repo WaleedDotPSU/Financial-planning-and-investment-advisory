@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- General Meta Tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <!-- General Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- Site Specific Tags -->
-  <title>Page Title</title>
-  
-  <!-- Style Sheets -->
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/err.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <!-- Navigation content goes here -->
-    </nav>
-  </header>
+    <!-- Site Specific Tags -->  
+    <title>Forget Password</title>
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/err.css">
+    <link rel="stylesheet" href="css/forget-pass.css">
+  </head>
+  <body>
+    <div class="login-container">
+        <form class="login-form" action="/send-password-reset-email" method="post">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Send Password Reset Link</button>
+        </form>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+    </div>
+  </body>
+</html>
+
