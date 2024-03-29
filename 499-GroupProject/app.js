@@ -1,6 +1,7 @@
 // Import dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 require('dotenv').config();
 const User = require('./models/User');
 
@@ -17,6 +18,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes:
 // Redirect to login page
@@ -32,7 +34,7 @@ app.get('/LoginPage', (req, res) => {
 
 // Render signup page
 app.get('/SignupPage', (req, res) => {
-  res.render('SignupPage');
+  res.render('SignupPage',{message:'', error:''});
 });
 
 // Render forget password page
@@ -85,20 +87,30 @@ app.post('/login', (req, res) => {
   });
 
 // Handle signup
-app.post('/SignupPage', (req, res) => {
-  const { username, email } = req.body;
-  const userExists = users.some(user => user.username === username || user.email === email);
-
-  if (userExists) {
-    res.render('SignupPage', { message: 'Username or Email is already in use.' });
-  } else {
-    res.redirect('/LoginPage');
-  }
+app.post('/signup/v1/', (req, res) => {
+  const { username, email, password } = req.body;
+  const newUser = new User({username: username, email: email, password:password});
+  
+  newUser.save()
+    .then(result => {
+      res.render('SignupPage',{message:'User added successfully', error:''});
+    })
+    .catch(error => {
+      console.log(`Could not add user: ${error}`);
+      res.render('SignupPage',{message:'', error:'Could not add user, please try again later'});
+    });
 });
 
 // Card validation  (It's working), [NEEDS WORK STILL]
 // [MAKE NAMINGS CONSISTENT, for app.js and Deposit.ejs]
 // the expDate):
+/*const userExists = users.some(user => user.username === username || user.email === email);
+
+  if (userExists) {
+    res.render('SignupPage', { message: 'Username or Email is already in use.' });
+  } else {
+    res.redirect('/LoginPage');
+  }*/ 
 app.post('/DepositPage', (req, res) => {
   const { cardNumber, cardHolder, expDate, cvv } = req.body; // Extract card details from the request body
 
