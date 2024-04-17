@@ -73,6 +73,11 @@ app.get('/InvestmentsPage', (req, res) => {
   res.render('InvestmentsPage', {g_walletBalance});
 });
 
+//Render Option page
+app.get('/Options', (req, res) => {
+  res.render('OptionsPage');
+});
+
 // Validation:
 // Handle login
 app.post('/login', (req, res) => {
