@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Bank Information (Saudi Banks)</title>
+</head>
+<body>
+    <header>
+        <h1>Add Bank Information (Saudi Banks)</h1>
+    </header>
+
+    <main>
+        <form action="/submit-bank-info" method="post">
+            <label for="account-holder-name">Account Holder Name (as per ID):</label><br>
+            <input type="text" id="account-holder-name" name="account-holder-name" required><br><br>
+
+            <label for="account-number">Account Number:</label><br>
+            <input type="text" id="account-number" name="account-number" required><br><br>
+
+            <label for="iban">IBAN (International Bank Account Number):</label><br>
+            <input type="text" id="iban" name="iban"><br><br>
+
+            <label for="bank-name">Bank Name:</label><br>
+            <select id="bank-name" name="bank-name" required>
+                <option value="">Select Bank</option>
+                <option value="Al Rajhi Bank">Al Rajhi Bank</option>
+                <option value="Saudi British Bank (SABB)">Saudi British Bank (SABB)</option>
+                <option value="National Commercial Bank (NCB)">National Commercial Bank (NCB)</option>
+                <!-- Add more Saudi banks here -->
+            </select><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>

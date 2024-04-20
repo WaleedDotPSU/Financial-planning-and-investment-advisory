@@ -67,6 +67,10 @@ app.get('/InvestmentsManagementPage', (req, res) => {
 app.get('/InvestingPage', (req, res) => {
   res.render('InvestingPage',{g_walletBalance});
 });
+//Render BankLinkPage
+app.get('/LinkBankAcc', (req, res) => {
+  res.render('LinkBank');
+});
 
 // Render investments page
 app.get('/InvestmentsPage', (req, res) => {
