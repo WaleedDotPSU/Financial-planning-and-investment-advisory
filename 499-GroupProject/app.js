@@ -104,8 +104,30 @@ function generateAccountInfo() {
 
 app.get('/BanksPage', (req, res) => {
   const transactions = generateTransactions(10);
-  res.render('BanksPage', { transactions: transactions });
+  const totalBalance = calculateTotalBalance(transactions); // Function to calculate total balance
+  const numAccounts = calculateNumAccounts(); // Function to calculate number of accounts
+
+  res.render('BanksPage', { transactions: transactions, totalBalance: totalBalance, numAccounts: numAccounts });
 });
+// Calculate total balance from transactions
+function calculateTotalBalance(transactions) {
+  let total = 0;
+  transactions.forEach(transaction => {
+      total += parseFloat(transaction.amount);
+  });
+  return total.toFixed(2); // Return total balance rounded to 2 decimal places
+}
+
+// Calculate number of accounts
+function calculateNumAccounts() {
+  // In this example, let's say we have 5 accounts
+  return 5;
+}
+
+// app.get('/BanksPage', (req, res) => {
+//   const transactions = generateTransactions(10);
+//   res.render('BanksPage', { transactions: transactions });
+// });
 
 // app.get('/account', (req, res) => {
 //     const accountInfo = generateAccountInfo();
