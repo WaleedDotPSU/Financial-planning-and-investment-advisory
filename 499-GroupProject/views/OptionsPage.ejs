@@ -22,7 +22,7 @@
       var buttons = document.querySelectorAll('.random-percent-button');
       buttons.forEach(button => {
         var randomPercent = generateRandomPercent();
-        button.textContent = button.textContent.replace(/\d+%/g, randomPercent + "%");
+        button.textContent += " " + randomPercent + "%";
       });
     });
   </script>
@@ -35,9 +35,9 @@
   <main>
 
     <div class="contain">
-        <a href="/InvestingPage"><button class="random-percent-button"> Stocks 30%</button></a>
-        <a href="/InvestingPage"><button class="random-percent-button">Real Estate 10%</button></a>
-        <a href="/InvestingPage"><button class="random-percent-button">Other Assets 60%</button></a>
+        <a href="/InvestingPage"><button class="random-percent-button"> Stocks PayBack</button></a>
+        <a href="/InvestingPage"><button class="random-percent-button">Real Estate PayBack</button></a>
+        <a href="/InvestingPage"><button class="random-percent-button">Other Assets PayBack</button></a>
         <a href="/InvestmentsManagementPage"><button>Back</button></a>
     </div>
     
