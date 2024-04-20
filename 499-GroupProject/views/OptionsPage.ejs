@@ -11,6 +11,21 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/Options.css">
   
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      // Function to generate random percentages
+      function generateRandomPercent() {
+        return Math.floor(Math.random() * 100); // Generates a random integer between 0 and 99
+      }
+      
+      // Update button texts with random percentages
+      var buttons = document.querySelectorAll('.random-percent-button');
+      buttons.forEach(button => {
+        var randomPercent = generateRandomPercent();
+        button.textContent = button.textContent.replace(/\d+%/g, randomPercent + "%");
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -20,15 +35,16 @@
   <main>
 
     <div class="contain">
-        <a href="/InvestingPage"><button> Stocks 30%</button></a>
-         <a href="/InvestingPage"><button>RealStates 10%</button></a>
-         <a href="/InvestingPage"><button>Other Assets 60%</button></a>
-    <a href="/InvestmentsManagementPage"><button>Back</button></a>
+        <a href="/InvestingPage"><button class="random-percent-button"> Stocks 30%</button></a>
+        <a href="/InvestingPage"><button class="random-percent-button">Real Estate 10%</button></a>
+        <a href="/InvestingPage"><button class="random-percent-button">Other Assets 60%</button></a>
+        <a href="/InvestmentsManagementPage"><button>Back</button></a>
     </div>
     
 
   </main>
 
+  <%- include("./part/Footer.ejs") %>
   
-    <%- include("./part/Footer.ejs") %>
-  
+</body>
+</html>
