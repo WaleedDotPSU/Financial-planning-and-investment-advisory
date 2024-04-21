@@ -77,6 +77,64 @@ app.get('/InvestmentsPage', (req, res) => {
   res.render('InvestmentsPage', {g_walletBalance});
 });
 
+// Test the open banking functionality
+
+// Generate mock transaction data
+function generateTransactions(numTransactions) {
+    const transactions = [];
+    for (let i = 0; i < numTransactions; i++) {
+        const transaction = {
+            date: new Date(new Date() - Math.floor(Math.random() * 365) * 24 * 60 * 60 * 1000),
+            description: `Transaction ${i}`,
+            amount: (Math.random() * 2000 - 1000).toFixed(2)
+        };
+        transactions.push(transaction);
+    }
+    return transactions;
+}
+
+// Generate mock account information
+function generateAccountInfo() {
+    return {
+        account_number: '123456789',
+        iban: 'GB29 NWBK 6016 1331 9268 19',
+        balance: (Math.random() * 9000 + 1000).toFixed(2)
+    };
+}
+
+app.get('/BanksPage', (req, res) => {
+  const transactions = generateTransactions(10);
+  const totalBalance = calculateTotalBalance(transactions); // Function to calculate total balance
+  const numAccounts = calculateNumAccounts(); // Function to calculate number of accounts
+
+  res.render('BanksPage', { transactions: transactions, totalBalance: totalBalance, numAccounts: numAccounts });
+});
+// Calculate total balance from transactions
+function calculateTotalBalance(transactions) {
+  let total = 0;
+  transactions.forEach(transaction => {
+      total += parseFloat(transaction.amount);
+  });
+  return total.toFixed(2); // Return total balance rounded to 2 decimal places
+}
+
+// Calculate number of accounts
+function calculateNumAccounts() {
+  // In this example, let's say we have 5 accounts
+  return 5;
+}
+
+// app.get('/BanksPage', (req, res) => {
+//   const transactions = generateTransactions(10);
+//   res.render('BanksPage', { transactions: transactions });
+// });
+
+// app.get('/account', (req, res) => {
+//     const accountInfo = generateAccountInfo();
+//     res.json(accountInfo);
+// });
+// >>>>>>>> Here ends the test <<<<<<<<
+
 //Render Option page
 app.get('/Options', (req, res) => {
   res.render('OptionsPage');

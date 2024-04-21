@@ -44,7 +44,8 @@ section {
 a.signout-link,
 a.deposit-link,
 a.withdraw-link,
-a.risk-link {
+a.risk-link,
+a.banks-link {
   text-decoration: none;
   color: #007bff;
   background-color: #f8f9fa;
@@ -63,7 +64,8 @@ a.signout-link{
 a.signout-link:hover,
 a.deposit-link:hover,
 a.withdraw-link:hover,
-a.risk-link:hover {
+a.risk-link:hover,
+a.banks-link:hover {
   background-color: #e2e6ea;
   border-color: #dae0e5;
 }
