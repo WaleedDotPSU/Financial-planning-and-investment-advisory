@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Bank Acc</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/BankLinkPage.css">
+    <link rel="stylesheet" href="css/bank-link-page.css">
 </head>
 <body>
     <header>
-        <h1>Add Bank Information (Saudi Banks Only!)</h1>
+        <h1>Add bank information: (Local Banks)</h1>
     </header>
 
     <main>
         <form action="/submit-bank-info" method="post">
             <label for="account-holder-name">Account Holder Name (as per ID):</label><br>
-            <input type="text" id="account-holder-name" name="account-holder-name" required><br><br>
+            <input type="text" id="account-holder-name" name="account-holder-name" placeholder="e.g: Abdullah Ahmad" required><br><br>
 
             <label for="account-number">Account Number:</label><br>
-            <input type="text" id="account-number" name="account-number" required><br><br>
+            <input type="text" id="account-number" name="account-number" placeholder="e.g: 1234 5678 9012 3456" required><br><br>
 
             <label for="iban">IBAN (International Bank Account Number):</label><br>
-            <input type="text" id="iban" name="iban"><br><br>
+            <input type="text" id="iban" name="iban" placeholder="e.g: SA1234567890123456789012" ><br><br>
 
             <label for="bank-name">Bank Name:</label><br>
             <select id="bank-name" name="bank-name" required>
@@ -29,7 +29,6 @@
                 <option value="Al Rajhi Bank">Al Rajhi Bank</option>
                 <option value="Saudi British Bank (SABB)">Saudi British Bank (SABB)</option>
                 <option value="National Commercial Bank (NCB)">National Commercial Bank (NCB)</option>
-                <!-- Add more Saudi banks here -->
             </select><br><br>
 
             <input type="submit" value="Submit">
@@ -38,8 +37,5 @@
         </form>
     </main>
 
-    <footer>
-        <%- include("./part/Footer.ejs") %>
-    </footer>
-</body>
-</html>
+<%- include("./part/Footer.ejs") %>
+ 
