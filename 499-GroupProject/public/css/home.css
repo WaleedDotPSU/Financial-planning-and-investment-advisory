@@ -45,7 +45,8 @@ a.signout-link,
 a.deposit-link,
 a.withdraw-link,
 a.risk-link,
-a.banks-link {
+a.banks-link,
+a.FinancialPlanningPage-link {
   text-decoration: none;
   color: #007bff;
   background-color: #f8f9fa;
@@ -65,7 +66,8 @@ a.signout-link:hover,
 a.deposit-link:hover,
 a.withdraw-link:hover,
 a.risk-link:hover,
-a.banks-link:hover {
+a.banks-link:hover,
+a.FinancialPlanningPage-link {
   background-color: #e2e6ea;
   border-color: #dae0e5;
 }

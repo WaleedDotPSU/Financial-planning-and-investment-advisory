@@ -72,6 +72,11 @@ app.get('/LinkBankAcc', (req, res) => {
   res.render('LinkBank');
 });
 
+// Render Financial Planning Page
+app.get('/FinancialPlanningPage', (req, res) => { 
+  res.render('FinancialPlanningPage',{g_walletBalance});
+});
+
 // Render investments page
 app.get('/InvestmentsPage', (req, res) => {
   res.render('InvestmentsPage', {g_walletBalance});
