@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- General Meta Tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Site Specific Tags -->
-    <title>Page Title</title>
+<head>
+  <!-- General Meta Tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Style Sheets -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/home.css">
-  </head>
-  <body>
-    <header>
-      <div class="wallet-balance" id="wallet-balance"><p>Wallet Balance: <span><%= g_walletBalance %></p></span></div>
-      <a href="/LoginPage" class="signout-link">Sign Out</a>
-    </header>
-    
-    <main class="home-options">
-      <section class="home-option">
-          <a href="/DepositPage" class="deposit-link">Deposit money to account</a>
-      </section>
-      <section class="home-option">
-          <a href="/WithdrawPage" class="withdraw-link">Withdraw money from account</a>
-      </section>
-      <section class="home-option">
-          <a href="/InvestmentsManagementPage" class="risk-link">Investment options</a>
-      </section>
-      <section class="home-option">
-<<<<<<< Updated upstream
-        <a href="/LinkBankAcc" class="risk-link">Link Bank Acc</a>
-=======
-        <a href="/BanksPage" class="banks-link">Your Banking Analytics</a>
->>>>>>> Stashed changes
+  <!-- Site Specific Tags -->
+  <title>Page Title</title>
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+  <header>
+    <div class="wallet-balance" id="wallet-balance">
+      <p>Wallet Balance: <span>
+          <%= g_walletBalance %>
+      </p></span>
+    </div>
+    <a href="/LoginPage" class="signout-link">Sign Out</a>
+  </header>
+
+  <main class="home-options">
+    <section class="home-option">
+      <a href="/DepositPage" class="deposit-link">Deposit money to account</a>
     </section>
-    </main>
+    <section class="home-option">
+      <a href="/WithdrawPage" class="withdraw-link">Withdraw money from account</a>
+    </section>
+    <section class="home-option">
+      <a href="/InvestmentsManagementPage" class="risk-link">Investment options</a>
+    </section>
+    <section class="home-option">
+      <a href="/LinkBankAcc" class="risk-link">Link Bank Acc</a>
+    </section>
+    <section class="home-option">
 
-    <script>
-      var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>')+' ريال';
-    </script>
-    <script src="/js/walletScript.js"></script>
+      <a href="/BanksPage" class="banks-link">Your Banking Analytics</a>
+    </section>
+
+  </main>
+
+  <script>
+    var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>') + ' ريال';
+  </script>
+  <script src="/js/walletScript.js"></script>
   <%- include("./part/Footer.ejs") %>
-
-
