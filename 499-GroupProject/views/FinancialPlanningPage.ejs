@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Planning</title>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Financial Planning</h1>
+        <div id="suggestions">
+            <!-- Suggestions will be displayed here -->
+        </div>
+        <div id="customization">
+            <h2>Customize Your Plan</h2>
+            <form id="customization-form">
+                <label for="food">Food:</label>
+                <input type="number" id="food" name="food" min="0"><br><br>
+                <label for="transportation">Transportation:</label>
+                <input type="number" id="transportation" name="transportation" min="0"><br><br>
+                <!-- Add more categories as needed -->
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Dummy transaction data
+        const transactions = [
+            { category: 'Food', amount: 50 },
+            { category: 'Transportation', amount: 30 },
+            { category: 'Entertainment', amount: 20 },
+            // Add more transactions as needed
+        ];
+
+        // Function to categorize spending
+        function categorizeSpending(transactions) {
+            const categories = {};
+            transactions.forEach(transaction => {
+                if (categories[transaction.category]) {
+                    categories[transaction.category] += transaction.amount;
+                } else {
+                    categories[transaction.category] = transaction.amount;
+                }
+            });
+            return categories;
+        }
+
+        // Function to suggest changes in spending styles and set spending limits
+        function suggestFinancialPlanning(categories) {
+            // Implement your logic for suggestions here
+            // For example, suggest reducing spending in high-spending categories
+            // and setting spending limits based on historical data
+            const suggestions = [];
+            for (const category in categories) {
+                if (categories.hasOwnProperty(category)) {
+                    const suggestion = `Spend less on ${category} (${categories[category]}), limit spending to ${categories[category] * 0.8} for better savings.`;
+                    suggestions.push(suggestion);
+                }
+            }
+            return suggestions;
+        }
+
+        // Function to display suggestions on the page
+        function displaySuggestions(suggestions) {
+            const suggestionsElement = document.getElementById('suggestions');
+            suggestionsElement.innerHTML = '<h2>Suggestions</h2>';
+            suggestions.forEach(suggestion => {
+                suggestionsElement.innerHTML += `<p>${suggestion}</p>`;
+            });
+        }
+
+        // Function to handle user customization form submission
+        function handleCustomizationFormSubmit(event) {
+            event.preventDefault();
+            const foodLimit = parseInt(document.getElementById('food').value);
+            const transportationLimit = parseInt(document.getElementById('transportation').value);
+            // Handle user input and update spending limits accordingly
+            console.log('Food limit:', foodLimit);
+            console.log('Transportation limit:', transportationLimit);
+        }
+
+        // Main function
+        function main() {
+            const categorizedSpending = categorizeSpending(transactions);
+            const financialPlanningSuggestions = suggestFinancialPlanning(categorizedSpending);
+            displaySuggestions(financialPlanningSuggestions);
+
+            const customizationForm = document.getElementById('customization-form');
+            customizationForm.addEventListener('submit', handleCustomizationFormSubmit);
+        }
+
+        // Call main function when the page is loaded
+        document.addEventListener('DOMContentLoaded', main);
+    </script>
+</body>
+</html>
