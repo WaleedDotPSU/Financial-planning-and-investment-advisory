@@ -180,6 +180,10 @@ app.post('/signup/v1/', (req, res) => {
     });
 });
 
+app.post('/forgetpass/v1', (req, res) => {
+  res.redirect('/login-page')
+});
+
 
 app.post('/deposit-page', (req, res) => {
   const { cardNumber, cardHolder, expDate, cvv } = req.body; // Extract card details from the request body

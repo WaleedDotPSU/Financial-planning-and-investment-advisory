@@ -1,4 +1,4 @@
-<%- include("./part/TransactionHeader.ejs") %>
+<%- include("./part/header-transaction-part.ejs") %>
   <main class="main-content">
     <div class="payment-card mt-50 mb-50">
       <form method="post" class="withdraw-form">
@@ -30,4 +30,4 @@
     var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>')+' ريال';
   </script>
   <script src="/js/walletScript.js"></script>
-  <%- include("./part/Footer.ejs") %>
+  <%- include("./part/footer-part.ejs") %>

@@ -1,141 +1,140 @@
+/* Body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-  }
-  
-  .dashboard {
-    padding: 35px 0;
-  }
-  
-  .dashboard a {
-    margin: 0 15px;
-    text-decoration: none;
-    border: 1px solid;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .dashboard a:hover {
-    background-color: #0056b3;
-  }
-  
-  .banner-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 150px;
-  }
-  
-  .sliding-banner {
-    font-size: 24px;
-    color: black;
-    animation: slideIn 1s ease-out forwards;
-    transform: translateX(-350%);
-  }
-  
-  .banner-logo {
-    width: 75px;
-    height: auto;
-    padding-left: 1%;
-    animation: slideIn 1s ease-out forwards;
-    transform: translateX(-1000%);
-  }
-  
-  @keyframes slideIn {
-    to {
-      transform: translateX(0);
-    }
-  }
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
 
-  .login-container {
-    width: 300px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-  }
-  
-  .login-form input[type="text"],
-  .login-form input[type="password"]{
-    width: 93%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    }
+/* Dashboard */
+.dashboard {
+  padding: 35px 0;
+}
 
-  
-  .login-form button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.dashboard a {
+  background-color: #007bff;
+  border: 1px solid;
+  color: white;
+  margin: 0 15px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.dashboard a:hover {
+  background-color: #0056b3;
+}
+
+/* Error */
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Footer */
+.footer-content p {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #007bff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.page-footer {
+  bottom: 0;
+  color: #666;
+  margin-left: 4.5%;
+  padding: 20px 0;
+  position: absolute;
+  text-align: center;
+  width: 92%;
+}
+
+/* Login */
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.login-actions a {
+  color: #007bff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login-actions a:hover {
+  text-decoration: underline;
+}
+
+.login-container {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  width: 300px;
+}
+
+.login-form button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+.login-form input[type="password"],
+.login-form input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  width: 93%;
+}
+
+/* Banner */
+.banner-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.banner-logo {
+  animation: slideIn 1s ease-out forwards;
+  height: auto;
+  padding-left: 1%;
+  transform: translateX(-1000%);
+  width: 75px;
+}
+
+.sliding-banner {
+  animation: slideIn 1s ease-out forwards;
+  color: black;
+  font-size: 24px;
+  transform: translateX(-350%);
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
   }
-  
-  .login-form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .login-form button:hover {
-    background-color: #0056b3;
-  }
-  
-  .login-actions {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .login-actions a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 14px;
-  }
-  
-  .login-actions a:hover {
-    text-decoration: underline;
-  }
-  
-  .error {
-    color: red;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 13px;
-  }
-  
-  /* Footer */
-  .page-footer {
-    color: #666;
-    text-align: center;
-    padding: 20px 0;
-    position: absolute;
-    bottom: 0;
-    width: 90%;
-    margin-left: 4.5%;
-  }
-  
-  .footer-content p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .footer-links {
-    margin-top: 10px;
-  }
-  
-  .footer-links a {
-    color: #007bff;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-  
+}

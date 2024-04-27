@@ -1,55 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- General Meta Tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Site Specific Tags -->
+
   <title>Signup Page</title>
-  
-  <!-- Style Sheets -->
+
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/signup.css">
 </head>
 <body>
   <header>
     <nav>
-      <!-- Navigation content -->
-    </nav>
+      </nav>
   </header>
-  
+
   <main>
     <section class="signup-section">
       <div class="banner" id="banner">
         <h1>Sign up using the form below:</h1>
       </div>
+
       <form method="post" action="/signup/v1/" class="signup-form">
         <div class="form-field">
           <label for="username-signup">Username:</label>
           <input id="username-signup" type="text" name="username" placeholder="Username" required>
         </div>
+
         <div class="form-field">
           <label for="email-signup">Email:</label>
           <input id="email-signup" type="email" name="email" placeholder="Email" required>
         </div>
+
         <div class="form-field">
           <label for="password-signup">Password:</label>
           <input id="password-signup" type="password" name="password" placeholder="Password" required>
         </div>
+
         <div class="form-field">
           <label for="show-password-signup" id="show-password-signup">Show Password</label>
           <input id="show-password-signup" type="checkbox" onclick="togglePassword()">
         </div>
-          <p class="success-message"><%= message %></p>
-          <p class="error-message"><%= error %></p>
+
+        <p class="success-message"><%= message %></p>
+        <p class="error-message"><%= error %></p>
+  
         <button type="submit" class="form-submit">Sign up</button>
-        <a href="/login-page" class="link-to-login">Back to Login</a>
+        <div class="login-actions">
+          <a href="/login-page" class="link-to-login">Back to Login</a>
+        </div>
       </form>
     </section>
   </main>
-  
-  <!-- Include the JavaScript file -->
+
   <script src="/js/signupValidation.js"></script>
   <script src="/js/togglePassword.js"></script>
-  <%- include("./part/Footer.ejs") %>
+  <%- include("./part/footer-part.ejs") %>
+</body>
+</html>
+
