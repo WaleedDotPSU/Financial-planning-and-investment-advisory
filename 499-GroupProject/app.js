@@ -23,44 +23,44 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Routes:
 // Redirect to login page
 app.get('/', (req, res) => {
-  res.redirect('/LoginPage');
+  res.redirect('/login-page');
 });
 
 // Render login page
 // We do need "message"
-app.get('/LoginPage', (req, res) => {
-  res.render('LoginPage', { message: '' });
+app.get('/login-page', (req, res) => {
+  res.render('login-page', { message: '' });
 });
 
 // Render signup page
-app.get('/SignupPage', (req, res) => {
-  res.render('SignupPage',{message:'', error:''});
+app.get('/signup-page', (req, res) => {
+  res.render('signup-page',{message:'', error:''});
 });
 
 // Render forget password page
-app.get('/ForgetPassPage', (req, res) => {
-  res.render('ForgetPassPage');
+app.get('/forget-pass-page', (req, res) => {
+  res.render('forget-pass-page');
 });
 
 // Render home page
-app.get('/HomePage', (req, res) => { 
-  res.render('HomePage',{g_walletBalance});
+app.get('/home-page', (req, res) => { 
+  res.render('home-page',{g_walletBalance});
 });
 
 // Render deposit page
 // We do need "message"
-app.get('/DepositPage', (req, res) => {
-  res.render('DepositPage', { message: '', g_walletBalance});
+app.get('/deposit-page', (req, res) => {
+  res.render('deposit-page', { message: '', g_walletBalance});
 });
 
 // Render withdraw page
-app.get('/WithdrawPage', (req, res) => {
-  res.render('withdrawPage', { g_walletBalance });
+app.get('/withdraw-page', (req, res) => {
+  res.render('withdraw-page', { g_walletBalance });
 });
 
 // Render investments management page
-app.get('/InvestmentsManagementPage', (req, res) => {
-  res.render('InvestmentsManagementPage',{g_walletBalance});
+app.get('/invest-options-page', (req, res) => {
+  res.render('invest-options-page',{g_walletBalance});
 });
 
 // Render investing page
@@ -69,8 +69,8 @@ app.get('/InvestingPage', (req, res) => {
 });
 
 //Render BankLinkPage
-app.get('/LinkBankAcc', (req, res) => {
-  res.render('LinkBank');
+app.get('/bank-link-page', (req, res) => {
+  res.render('bank-link-page');
 });
 
 //Render BankLinkPage
@@ -80,13 +80,13 @@ app.get('/AskAi', (req, res) => {
 
 
 // Render Financial Planning Page
-app.get('/FinancialPlanningPage', (req, res) => { 
-  res.render('FinancialPlanningPage',{g_walletBalance});
+app.get('/finance-plan-page', (req, res) => { 
+  res.render('finance-plan-page',{g_walletBalance});
 });
 
 // Render investments page
-app.get('/InvestmentsPage', (req, res) => {
-  res.render('InvestmentsPage', {g_walletBalance});
+app.get('/my-invests-page', (req, res) => {
+  res.render('my-invests-page', {g_walletBalance});
 });
 
 // Test the open banking functionality
@@ -114,12 +114,12 @@ function generateAccountInfo() {
     };
 }
 
-app.get('/BanksPage', (req, res) => {
+app.get('/analytics-page', (req, res) => {
   const transactions = generateTransactions(10);
   const totalBalance = calculateTotalBalance(transactions); // Function to calculate total balance
   const numAccounts = calculateNumAccounts(); // Function to calculate number of accounts
 
-  res.render('BanksPage', { transactions: transactions, totalBalance: totalBalance, numAccounts: numAccounts });
+  res.render('analytics-page', { transactions: transactions, totalBalance: totalBalance, numAccounts: numAccounts });
 });
 // Calculate total balance from transactions
 function calculateTotalBalance(transactions) {
@@ -148,8 +148,8 @@ function calculateNumAccounts() {
 // >>>>>>>> Here ends the test <<<<<<<<
 
 //Render Option page
-app.get('/Options', (req, res) => {
-  res.render('OptionsPage');
+app.get('/options-page', (req, res) => {
+  res.render('options-page');
 });
 
 // Validation:
@@ -159,9 +159,9 @@ app.post('/login', (req, res) => {
     const user = users.find(u => u.username === username && u.password === password);
   
     if (user) {
-      res.redirect('/HomePage');
+      res.redirect('/home-page');
     } else {
-      res.render('LoginPage', { message: 'Wrong Username or Password' });
+      res.render('login-page', { message: 'Wrong Username or Password' });
     }
   });
 
@@ -172,25 +172,16 @@ app.post('/signup/v1/', (req, res) => {
   
   newUser.save()
     .then(result => {
-      res.render('SignupPage',{message:'User added successfully', error:''});
+      res.render('signup-page',{message:'User added successfully', error:''});
     })
     .catch(error => {
       console.log(`Could not add user: ${error}`);
-      res.render('SignupPage',{message:'', error:'Could not add user, please try again later'});
+      res.render('signup-page',{message:'', error:'Could not add user, please try again later'});
     });
 });
 
-// Card validation  (It's working), [NEEDS WORK STILL]
-// [MAKE NAMINGS CONSISTENT, for app.js and Deposit.ejs]
-// the expDate):
-/*const userExists = users.some(user => user.username === username || user.email === email);
 
-  if (userExists) {
-    res.render('SignupPage', { message: 'Username or Email is already in use.' });
-  } else {
-    res.redirect('/LoginPage');
-  }*/ 
-app.post('/DepositPage', (req, res) => {
+app.post('/deposit-page', (req, res) => {
   const { cardNumber, cardHolder, expDate, cvv } = req.body; // Extract card details from the request body
 
   // Validate card details
@@ -208,10 +199,11 @@ app.post('/DepositPage', (req, res) => {
     // ...
     // Your deposit logic here
     // ...
-    res.redirect('/DepositSuccessPage'); // Redirect to the success page (adjust the route as needed)
+    res.redirect('/home-page'); // Redirect to the success page (adjust the route as needed)
   } else {
-    res.render('DepositPage', { message: 'Invalid card details' }); // Invalid card details, render the DepositPage with an error message
+    res.render('deposit-page', { message: 'Invalid card details', g_walletBalance}); // Invalid card details, render the DepositPage with an error message
   }
+  res.redirect('/home-page');
 });
 
 // Dummy data
@@ -229,22 +221,13 @@ const cards = [
 
 // Handle withdrawPage. 
 //Only make it to check the wallet balance + add the IBAN for instance to withdraw
-app.post('/WithdrawPage', (req, res) => {
-  const currentDate = new Date();
-  const expirationInput = req.body.expirationDate; // Using the 'name' attribute to access the input
-  const [month, year] = expirationInput.split('/'); // Parse the month and year from the expiration input
-  const expirationDate = new Date(year, month, 0, 23, 59, 59, 999); // Adjust to create a Date object for the last moment of the expiration month
-
-  if (currentDate > expirationDate) { // Compare current date to expiration date
-    res.render('withdrawPage', { message: 'Card is expired' }); // If the card is expired, render the WithdrawPage with an error message
-  } else {
-    res.redirect('/HomePage'); // If the card is not expired, redirect to the HomePage
-  }
+app.post('/withdraw-page', (req, res) => {
+    res.redirect('/home-page'); // If the card is not expired, redirect to the HomePage 
 });
 
 // Handle 404 errors
 app.use((req, res) => {
-  res.status(404).render('ErrorPage');
+  res.status(404).render('error-page');
 });
 
 // Start the server
