@@ -15,13 +15,13 @@
     <main>
         <form action="/submit-bank-info" method="post">
             <label for="account-holder-name">Account Holder Name (as per ID):</label><br>
-            <input type="text" id="account-holder-name" name="account-holder-name" placeholder="e.g: Abdullah Ahmad" required><br><br>
+            <input type="text" id="account-holder-name" name="account-holder-name" placeholder="e.g: Abdullah Ahmad" required pattern="[A-Za-z\s'.-]+" title="Cardholder name should contain letters only."><br><br>
 
             <label for="account-number">Account Number:</label><br>
-            <input type="text" id="account-number" name="account-number" placeholder="e.g: 1234 5678 9012 3456" required><br><br>
+            <input type="text" id="account-number" name="account-number" placeholder="e.g: 1234 5678 9012 3456" required pattern="number" title="Please enter Account Number"><br><br>
 
             <label for="iban">IBAN (International Bank Account Number):</label><br>
-            <input type="text" id="iban" name="iban" placeholder="e.g: SA1234567890123456789012" ><br><br>
+            <input type="text" id="iban" name="iban" placeholder="e.g: SA1234567890123456789012" required pattern="[A-Za-z0-9]{20,34}" title="Please enter a valid IBAN."><br><br>
 
             <label for="bank-name">Bank Name:</label><br>
             <select id="bank-name" name="bank-name" required>
