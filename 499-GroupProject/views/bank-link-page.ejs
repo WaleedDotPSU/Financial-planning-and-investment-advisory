@@ -13,12 +13,12 @@
     </header>
 
     <main>
-        <form action="/submit-bank-info" method="post">
+        <form action="/submit-bank-info" method="post" id="bank-form">
             <label for="account-holder-name">Account Holder Name (as per ID):</label><br>
             <input type="text" id="account-holder-name" name="account-holder-name" placeholder="e.g: Abdullah Ahmad" required pattern="[A-Za-z\s'.-]+" title="Cardholder name should contain letters only."><br><br>
 
             <label for="account-number">Account Number:</label><br>
-            <input type="text" id="account-number" name="account-number" placeholder="e.g: 1234 5678 9012 3456" required pattern="number" title="Please enter Account Number"><br><br>
+            <input type="text" id="account-number" name="account-number" placeholder="e.g: 1234 5678 9012 3456" required pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" title="Please enter Account Number"><br><br>
 
             <label for="iban">IBAN (International Bank Account Number):</label><br>
             <input type="text" id="iban" name="iban" placeholder="e.g: SA1234567890123456789012" required pattern="[A-Za-z0-9]{20,34}" title="Please enter a valid IBAN."><br><br>
@@ -38,4 +38,13 @@
     </main>
 
 <%- include("./part/footer-part.ejs") %>
- 
+
+<script>
+    document.getElementById("bank-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        alert("Your bank account has been successfully linked!"); // Display success message
+        this.submit(); // Submit the form
+    });
+</script>
+</body>
+</html>
