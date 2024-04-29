@@ -36,6 +36,7 @@
             <input type="number" id="investment-amount" name="investment-amount">
             
             <button type="submit">Get Advice</button>
+            <button type="button" id="reset-button">Reset</button>
         </form>
         
         <div id="advisory-result">
@@ -56,6 +57,10 @@
     <script>
         document.getElementById('risk-assessment-form').addEventListener('submit', function(event) {
             event.preventDefault();
+
+            // Clear previous data
+            document.getElementById('investment-allocation').innerHTML = '';
+            document.getElementById('investment-chart').style.display = 'none';
 
             // Get user inputs
             const investmentGoal = parseFloat(document.getElementById('investment-goal').value);
@@ -105,18 +110,28 @@
             renderChart(chartData);
         });
 
+        document.getElementById('reset-button').addEventListener('click', function() {
+            // Reload the page
+            window.location.reload();
+        });
+
         function displayAdvice(goal, amount) {
             let allocation = '';
+            let riskLevels = '';
+
             if (amount >= 10000) {
                 allocation = '70% stocks, 20% real estate, 10% other assets';
+                riskLevels = 'High risk stocks, High risk real estate, Low risk other assets';
             } else if (amount >= 5000) {
                 allocation = '50% stocks, 30% real estate, 20% other assets';
+                riskLevels = 'Medium risk stocks, Medium risk real estate, Low risk other assets';
             } else {
                 allocation = '30% stocks, 40% real estate, 30% other assets';
+                riskLevels = 'Low risk stocks, High risk real estate, Low risk other assets';
             }
 
-            // Display investment allocation
-            document.getElementById('investment-allocation').innerHTML = `<p>Your investment goal is to gain $${goal}. Your investment allocation: ${allocation}</p>`;
+            // Display investment allocation with risk levels
+            document.getElementById('investment-allocation').innerHTML = `<p>Your investment goal is to gain $${goal}. Your investment allocation: ${allocation}.<br>Risk Levels: ${riskLevels}</p>`;
             document.getElementById('investment-allocation').style.display = 'block';
         }
 
