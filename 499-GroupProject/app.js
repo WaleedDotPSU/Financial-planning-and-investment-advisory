@@ -47,6 +47,13 @@ app.get('/home-page', (req, res) => {
   res.render('home-page',{g_walletBalance});
 });
 
+
+
+// Render Planning page
+app.get('/PlanningAndAdv-page', (req, res) => { 
+  res.render('PlanningAndAdv-page',{g_walletBalance});
+});
+
 // Render deposit page
 // We do need "message"
 app.get('/deposit-page', (req, res) => {
@@ -73,10 +80,7 @@ app.get('/bank-link-page', (req, res) => {
   res.render('bank-link-page');
 });
 
-//Render BankLinkPage
-app.get('/AskAi', (req, res) => {
-  res.render('AIpage');
-});
+
 
 
 // Render Financial Planning Page
