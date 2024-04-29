@@ -242,8 +242,8 @@ app.use((req, res) => {
 mongoose.connect(process.env.MONGO_URI)
   .then(result => {
     console.log(`Successfully connected to database server..`);
-    app.listen(process.env.PORT, () => {
-      console.log(`Web server listening on port ${process.env.PORT}`);
+    app.listen(process.env.Port, () => {
+      console.log(`Web server listening on port ${process.env.Port}`);
     });
   })
   .catch(error => {
