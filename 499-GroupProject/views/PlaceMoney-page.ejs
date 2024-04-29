@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- general meta tags -->
+  <meta charset="utf-8">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- site specific tags -->
+  <title>Transfer to Invest</title>
+  <!-- style sheets -->
+  <link rel="stylesheet" href="css-reset.css">
+  <!-- Add your custom CSS file -->
+  <link rel="stylesheet" href="your-custom-css-file.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <!-- Your navigation links here -->
+    </nav>
+  </header>
+  <main>
+    <section>
+      <article>
+        <h2>Transfer to Invest</h2>
+        <form action="/submit-transfer" method="post" id="transfer-form">
+          <label for="percentage">Percentage to Transfer (%):</label><br>
+          <input type="number" id="percentage" name="percentage" min="0" max="100" required><br><br>
+          <input type="submit" value="Transfer">
+        </form>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <!-- Your footer content here -->
+  </footer>
+
+  <script>
+    document.getElementById("transfer-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        var percentage = document.getElementById("percentage").value;
+        alert("You are transferring " + percentage + "% of your virtual wallet to invest."); // Display alert message
+        window.location.href = "/home-page"; // Redirect to another page
+    });
+  </script>
+</body>
+</html>

@@ -43,7 +43,7 @@
     document.getElementById("bank-form").addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent form submission
         alert("Your bank account has been successfully linked!"); // Display success message
-        this.submit(); // Submit the form
+        window.location.href = "/home-page"; // Redirect to another page
     });
 </script>
 </body>

@@ -26,6 +26,11 @@ app.get('/', (req, res) => {
   res.redirect('/login-page');
 });
 
+// Redirect PlaceMoney page
+app.get('/PlaceMoney-page', (req, res) => {
+  res.render('PlaceMoney-page');
+});
+
 // Render login page
 // We do need "message"
 app.get('/login-page', (req, res) => {
