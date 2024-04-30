@@ -1,85 +1,106 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
-
-* {
+/* Reset styles */
+body, h1, h2, p, ul, ol, li, figure, figcaption, blockquote, dl, dd, dt {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #0C4160;
-    padding: 30px 10px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
-.card {
-    max-width: 500px;
-    margin: auto;
-    color: black;
-    border-radius: 20 px;
+.background {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(0, 120, 255, 0.8)), url('background.jpg');
+    background-size: cover;
+    animation: colorShift 20s infinite alternate;
 }
 
-p {
-    margin: 0px;
+@keyframes colorShift {
+    0% {
+        background-color: #ff7e5f;
+    }
+    50% {
+        background-color: #43e97b;
+    }
+    100% {
+        background-color: #ff7e5f;
+    }
 }
 
-.container .h8 {
-    font-size: 30px;
-    font-weight: 800;
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
     text-align: center;
 }
 
-.btn.btn-primary {
-    width: 100%;
-    height: 70px;
+nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
-    border: none;
-    transition: 0.5s;
-    background-size: 200% auto;
-
+    justify-content: center;
 }
 
-.btn.btn.btn-primary:hover {
-    background-position: right center;
+nav a {
     color: #fff;
     text-decoration: none;
+    margin: 0 10px;
 }
 
-.btn.btn-primary:hover .fas.fa-arrow-right {
-    transform: translate(15px);
-    transition: transform 0.2s ease-in;
+/* Main content styles */
+main {
+    padding: 20px;
 }
 
-.form-control {
-    color: white;
-    background-color: #223C60;
-    border: 2px solid transparent;
-    height: 60px;
-    padding-left: 20px;
-    vertical-align: middle;
+section {
+    text-align: center;
 }
 
-.form-control:focus {
-    color: white;
-    background-color: #0C4160;
-    border: 2px solid #2d4dda;
-    box-shadow: none;
+h2 {
+    margin-bottom: 20px;
 }
 
-.text {
-    font-size: 14px;
-    font-weight: 600;
+form {
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
-::placeholder {
-    font-size: 14px;
-    font-weight: 600;
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: calc(100% - 22px); /* Subtracting the padding and border width */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
 }
