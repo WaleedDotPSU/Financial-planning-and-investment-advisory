@@ -52,8 +52,6 @@ app.get('/home-page', (req, res) => {
   res.render('home-page',{g_walletBalance});
 });
 
-
-
 // Render Planning page
 app.get('/PlanningAndAdv-page', (req, res) => { 
   res.render('PlanningAndAdv-page',{g_walletBalance});
@@ -84,9 +82,6 @@ app.get('/InvestingPage', (req, res) => {
 app.get('/bank-link-page', (req, res) => {
   res.render('bank-link-page');
 });
-
-
-
 
 // Render Financial Planning Page
 app.get('/finance-plan-page', (req, res) => { 
@@ -162,7 +157,7 @@ app.get('/options-page', (req, res) => {
 });
 
 // Validation:
-// Handle login
+/* Handle login
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     const user = users.find(u => u.username === username && u.password === password);
@@ -172,7 +167,34 @@ app.post('/login', (req, res) => {
     } else {
       res.render('login-page', { message: 'Wrong Username or Password' });
     }
-  });
+  })*/
+
+app.post('/login', async (req, res) => {
+  try {
+    // Extract username and password from request body
+    const { username, password } = req.body;
+
+    // Validate username and password (optional, but recommended)
+    if (!username || !password) {
+      return res.status(400).json({ message: 'Missing username or password' });
+    }
+
+    // Find user by username
+    const user = await User.findOne({ username });
+
+    if (user) {
+        // Redirect to home page
+        res.redirect('/home-page');
+      } else {
+        // Invalid password
+        res.status(401).json({ message: 'Invalid username or password' });
+      }
+  } catch (error) {
+    console.error('Error during login:', error);
+    res.status(500).json({ message: 'Internal server error' }); // Generic error for security
+  }
+});
+
 
 // Handle signup
 app.post('/signup/v1/', (req, res) => {
@@ -206,12 +228,6 @@ app.post('/deposit-page', (req, res) => {
   );
 
   if (card) {
-    // Card details are valid, proceed with deposit logic
-    // For example, save the deposit amount to the user's account
-    // and then redirect to the success page:
-    // ...
-    // Your deposit logic here
-    // ...
     res.redirect('/home-page'); // Redirect to the success page (adjust the route as needed)
   } else {
     res.render('deposit-page', { message: 'Invalid card details', g_walletBalance}); // Invalid card details, render the DepositPage with an error message
