@@ -1,114 +1,94 @@
-header {
-  margin-bottom: 75px;
-}
-
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f0f0f2;
-}
-
-.home-options {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: 100px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-section {
-  margin-bottom: 20px;
-}
-
-.action {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  padding: 15px;
-  border-bottom: 1px solid #eaeaea;
-  flex-direction: column;
-}
-
-.home-option {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #eaeaea;
-  flex-direction: column;
-}
-
-a.signout-link,
-a.deposit-link,
-a.withdraw-link,
-a.risk-link,
-a.banks-link,
-a.FinancialPlanningPage-link {
-  text-decoration: none;
-  color: #007bff;
-  background-color: #f8f9fa;
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: 1px solid #dee2e6;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-a.signout-link{
-  position: absolute;
-  top: 21px;
-  left: 20px;
-}
-
-a.signout-link:hover,
-a.deposit-link:hover,
-a.withdraw-link:hover,
-a.risk-link:hover,
-a.banks-link:hover,
-a.FinancialPlanningPage-link {
-  background-color: #e2e6ea;
-  border-color: #dae0e5;
-}
-
-.wallet-balance {
-  position: absolute;
-  top: 20px;
-  right: 20px; 
-  background-color: #f8f9fa; 
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #dee2e6;
-  color: #007bff;
-}
-
-/* Footer */
-.page-footer {
-  color: #666;
-  text-align: center;
-  padding: 20px 0;
-  position: absolute;
-  bottom: 150;
-  width: 90%;
-  margin-left: 4.5%;
-}
-
-.footer-content p {
   margin: 0;
   padding: 0;
 }
 
-.footer-links {
-  margin-top: 10px;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
 }
 
-.footer-links a {
-  color: #007bff;
+h1 {
+  margin: 0;
+}
+
+.menu-toggle {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#navMenu {
+  display: none; /* Explicitly hide the menu initially */
+}
+
+.show-menu {
+  display: block;
+  position: absolute;
+  top: calc(100% + 10px); /* Adjusted position to prevent overlap */
+  right: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure menu appears on top of other content */
+}
+
+#navMenu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navMenu ul li {
+  padding: 10px;
+}
+
+#navMenu ul li a {
+  display: block;
+  color: #333;
   text-decoration: none;
-  margin: 0 10px;
+  transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
+#navMenu ul li a:hover {
+  color: #007bff;
+}
+
+.dashboard {
+  padding: 20px;
+  margin-top: 50px; /* Add space for the header */
+}
+
+.quick-links {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  gap: 20px;
+}
+
+.quick-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.quick-link:hover {
+  background-color: #0056b3;
+}
+
+.menu-toggle.active {  /* New class for visual indicator */
+  background-color: #ddd; /* Example color change */
 }

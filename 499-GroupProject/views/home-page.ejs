@@ -2,51 +2,54 @@
 <html lang="en">
 
 <head>
-  <!-- General Meta Tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Site Specific Tags -->
-  <title>Page Title</title>
-
-  <!-- Style Sheets -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Home</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
   <header>
-    <div class="wallet-balance" id="wallet-balance">
-      <p>Wallet Balance: <span>
-          <%= g_walletBalance %>
-      </p></span>
-    </div>
-    <a href="/login-page" class="signout-link">Sign Out</a>
+    <h1>Dashboard</h1>
+    <div class="menu-toggle" id="toggleBtn">&#9776;</div>
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="/deposit-page">Deposit</a></li>
+        <li><a href="/withdraw-page">Withdraw</a></li>
+        <li><a href="/bank-link-page">Link Bank</a></li>
+        <li><a href="/login-page">Sign Out</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="home-options">
-    <section class="home-option">
-      <a href="/invest-options-page" class="risk-link">Investment options</a>
+  <main class="dashboard">
+    <section class="quick-links">
+      <a href="/PlanningAndAdv-page" class="quick-link">Planning & Advisory</a>
+      <a href="/invest-options-page" class="quick-link">Investment Options</a>
+      <a href="/my-invests-page" class="quick-link">My Investments</a>
     </section>
-    <section class="home-option">
-      <a href="/withdraw-page" class="withdraw-link">Withdraw money from account</a>
-    </section>
-    <section class="home-option">
-    <a href="/deposit-page" class="deposit-link">Deposit money to account</a>
-    </section>
-    <section class="home-option">
-      <a href="/bank-link-page" class="risk-link">Link bank account</a>
-    </section>
-    <section class="home-option">
-      <a href="/PlanningAndAdv-page" class="banks-link">PlanningAndAdvisory</a>
-    </section>
-    
-    
-
   </main>
 
   <script>
-    var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>') + ' ريال';
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleBtn = document.getElementById('toggleBtn');
+      var navMenu = document.getElementById('navMenu');
+      
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function() {
+          navMenu.classList.toggle('show-menu');
+          this.classList.toggle('active'); // Toggle active class on button
+        });
+      } else {
+        console.error('Could not find toggleBtn or navMenu element');
+      }
+    });
   </script>
-  <script src="/js/walletScript.js"></script>
-  <%- include("./part/footer-part.ejs") %>
+  
+</body>
+
+</html>
