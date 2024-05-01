@@ -4,52 +4,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Home</title>
-  <link rel="stylesheet" href="css/reset.css">
+  <title>Executive Dashboard</title>
   <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
   <header>
-    <h1>Dashboard</h1>
-    <div class="menu-toggle" id="toggleBtn">&#9776;</div>
-    <nav id="navMenu">
-      <ul>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Help</a></li>
-        <li><a href="/deposit-page">Deposit</a></li>
-        <li><a href="/withdraw-page">Withdraw</a></li>
-        <li><a href="/bank-link-page">Link Bank</a></li>
-        <li><a href="/login-page">Sign Out</a></li>
-      </ul>
-    </nav>
+    <div class="logo"></div>
+    <button class="expand-menu">Menu</button>
   </header>
+  <aside class="sidebar">
+    <ul class="menu">
+      <li class="Li"><a href="/deposit-page"> Deposit </a></li>
+      <li class="Li"><a href="/withdraw-page">Withdraw</a></li>
+      <li class="Li"><a href="/bank-link-page">Link Bank</a></li>
+      <li class="Li"><a href="/login-page">Sign Out</a></li>
+    </ul>
+  </aside>
+  <main>
+    <!-- Main dashboard content goes here -->
+    <div class="dashboard-content">
+      <p class="quick-link">Wallet Balance: <span>
+          <%= g_walletBalance %>
+      </p></span>
+      <a href="/invest-options-page" class="quick-link" style="width: 300px;"> Investment Options</a>
+      <a href="/my-invests-page" class="quick-link"> My Investments </a>
+    </div>
+    <div class="dashboard-content" id="wallet-balance">
+      <a href="/PlanningAndAdv-page" class="quick-link"> Planning & Advisory</a>
+      <a href="" class="quick-link"> graph</a>
+      <a href="" class="quick-link">graph</a>
+    </div>
 
-  <main class="dashboard">
-    <section class="quick-links">
-      <a href="/PlanningAndAdv-page" class="quick-link">Planning & Advisory</a>
-      <a href="/invest-options-page" class="quick-link">Investment Options</a>
-      <a href="/my-invests-page" class="quick-link">My Investments</a>
-    </section>
+    <div class="dashboard-content" id="wallet-balance">
+      <a href="" class="quick-link">graph</a>
+      <a href="" class="quick-link"> graph</a>
+      <a href="" class="quick-link">graph</a>
+    </div>
   </main>
+  <footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var toggleBtn = document.getElementById('toggleBtn');
-      var navMenu = document.getElementById('navMenu');
-      
-      if (toggleBtn && navMenu) {
-        toggleBtn.addEventListener('click', function() {
-          navMenu.classList.toggle('show-menu');
-          this.classList.toggle('active'); // Toggle active class on button
-        });
-      } else {
-        console.error('Could not find toggleBtn or navMenu element');
-      }
-    });
-  </script>
-  
+  </footer>
+
+  <script src="js/ToggleSide.js"></script>
+  <SCript>  var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>') + ' ريال';
+  </SCript>
 </body>
 
 </html>

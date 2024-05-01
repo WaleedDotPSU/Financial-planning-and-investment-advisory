@@ -1,80 +1,67 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 header {
+  background-color: #007bff;
+  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff;
-  color: white;
   padding: 10px 20px;
 }
 
-h1 {
-  margin: 0;
+.logo {
+  font-size: 1.5rem;
 }
 
-.menu-toggle {
-  font-size: 24px;
-  cursor: pointer;
+.sidebar {
+  width: 0;
+  height: 100%;
+  background-color: #073c76;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  transition: width 0.5s ease; /* Modified transition */
 }
 
-#navMenu {
-  display: none; /* Explicitly hide the menu initially */
-}
-
-.show-menu {
-  display: block;
-  position: absolute;
-  top: calc(100% + 10px); /* Adjusted position to prevent overlap */
-  right: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure menu appears on top of other content */
-}
-
-#navMenu ul {
+.menu {
   list-style-type: none;
-  margin: 0;
   padding: 0;
 }
 
-#navMenu ul li {
-  padding: 10px;
+.menu li {
+  margin: 35px; /* Adjust margin */
+  color: #fff;
 }
 
-#navMenu ul li a {
-  display: block;
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-#navMenu ul li a:hover {
-  color: #007bff;
-}
-
-.dashboard {
+.main-content {
+  margin-right: 0;
   padding: 20px;
-  margin-top: 50px; /* Add space for the header */
 }
 
-.quick-links {
+footer {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
-  justify-content: center; /* Center items horizontally */
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 .quick-link {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 50px;
   width: 200px;
   height: 100px;
   text-decoration: none;
@@ -89,6 +76,37 @@ h1 {
   background-color: #0056b3;
 }
 
-.menu-toggle.active {  /* New class for visual indicator */
-  background-color: #ddd; /* Example color change */
+.Li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  margin: 10px 0; /* Adjust margin */
+}
+
+.Li:hover {
+  background-color: #0056b3;
+}
+
+.dashboard-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease; /* Add animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
