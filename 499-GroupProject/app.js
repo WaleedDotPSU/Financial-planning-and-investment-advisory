@@ -3,11 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { sendEmail } = require('./js/emailService');
+const { sendEmail } = require('./public/js/emailService');
 const User = require('./models/User');
-
-// Initialize Router
-const router = express.Router();
 
 // Initialize Express app
 const app = express();
