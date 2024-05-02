@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forget Password</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/err.css">
-  <link rel="stylesheet" href="css/forget-pass.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/err.css">
+  <link rel="stylesheet" href="/css/forget-pass.css">
 </head>
 <body>
 
@@ -16,9 +16,11 @@
     </div>
 
     <div class="forget-container">
-      <form class="forget-form" action="/forgetpass/v1" method="post">
+      <form class="forget-form" action="/forget-pass/v1" method="post">
         <input type="email" name="email" placeholder="Enter your email" required>
 
+        <p class="message"><%=message%></p>
+        <p class="error"><%=error%></p>
         <button type="submit">Send Password Reset Link</button>
 
         <div class="login-actions">

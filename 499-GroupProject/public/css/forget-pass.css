@@ -66,6 +66,17 @@ input[type="email"] {
   text-decoration: underline;
 }
 
+/* Alert message */
+.message{
+  margin-top: 10px;
+  color:green;
+}
+
+.error{
+  margin-top: 10px;
+  color:red;
+}
+
 /* Button Styles */
 button[type="submit"] {
   background-color: #007bff;
