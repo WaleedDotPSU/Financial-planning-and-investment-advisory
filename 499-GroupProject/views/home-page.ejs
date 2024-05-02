@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Executive Dashboard</title>
-  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
   <header>
     <div class="logo"></div>
-    <button class="expand-menu">Menu</button>
+    <button class="expand-menu" > =</button>
+
   </header>
   <aside class="sidebar">
     <ul class="menu">
@@ -22,24 +24,27 @@
     </ul>
   </aside>
   <main>
-    <!-- Main dashboard content goes here -->
-    <div class="dashboard-content">
-      <p class="quick-link">Wallet Balance: <span>
-          <%= g_walletBalance %>
-      </p></span>
-      <a href="/invest-options-page" class="quick-link" style="width: 300px;"> Investment Options</a>
-      <a href="/my-invests-page" class="quick-link"> My Investments </a>
-    </div>
-    <div class="dashboard-content" id="wallet-balance">
-      <a href="/planning-advice-page" class="quick-link"> Planning & Advisory</a>
-      <a href="" class="quick-link"> graph</a>
-      <a href="" class="quick-link">graph</a>
-    </div>
 
-    <div class="dashboard-content" id="wallet-balance">
-      <a href="" class="quick-link">graph</a>
-      <a href="" class="quick-link"> graph</a>
-      <a href="" class="quick-link">graph</a>
+    <div class="container">
+      <!-- Main dashboard content goes here -->
+      <div class="dashboard-content">
+        <p class="quick-link">Wallet Balance: <span>
+            <%= g_walletBalance %>
+        </p></span>
+        <a href="/invest-options-page" class="quick-link" style="width: 300px;"> Investment Options</a>
+        <a href="/my-invests-page" class="quick-link"> My Investments </a>
+      </div>
+
+      <div class="dashboard-content" id="wallet-balance">
+        <a href="/PlanningAndAdv-page" class="quick-link"> Planning & Advisory</a>
+        <a href="" class="quick-link"> graph</a>
+        <a href="" class="quick-link">graph</a>
+      </div>
+      
+      <div class="dashboard-co" id="analytics-graph">
+        <canvas id="analyticsChart" width="100%" height="100%"></canvas>
+      </div>
+     
     </div>
   </main>
   <footer>
@@ -47,8 +52,10 @@
   </footer>
 
   <script src="js/ToggleSide.js"></script>
-  <SCript>  var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>') + ' ريال';
-  </SCript>
+  <script> var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>') + ' ريال'; </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/Graph.js"></script>
+
 </body>
 
 </html>

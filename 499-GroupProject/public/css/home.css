@@ -62,7 +62,7 @@ footer {
   justify-content: center;
   align-items: center;
   margin: 50px;
-  width: 200px;
+  width: 300px;
   height: 100px;
   text-decoration: none;
   color: white;
@@ -109,4 +109,29 @@ footer {
   to {
     opacity: 1;
   }
+}
+
+.container {
+  border: #2666ab;
+  background-color: #073c76;
+  width: 1000px;
+  height: 650px;
+  margin: 50px auto; /* Updated margin */
+  border-radius: 15px;
+}
+
+.dashboard-co {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease; /* Add animation */
+  width: 25%; /* Adjust based on the number of graphs you have */
+}
+
+.back-button {
+  background-color: #007bff;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
 }
