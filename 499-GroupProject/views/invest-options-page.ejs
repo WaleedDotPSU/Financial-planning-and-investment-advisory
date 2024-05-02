@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- General Meta Tags -->
-    <meta charset="utf-8">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Site Specific Tags -->
-    <title>RiskPage</title>
-
-    <!-- Style Sheets -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/investments-management.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Dashboard</title>
+  <link rel="stylesheet" href="css/investments-management.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="wallet-balance"><p>Wallet Balance: <span><%= g_walletBalance %></p></span></div>
-        <a href="/login-page" class="signout-link">Sign Out</a>
-      </header>
-
-    <main class="investments-options">
-        <section class="investments-option">
-            <p> Start Investing Today! </p>
-        </section>
-        <section class="investments-option">
-            <a href="/options-page" class="high-risk-link">High Risk</a>
-        </section>
-        <section class="investments-option">
-            <a href="/options-page" class="medium-risk-link">Medium Risk</a>
-        </section>
-        <section class="investments-option">
-            <a href="/options-page" class="low-risk-link">Low Risk</a>
-        </section>
-        
-
-        <section class="navigation-option">
-            <a href="/home-page" class="back-home-link">Back to Homepage</a>
-        </section>
-    </main>
-
-    <script>
-        var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>')+' ريال';
-      </script>
-      <script src="/js/walletScript.js"></script>
-    <%- include("./part/footer-part.ejs") %>
+  <header>
+    <div class="logo">Your Investopia</div>
+    <button class="expand-menu">=</button>
+  </header>
+  <aside class="sidebar">
+    <ul class="menu">
+      <li class="Li"><a href="/deposit-page"> Deposit </a></li>
+      <li class="Li"><a href="/withdraw-page">Withdraw</a></li>
+      <li class="Li"><a href="/bank-link-page">Link Bank</a></li>
+      <li class="Li"><a href="/login-page">Sign Out</a></li>
+    </ul>
+  </aside>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="dashboard-content" id="wallet-balance">
+            <a href="/options-page" class="quick-link" style="width: 300px;">High Risk</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="dashboard-content">
+            <a href="/options-page" class="quick-link">Mid Risk</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="dashboard-content">
+            <a href="/options-page" class="quick-link">Low Risk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+  </footer>
+  <script src="js/ToggleSide.js"></script>
+</body>
+</html>

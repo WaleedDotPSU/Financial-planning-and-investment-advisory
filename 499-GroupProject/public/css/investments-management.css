@@ -1,106 +1,147 @@
-header {
-  margin-bottom: 75px;
-}
-
+/* Reset and Base Styles */
 body {
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f0f0f2;
+  background-color: #0a1931; /* Dark blue background */
+  animation: oceanBackground 20s infinite alternate; /* Animation for shifting background colors */
 }
 
-.investments-options {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: 100px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+@keyframes oceanBackground {
+  0% {
+    background-color: #0a1931; /* Dark blue */
+  }
+  50% {
+    background-color: #0d2646; /* Medium blue */
+  }
+  100% {
+    background-color: #0056b3; /* Light blue */
+  }
 }
 
-section {
-  margin-bottom: 20px;
-}
-
-.investments-option,
-.navigation-option {
+/* Header Styles */
+header {
+  background-color: #007bff;
+  color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #eaeaea;
-  flex-direction: column;
+  padding: 10px 20px;
 }
 
-a.signout-link,
-a.low-risk-link,
-a.medium-risk-link,
-a.high-risk-link,
-a.investments-link,
-a.back-home-link {
-  text-decoration: none;
-  color: #007bff;
-  background-color: #f8f9fa;
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: 1px solid #dee2e6;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+.logo {
+  font-size: 1.5rem;
 }
 
-a.signout-link{
-  position: absolute;
-  top: 21px;
-  left: 20px;
+/* Sidebar Styles */
+.sidebar {
+  width: 0;
+  height: 100%;
+  background-color: #073c76;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  transition: width 0.5s ease;
 }
 
-a.signout-link:hover,
-a.low-risk-link:hover,
-a.medium-risk-link:hover,
-a.high-risk-link:hover,
-a.investments-link:hover,
-a.back-home-link:hover {
-  background-color: #e2e6ea;
-  border-color: #dae0e5;
-}
-
-.wallet-balance {
-  position: absolute;
-  top: 20px;
-  right: 20px; 
-  background-color: #f8f9fa; 
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #dee2e6;
-  color: #007bff;
-}
-
-/* Footer */
-.page-footer {
-  color: #666;
-  text-align: center;
-  padding: 20px 0;
-  position: absolute;
-  bottom: 0;
-  width: 90%;
-  margin-left: 4.5%;
-}
-
-.footer-content p {
-  margin: 0;
+/* Menu Styles */
+.menu {
+  list-style-type: none;
   padding: 0;
 }
 
-.footer-links {
-  margin-top: 10px;
+.menu li {
+  margin: 35px; 
+  color: #fff;
 }
 
-.footer-links a {
-  color: #007bff;
+/* Main Content Styles */
+.main-content {
+  padding: 20px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Quick Link Styles */
+.quick-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 120px; /* Increased height */
   text-decoration: none;
-  margin: 0 10px;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px; /* Added margin */
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
+.quick-link:hover {
+  background-color: #0056b3;
+}
+
+/* Dashboard Content Styles */
+.dashboard-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.dashboard-content p {
+  margin: 0;
+}
+
+/* Row and Column Styles */
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+  margin: 0 10px; 
+}
+
+/* Container Styles */
+.container {
+  border: #2666ab;
+  background-color: #144273; /* Slightly brighter container color */
+  width: 1150px;
+  margin: 50px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adding box shadow */
+  height: 600px; /* Increased container height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Graph Styles */
+#analytics-graph {
+  padding: 20px;
 }
