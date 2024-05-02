@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="css-reset.css">
   <!-- Add your custom CSS file -->
   <link rel="stylesheet" href="css/payment.css">
+  <link rel="stylesheet" href="css/investments-management.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="background">
   <div>
@@ -19,31 +22,40 @@
         <!-- Your navigation links here -->
       </nav>
     </header>
+
+    <aside class="sidebar">
+      <ul class="menu">
+        <li class="Li"><a href="/deposit-page">Deposit</a></li>
+        <li class="Li"><a href="/withdraw-page">Withdraw</a></li>
+        <li class="Li"><a href="/bank-link-page">Link Bank</a></li>
+        <li class="Li"><a href="/login-page">Sign Out</a></li>
+      </ul>
+    </aside>
+
     <main>
       <section>
         <article>
-          <h2>Transfer to Invest</h2>
-          <form action="/submit-transfer" method="post" id="transfer-form">
-            <label for="percentage">Percentage to Transfer (%):</label><br>
-            <input type="number" id="percentage" name="percentage" min="0" max="100" required><br><br>
-            <input type="submit" value="Transfer">
-          </form>
+          <div class="container">
+            <h2 class="center">Transfer to Invest</h2>
+            <form action="/submit-transfer" method="post" id="transfer-form">
+              <p class="center">How Much % From Your Wallet You Will Lay Down</p>
+              <input type="number" id="percentage" name="percentage" min="0" max="100" required class="larger-input"> <br><br>
+              <input type="submit" value="Transfer" class="center larger-button">
+            </form>
+            <a href="/options-page" class="center"><button>Back</button></a>
+          </div>
         </article>
       </section>
     </main>
-    <footer>
-      <!-- Your footer content here -->
-    </footer>
   </div>
-</body>
 
-<script>
-  document.getElementById("transfer-form").addEventListener("submit", function(event) {
+  <script>
+    document.getElementById("transfer-form").addEventListener("submit", function(event) {
       event.preventDefault(); // Prevent form submission
       var percentage = document.getElementById("percentage").value;
       alert("You are transferring " + percentage + "% of your virtual wallet to invest."); // Display alert message
       window.location.href = "/home-page"; // Redirect to another page
-  });
-</script>
-
+    });
+  </script>
+</body>
 </html>

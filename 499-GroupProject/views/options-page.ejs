@@ -6,10 +6,11 @@
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- site specific tags -->
-  <title>Pick A invest Option</title>
-  <!-- style sheets -->
-  <link rel="stylesheet" href="css/reset.css">
+  <title>Pick An Investment Option</title>
+  <!-- link to the CSS files -->
+  <link rel="stylesheet" href="css/investments-management.css">
   <link rel="stylesheet" href="css/options.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   
   <script>
     window.addEventListener('DOMContentLoaded', (event) => {
@@ -30,20 +31,57 @@
 <body>
 
   <header>
+    <div class="logo">Your Investopia</div>
+    <button class="expand-menu">=</button>
   </header>
+
+  <aside class="sidebar">
+    <ul class="menu">
+      <li class="Li"><a href="/deposit-page">Deposit</a></li>
+      <li class="Li"><a href="/withdraw-page">Withdraw</a></li>
+      <li class="Li"><a href="/bank-link-page">Link Bank</a></li>
+      <li class="Li"><a href="/login-page">Sign Out</a></li>
+    </ul>
+  </aside>
 
   <main>
 
-    <div class="contain">
-        <a href="/PlaceMoney-page"><button class="random-percent-button"> Stocks PayBack</button></a>
-        <a href="/PlaceMoney-page"><button class="random-percent-button">Real Estate PayBack</button></a>
-        <a href="/PlaceMoney-page"><button class="random-percent-button">Other Assets PayBack</button></a>
-        <a href="/invest-options-page"><button>Back</button></a>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="dashboard-content">
+              <a href="/place-money-page" class="quick-link random-percent-button">Stocks PayBack</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="dashboard-content">
+              <a href="/place-money-page" class="quick-link random-percent-button">Real Estate PayBack</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="dashboard-content">
+              <a href="/place-money-page" class="quick-link random-percent-button">Other Assets PayBack</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="dashboard-content">
+              <a href="/invest-options-page" class="quick-link">Back</a>
+            </div>
+          </div>
+        </div>
     </div>
     
 
   </main>
 
-  <%- include("./part/footer-part.ejs") %>
-  
-
+  <footer>
+  </footer>
+  <script src="js/ToggleSide.js"></script>
+</body>
+</html>
