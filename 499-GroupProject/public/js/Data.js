@@ -1,7 +1,33 @@
-document.querySelector('.expand-menu').addEventListener('click', function() {
-  document.querySelector('.sidebar').style.width = '250px';
-});
+document.addEventListener('DOMContentLoaded', function () {
+  var walletBalanceElement = document.getElementById('walletBalance');
+  var analyticsGraph = document.getElementById('analytics-graph');
 
-document.querySelector('.sidebar').addEventListener('click', function() {
-  this.style.width = '0';
+  // Chart.js code
+  var ctx = document.getElementById('analyticsChart').getContext('2d');
+  var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          datasets: [{
+              label: 'Wallet Balance',
+              data: [50, 100, 150, 200, 250, 300, 350], // Example data
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+
+  // Update wallet balance text
+  walletBalanceElement.textContent = "350"; // Example value
+
+  // Show the graph by default
+  analyticsGraph.style.display = 'block';
 });

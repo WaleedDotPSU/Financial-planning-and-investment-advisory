@@ -1,9 +1,25 @@
+/* Reset and Base Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: #0a1931; /* Dark blue background */
+  animation: oceanBackground 20s infinite alternate; /* Animation for shifting background colors */
 }
 
+@keyframes oceanBackground {
+  0% {
+    background-color: #0a1931; /* Dark blue */
+  }
+  50% {
+    background-color: #0d2646; /* Medium blue */
+  }
+  100% {
+    background-color: #0056b3; /* Light blue */
+  }
+}
+
+/* Header Styles */
 header {
   background-color: #007bff;
   color: #fff;
@@ -17,6 +33,7 @@ header {
   font-size: 1.5rem;
 }
 
+/* Sidebar Styles */
 .sidebar {
   width: 0;
   height: 100%;
@@ -25,24 +42,26 @@ header {
   top: 0;
   right: 0;
   overflow-x: hidden;
-  transition: width 0.5s ease; /* Modified transition */
+  transition: width 0.5s ease;
 }
 
+/* Menu Styles */
 .menu {
   list-style-type: none;
   padding: 0;
 }
 
 .menu li {
-  margin: 35px; /* Adjust margin */
+  margin: 35px; 
   color: #fff;
 }
 
+/* Main Content Styles */
 .main-content {
-  margin-right: 0;
   padding: 20px;
 }
 
+/* Footer Styles */
 footer {
   background-color: #007bff;
   color: #fff;
@@ -55,53 +74,68 @@ footer {
   align-items: center;
 }
 
-
-.quick-link {
+/* Quick Link Styles */
+.quick-link, .Li {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.quick-link {
   margin: 50px;
   width: 300px;
   height: 100px;
-  text-decoration: none;
-  color: white;
-  background-color: #007bff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.quick-link:hover {
-  background-color: #0056b3;
 }
 
 .Li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 200px;
   height: 100px;
-  text-decoration: none;
-  color: white;
-  background-color: #007bff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-  margin: 10px 0; /* Adjust margin */
+  margin: 10px 0;
 }
 
-.Li:hover {
+.quick-link:hover, .Li:hover {
   background-color: #0056b3;
 }
 
+/* Dashboard Content Styles */
 .dashboard-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.5s ease; /* Add animation */
+  animation: fadeIn 0.5s ease;
 }
 
+.dashboard-content p {
+  margin: 0;
+}
+
+/* Row and Column Styles */
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+  margin: 0 10px; 
+}
+
+/* Container Styles */
+.container {
+  border: #2666ab;
+  background-color: #144273; /* Slightly brighter container color */
+  width: 1150px;
+  margin: 50px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adding box shadow */
+}
+
+/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -111,27 +145,8 @@ footer {
   }
 }
 
-.container {
-  border: #2666ab;
-  background-color: #073c76;
-  width: 1000px;
-  height: 650px;
-  margin: 50px auto; /* Updated margin */
-  border-radius: 15px;
+/* Graph Styles */
+#analytics-graph {
+  padding: 20px;
 }
-
-.dashboard-co {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 0.5s ease; /* Add animation */
-  width: 25%; /* Adjust based on the number of graphs you have */
-}
-
-.back-button {
-  background-color: #007bff;
-}
-
-.back-button:hover {
-  background-color: #0056b3;
-}
+  
