@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var walletBalanceElement = document.getElementById('walletBalance');
   var analyticsGraph = document.getElementById('analytics-graph');
 
   // Chart.js code
@@ -24,9 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
           }
       }
   });
-
-  // Update wallet balance text
-  walletBalanceElement.textContent = "350"; // Example value
 
   // Show the graph by default
   analyticsGraph.style.display = 'block';

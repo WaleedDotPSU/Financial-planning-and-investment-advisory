@@ -27,7 +27,10 @@
   </main>
 
   <script>
-    var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>')+' ريال';
+    var g_walletBalance = parseFloat(localStorage.getItem("g_walletBalance"));
+
+    document.getElementById("walletBalance").innerText = "Wallet Balance: " + g_walletBalance.toFixed(2) + " ريال";
   </script>
+
   <script src="/js/walletScript.js"></script>
   <%- include("./part/footer-part.ejs") %>

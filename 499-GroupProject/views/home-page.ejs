@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col">
           <div class="dashboard-content" id="wallet-balance">
-            <p class="quick-link">Wallet Balance: <span id="walletBalance"></span> ريال</p>
+            <p class="quick-link" id="walletBalance"></p>
             <a href="/invest-options-page" class="quick-link" style="width: 300px;"> Investment Options</a>
             <a href="/my-invests-page" class="quick-link"> My Investments </a>
           </div>
@@ -54,5 +54,12 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/js/data.js"></script>
   <script src="/js/toggleSide.js"></script>
+
+  <script>
+    var g_walletBalance = parseFloat(localStorage.getItem("g_walletBalance"));
+
+    document.getElementById("walletBalance").innerText = "Wallet Balance: " + g_walletBalance.toFixed(2) + " ريال";
+  </script>
+
 </body>
 </html>

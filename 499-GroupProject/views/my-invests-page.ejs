@@ -15,7 +15,7 @@
 <body>
     <div class="main-content"> <!-- Central container for content -->
         <header>
-            <div class="wallet-balance" id="wallet-balance"><p>Wallet Balance: <span><%= g_walletBalance %></p></span></div>
+            <div class="wallet-balance" id="walletBalance"></div>
             <a href="/login-page" class="signout-link">Sign Out</a>
             <div>Initial value: $1000</div>
             <div>Current value: $1000</div>
@@ -28,8 +28,6 @@
     </div>
 
     <script>
-        var g_walletBalance = Number('<%- JSON.stringify(g_walletBalance) %>') + ' ريال';
-
         // Dummy data for investment analysis
         var investmentData = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -62,5 +60,12 @@
         var analysisLink = document.getElementById('analysis');
         analysisLink.innerHTML += '<a href="/InvestmentAnalysis">View Detailed Analysis</a>';
     </script>
+
+    <script>
+        var g_walletBalance = parseFloat(localStorage.getItem("g_walletBalance"));
+
+        document.getElementById("walletBalance").innerText = "Wallet Balance: " + g_walletBalance.toFixed(2) + " ريال";
+    </script>
+
 </body>
 </html>

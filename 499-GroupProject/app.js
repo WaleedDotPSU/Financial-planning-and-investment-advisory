@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { sendEmail } = require('./public/js/emailService');
 const User = require('./models/User');
+const Card = require('./models/Card');
 
 // Initialize Express app
 const app = express();
