@@ -1,7 +1,13 @@
 document.querySelector('.expand-menu').addEventListener('click', function() {
-  document.querySelector('.sidebar').style.width = '250px';
-});
+  const sidebar = document.querySelector('.sidebar');
+  const main = document.querySelector('main');
 
-document.querySelector('.sidebar').addEventListener('click', function() {
-  this.style.width = '0';
+  
+  if (sidebar.style.width === '0px') {
+      sidebar.style.width = '250px';
+      main.style.marginLeft = '250px';
+  } else{
+    sidebar.style.width = '0';
+    main.style.marginLeft = '0';
+  }
 });
