@@ -100,10 +100,22 @@ app.get('/options-page', (req, res) => {
 });
 
 // Render analytics page
+// app.get('/analytics-page', (req, res) => {
+//   const transactions = generateTransactions(10);
+//   const totalBalance = calculateTotalBalance(transactions);
+//   const numAccounts = calculateNumAccounts();
+
+//   res.render('analytics-page', {
+//     transactions: transactions,
+//     totalBalance: totalBalance,
+//     numAccounts: numAccounts,
+//   });
+// });
 app.get('/analytics-page', (req, res) => {
-  const transactions = generateTransactions(10);
+  // Example: Fetch transactions from a database or file storage
+  const transactions = getTransactionsFromStorage(); // This should be implemented to fetch from your storage solution
   const totalBalance = calculateTotalBalance(transactions);
-  const numAccounts = calculateNumAccounts();
+  const numAccounts = getUniqueBankAccounts(transactions);
 
   res.render('analytics-page', {
     transactions: transactions,
