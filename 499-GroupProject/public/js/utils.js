@@ -23,4 +23,3 @@ async function linkBankAccount(bankAccount) {
 }
 
 module.exports = { linkBankAccount };
-

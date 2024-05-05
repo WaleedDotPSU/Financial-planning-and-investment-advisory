@@ -1,5 +1,6 @@
 <!-- <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bank-link-page.css">
 </head>
+
 <body>
     <header>
         <h1>Add bank information: (Local Banks)</h1>
@@ -15,65 +17,16 @@
     <main>
         <form action="/submit-bank-info" method="post" id="bank-form">
             <label for="account-holder-name">Account Holder Name (as per ID):</label><br>
-            <input type="text" id="account-holder-name" name="account-holder-name" placeholder="e.g: Abdullah Ahmad" required pattern="[A-Za-z\s'.-]+" title="Cardholder name should contain letters only."><br><br>
+            <input type="text" id="account-holder-name" name="account-holder-name" placeholder="e.g: Abdullah Ahmad"
+                required pattern="[A-Za-z\s'.-]+" title="Cardholder name should contain letters only."><br><br>
 
             <label for="account-number">Account Number:</label><br>
-            <input type="text" id="account-number" name="account-number" placeholder="e.g: 1234 5678 9012 3456" required pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" title="Please enter Account Number"><br><br>
+            <input type="text" id="account-number" name="account-number" placeholder="e.g: 1234 5678 9012 3456" required
+                pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" title="Please enter Account Number"><br><br>
 
             <label for="iban">IBAN (International Bank Account Number):</label><br>
-            <input type="text" id="iban" name="iban" placeholder="e.g: SA1234567890123456789012" required pattern="[A-Za-z0-9]{20,34}" title="Please enter a valid IBAN."><br><br>
-
-            <label for="bank-name">Bank Name:</label><br>
-            <select id="bank-name" name="bank-name" required>
-                <option value="">Select Bank</option>
-                <option value="Al Rajhi Bank">Al Rajhi Bank</option>
-                <option value="Saudi British Bank (SABB)">Saudi British Bank (SABB)</option>
-                <option value="National Commercial Bank (NCB)">National Commercial Bank (NCB)</option>
-            </select><br><br>
-
-            <input type="submit" value="Submit">
-            <br><br>
-            <a href="/home-page" class="btn back-btn">Back to HomePage</a>
-        </form>
-    </main>
-
-<%- include("./part/footer-part.ejs") %>
-
-<script>
-    document.getElementById("bank-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent form submission
-        alert("Your bank account has been successfully linked!"); // Display success message
-        window.location.href = "/home-page"; // Redirect to another page
-    });
-</script>
-</body>
-</html> -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Bank Acc</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/bank-link-page.css">
-</head>
-<body>
-    <header>
-        <h1>Add bank information: (Local Banks)</h1>
-    </header>
-
-    <main>
-        <form action="/submit-bank-info" method="post" id="bank-form">
-            <label for="account-holder-name">Account Holder Name (as per ID):</label><br>
-            <input type="text" id="account-holder-name" name="account-holder-name" placeholder="e.g: Abdullah Ahmad" required pattern="[A-Za-z\s'.-]+" title="Cardholder name should contain letters only."><br><br>
-
-            <label for="account-number">Account Number:</label><br>
-            <input type="text" id="account-number" name="account-number" placeholder="e.g: 1234 5678 9012 3456" required pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" title="Please enter Account Number"><br><br>
-
-            <label for="iban">IBAN (International Bank Account Number):</label><br>
-            <input type="text" id="iban" name="iban" placeholder="e.g: SA1234567890123456789012" required pattern="[A-Za-z0-9]{20,34}" title="Please enter a valid IBAN."><br><br>
+            <input type="text" id="iban" name="iban" placeholder="e.g: SA1234567890123456789012" required
+                pattern="[A-Za-z0-9]{20,34}" title="Please enter a valid IBAN."><br><br>
 
             <label for="bank-name">Bank Name:</label><br>
             <select id="bank-name" name="bank-name" required>
@@ -91,19 +44,57 @@
 
     <%- include("./part/footer-part.ejs") %>
 
-    <!-- Link to the external JavaScript file -->
-    <script src="/js/LinkBankAccount.js"></script>
+        <script>
+            document.getElementById("bank-form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+                alert("Your bank account has been successfully linked!"); // Display success message
+                window.location.href = "/home-page"; // Redirect to another page
+            });
+        </script>
+</body>
 
-    <!-- Inline JavaScript to trigger the bank linking -->
-    <script>
-        document.getElementById("bank-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission
-            const bankName = document.getElementById("bank-name").value;
-            linkBankAccount(bankName); // Generate transactions for this bank
+</html> -->
 
-            alert("Your bank account has been successfully linked!");
-            window.location.href = "/home-page"; // Redirect to another page
-        });
-    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Bank Account</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bank-link-page.css">
+</head>
+<body>
+    <header>
+        <h1>Add bank information: (Local Banks)</h1>
+    </header>
+
+    <main>
+        <form action="/link-bank-account" method="post" id="bank-form">
+            <label for="account-holder-name">Account Holder Name (as per ID):</label><br>
+            <input type="text" id="account-holder-name" name="account-holder-name" placeholder="e.g: Abdullah Ahmad"
+                   required pattern="[A-Za-z\s'.-]+" title="Cardholder name should contain letters only."><br><br>
+
+            <label for="account-number">Account Number:</label><br>
+            <input type="text" id="account-number" name="account-number" placeholder="e.g: 1234 5678 9012 3456" required
+                   pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" title="Please enter Account Number"><br><br>
+
+            <label for="iban">IBAN:</label><br>
+            <input type="text" id="iban" name="iban" placeholder="e.g: SA1234567890123456789012" required
+                   pattern="[A-Za-z0-9]{20,34}" title="Please enter a valid IBAN."><br><br>
+
+            <label for="bank-name">Bank Name:</label><br>
+            <select id="bank-name" name="bankAccount" required>
+                <option value="">Select Bank</option>
+                <option value="Al Rajhi Bank">Al Rajhi Bank</option>
+                <option value="Saudi British Bank (SABB)">Saudi British Bank (SABB)</option>
+                <option value="National Commercial Bank (NCB)">National Commercial Bank (NCB)</option>
+            </select><br><br>
+
+            <input type="submit" value="Submit">
+            <br><br>
+            <a href="/home-page" class="btn back-btn">Back to HomePage</a>
+        </form>
+    </main>
 </body>
 </html>

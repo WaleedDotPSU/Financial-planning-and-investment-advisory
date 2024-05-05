@@ -13,6 +13,11 @@ const app = express();
 // Initialize Global variable
 const g_walletBalance = 1000;
 
+//For Transactions
+const Transaction = require('./models/Transaction'); 
+const { linkBankAccount } = require('./public/js/utils'); 
+
+
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
 
@@ -98,56 +103,6 @@ app.get('/my-invests-page', (req, res) => {
 app.get('/options-page', (req, res) => {
   res.render('options-page');
 });
-
-// Render analytics page
-// app.get('/analytics-page', (req, res) => {
-//   const transactions = generateTransactions(10);
-//   const totalBalance = calculateTotalBalance(transactions);
-//   const numAccounts = calculateNumAccounts();
-
-//   res.render('analytics-page', {
-//     transactions: transactions,
-//     totalBalance: totalBalance,
-//     numAccounts: numAccounts,
-//   });
-// });
-const Transaction = require('./models/Transaction'); // Adjust the path as needed
-const { linkBankAccount } = require('./public/js/utils'); // Adjust the path as needed
-
-app.post('/link-bank-account', async (req, res) => {
-    const { bankAccount } = req.body;
-
-    await linkBankAccount(bankAccount);
-
-    // Redirect or send a success response
-    res.redirect('/analytics-page');
-});
-
-app.get('/analytics-page', async (req, res) => {
-    const transactions = await Transaction.find().lean(); // Fetch all transactions
-    const totalBalance = transactions.reduce((sum, t) => sum + t.amount, 0).toFixed(2);
-    const numAccounts = new Set(transactions.map(t => t.bankAccount)).size;
-
-    res.render('analytics-page', {
-        transactions,
-        totalBalance,
-        numAccounts,
-    });
-});
-
-// // Render analytics page
-// app.get('/analytics-page', (req, res) => {
-//   const transactions = generateMockTransactions();
-//   const totalBalance = calculateTotalBalance(transactions);
-//   const numAccounts = getUniqueBankAccounts(transactions);
-
-//   res.render('analytics-page', {
-//       transactions: transactions,
-//       totalBalance: totalBalance,
-//       numAccounts: numAccounts,
-//   });
-// });
-/// Handles ///
 
 // Handle login
 app.post('/login', async (req, res) => {
@@ -238,48 +193,132 @@ app.use((req, res) => {
   res.status(404).render('error-page');
 });
 
+
+// Handle withdraw
+// app.post('/withdraw-page', (req, res) => {
+//   res.redirect('/home-page');
+// });
+
 /// Functions ///
+// HERE'S EVERYTHING ABOUT THE analytics-page
+// Render analytics page
+// app.get('/analytics-page', (req, res) => {
+//   const transactions = generateTransactions(10);
+//   const totalBalance = calculateTotalBalance(transactions);
+//   const numAccounts = calculateNumAccounts();
+
+//   res.render('analytics-page', {
+//     transactions: transactions,
+//     totalBalance: totalBalance,
+//     numAccounts: numAccounts,
+//   });
+// });
+
+// const Transaction = require('./models/Transaction'); 
+// const { linkBankAccount } = require('./public/js/utils'); 
+
+
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded form data
+
+// Route to handle linking a bank account
+app.post('/link-bank-account', async (req, res) => {
+    const { bankAccount, 'account-holder-name': holderName, 'account-number': accountNumber, iban } = req.body;
+
+    // This function will generate and store transactions
+    await linkBankAccount(bankAccount);
+
+    // Redirect to the analytics page after linking bank account
+    res.redirect('/analytics-page');
+});
+
+// Route to display analytics page
+app.get('/analytics-page', async (req, res) => {
+    const transactions = await Transaction.find().lean(); // Fetch all transactions from DB
+    const totalBalance = transactions.reduce((sum, t) => sum + t.amount, 0).toFixed(2);
+    const numAccounts = new Set(transactions.map(t => t.bankAccount)).size;
+
+    res.render('analytics-page', {
+        transactions,
+        totalBalance,
+        numAccounts,
+    });
+});
+
+
+// app.post('/link-bank-account', async (req, res) => {
+//     const { bankAccount } = req.body;
+
+//     await linkBankAccount(bankAccount);
+
+//     // Redirect or send a success response
+//     res.redirect('/analytics-page');
+// });
+
+// app.get('/analytics-page', async (req, res) => {
+//     const transactions = await Transaction.find().lean(); // Fetch all transactions
+//     const totalBalance = transactions.reduce((sum, t) => sum + t.amount, 0).toFixed(2);
+//     const numAccounts = new Set(transactions.map(t => t.bankAccount)).size;
+
+//     res.render('analytics-page', {
+//         transactions,
+//         totalBalance,
+//         numAccounts,
+//     });
+// });
+
+// // Render analytics page
+// app.get('/analytics-page', (req, res) => {
+//   const transactions = generateMockTransactions();
+//   const totalBalance = calculateTotalBalance(transactions);
+//   const numAccounts = getUniqueBankAccounts(transactions);
+
+//   res.render('analytics-page', {
+//       transactions: transactions,
+//       totalBalance: totalBalance,
+//       numAccounts: numAccounts,
+//   });
+// });
 
 // Generate mock transaction data
-function generateTransactions(numTransactions) {
-  const transactions = [];
+// function generateTransactions(numTransactions) {
+//   const transactions = [];
 
-  for (let i = 0; i < numTransactions; i++) {
-    const transaction = {
-      date: new Date(
-      new Date() - Math.floor(Math.random() * 365) * 24 * 60 * 60 * 1000),
-      description: `Transaction ${i}`,
-      amount: (Math.random() * 2000 - 1000).toFixed(2),
-    };
+//   for (let i = 0; i < numTransactions; i++) {
+//     const transaction = {
+//       date: new Date(
+//       new Date() - Math.floor(Math.random() * 365) * 24 * 60 * 60 * 1000),
+//       description: `Transaction ${i}`,
+//       amount: (Math.random() * 2000 - 1000).toFixed(2),
+//     };
 
-    transactions.push(transaction);
-  }
-  return transactions;
-}
+//     transactions.push(transaction);
+//   }
+//   return transactions;
+// }
 
 // Generate mock account information
-function generateAccountInfo() {
-  return {
-    account_number: '123456789',
-    iban: 'GB29 NWBK 6016 1331 9268 19',
-    balance: (Math.random() * 9000 + 1000).toFixed(2),
-  };
-}
+// function generateAccountInfo() {
+//   return {
+//     account_number: '123456789',
+//     iban: 'GB29 NWBK 6016 1331 9268 19',
+//     balance: (Math.random() * 9000 + 1000).toFixed(2),
+//   };
+// }
 
-// Calculate total balance from transactions
-function calculateTotalBalance(transactions) {
-  let total = 0;
+// // Calculate total balance from transactions
+// function calculateTotalBalance(transactions) {
+//   let total = 0;
   
-  transactions.forEach((transaction) => {
-    total += parseFloat(transaction.amount);
-  });
-  return total.toFixed(2);
-}
+//   transactions.forEach((transaction) => {
+//     total += parseFloat(transaction.amount);
+//   });
+//   return total.toFixed(2);
+// }
 
-// Calculate number of accounts
-function calculateNumAccounts() {
-  return 5;
-}
+// // Calculate number of accounts
+// function calculateNumAccounts() {
+//   return 5;
+// }
 
 // Start the server
 mongoose.connect(process.env.MONGO_URI)
