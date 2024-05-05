@@ -11,9 +11,8 @@
   <link rel="stylesheet" href="css-reset.css">
   <!-- Add your custom CSS file -->
   <link rel="stylesheet" href="css/payment.css">
-  <link rel="stylesheet" href="css/investments-management.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  
 </head>
 <body class="background">
   <div>
@@ -23,26 +22,23 @@
       </nav>
     </header>
 
-    <aside class="sidebar">
-      <ul class="menu">
-        <li class="Li"><a href="/deposit-page">Deposit</a></li>
-        <li class="Li"><a href="/withdraw-page">Withdraw</a></li>
-        <li class="Li"><a href="/bank-link-page">Link Bank</a></li>
-        <li class="Li"><a href="/login-page">Sign Out</a></li>
-      </ul>
-    </aside>
+    
 
     <main>
       <section>
         <article>
           <div class="container">
             <h2 class="center">Transfer to Invest</h2>
+            
             <form action="/submit-transfer" method="post" id="transfer-form">
               <p class="center">How Much % From Your Wallet You Will Lay Down</p>
-              <input type="number" id="percentage" name="percentage" min="0" max="100" required class="larger-input"> <br><br>
-              <input type="submit" value="Transfer" class="center larger-button">
+              <div class="input-wrapper center"> <!-- Add a wrapper div -->
+                <input type="number" id="percentage" name="percentage" min="0" max="100" required class="larger-input"> <br><br>
+                <input type="submit" value="Transfer" class="larger-button">
+              </div>
             </form>
-            <a href="/options-page" class="center"><button>Back</button></a>
+            
+            <a href="/options-page" class="B1"><button>Back</button></a>
           </div>
         </article>
       </section>

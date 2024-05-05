@@ -1,65 +1,7 @@
-/* Reset and Base Styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0a1931; /* Dark blue background */
-  animation: oceanBackground 20s infinite alternate; /* Animation for shifting background colors */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-@keyframes oceanBackground {
-  0% {
-    background-color: #0a1931; /* Dark blue */
-  }
-  50% {
-    background-color: #0d2646; /* Medium blue */
-  }
-  100% {
-    background-color: #0056b3; /* Light blue */
-  }
-}
-
-/* Centered Styles */
-.center {
-  text-align: center;
-}
-
-/* Sidebar Styles */
-.sidebar {
-  width: 0;
-  height: 100%;
-  background-color: #073c76;
-  position: fixed;
-  top: 0;
-  right: 0;
-  overflow-x: hidden;
-  transition: width 0.5s ease;
-}
-
-/* Menu Styles */
-.menu {
-  list-style-type: none;
-  padding: 0;
-}
-
-.menu li {
-  margin: 35px; 
-  color: #fff;
-}
-
-/* Main Content Styles */
-main {
-  text-align: center;
-}
-
 /* Container Styles */
 .container {
-  border: #2666ab;
-  background-color: #144273; /* Slightly brighter container color */
+  border: gray;
+  background-color: white; /* Slightly brighter container color */
   width: 90%;
   max-width: 500px;
   margin: 20px auto;
@@ -73,26 +15,28 @@ main {
   padding: 20px;
 }
 
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/* Centered Styles */
+.center {
+  text-align: center;
+  margin: 30px;
+  
 }
 
-/* Footer Styles */
-footer {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
+
+
+
+/* Center the input and button */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Header Styles */
-header {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-}
+
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;}
