@@ -111,19 +111,42 @@ app.get('/options-page', (req, res) => {
 //     numAccounts: numAccounts,
 //   });
 // });
-app.get('/analytics-page', (req, res) => {
-  // Example: Fetch transactions from a database or file storage
-  const transactions = getTransactionsFromStorage(); // This should be implemented to fetch from your storage solution
-  const totalBalance = calculateTotalBalance(transactions);
-  const numAccounts = getUniqueBankAccounts(transactions);
+const Transaction = require('./models/Transaction'); // Adjust the path as needed
+const { linkBankAccount } = require('./public/js/utils'); // Adjust the path as needed
 
-  res.render('analytics-page', {
-    transactions: transactions,
-    totalBalance: totalBalance,
-    numAccounts: numAccounts,
-  });
+app.post('/link-bank-account', async (req, res) => {
+    const { bankAccount } = req.body;
+
+    await linkBankAccount(bankAccount);
+
+    // Redirect or send a success response
+    res.redirect('/analytics-page');
 });
 
+app.get('/analytics-page', async (req, res) => {
+    const transactions = await Transaction.find().lean(); // Fetch all transactions
+    const totalBalance = transactions.reduce((sum, t) => sum + t.amount, 0).toFixed(2);
+    const numAccounts = new Set(transactions.map(t => t.bankAccount)).size;
+
+    res.render('analytics-page', {
+        transactions,
+        totalBalance,
+        numAccounts,
+    });
+});
+
+// // Render analytics page
+// app.get('/analytics-page', (req, res) => {
+//   const transactions = generateMockTransactions();
+//   const totalBalance = calculateTotalBalance(transactions);
+//   const numAccounts = getUniqueBankAccounts(transactions);
+
+//   res.render('analytics-page', {
+//       transactions: transactions,
+//       totalBalance: totalBalance,
+//       numAccounts: numAccounts,
+//   });
+// });
 /// Handles ///
 
 // Handle login

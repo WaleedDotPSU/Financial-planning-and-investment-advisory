@@ -45,59 +45,27 @@
 <body>
     <div class="balance-box">
         <h2>Total Balance</h2>
-        <p id="total-balance"></p>
+        <p><%= totalBalance %></p>
     </div>
 
     <div class="account-info-box">
         <h2>Account Information</h2>
-        <p id="num-accounts"></p>
+        <p>Number of Accounts: <%= numAccounts %></p>
     </div>
 
     <div class="transactions-box">
         <h1>Transaction History</h1>
-        <ul id="transaction-list"></ul>
+        <ul>
+            <% transactions.forEach(transaction => { %>
+                <li>
+                    <strong>Date:</strong> <%= transaction.date %><br>
+                    <strong>Description:</strong> <%= transaction.description %><br>
+                    <strong>Amount:</strong> <%= transaction.amount %><br>
+                    <strong>Category:</strong> <%= transaction.category %><br>
+                    <strong>Bank:</strong> <%= transaction.bank %>
+                </li>
+            <% }); %>
+        </ul>
     </div>
-
-    <script>
-        // Function to get all transactions from localStorage
-        function getAllTransactions() {
-            return JSON.parse(localStorage.getItem("allTransactions")) || [];
-        }
-
-        // Function to calculate the total balance
-        function calculateTotalBalance(transactions) {
-            let total = 0;
-            transactions.forEach((transaction) => {
-                total += parseFloat(transaction.amount);
-            });
-            return total.toFixed(2);
-        }
-
-        // Function to get the number of unique bank accounts
-        function getUniqueBankAccounts(transactions) {
-            const bankSet = new Set(transactions.map(transaction => transaction.bank));
-            return bankSet.size;
-        }
-
-        // Populate the analytical page
-        document.addEventListener("DOMContentLoaded", function() {
-            const transactions = getAllTransactions();
-            document.getElementById("total-balance").innerText = calculateTotalBalance(transactions);
-            document.getElementById("num-accounts").innerText = `Number of Accounts: ${getUniqueBankAccounts(transactions)}`;
-
-            const transactionList = document.getElementById("transaction-list");
-            transactions.forEach(transaction => {
-                const listItem = document.createElement("li");
-                listItem.innerHTML = `
-                    <strong>Date:</strong> ${transaction.date}<br>
-                    <strong>Description:</strong> ${transaction.description}<br>
-                    <strong>Amount:</strong> ${transaction.amount}<br>
-                    <strong>Category:</strong> ${transaction.category}<br>
-                    <strong>Bank:</strong> ${transaction.bank}
-                `;
-                transactionList.appendChild(listItem);
-            });
-        });
-    </script>
 </body>
 </html>
