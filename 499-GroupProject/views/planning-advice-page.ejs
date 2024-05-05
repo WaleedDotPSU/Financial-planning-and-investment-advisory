@@ -9,166 +9,177 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Get Your Plan To succes Page</h1>
+    <header>
+        <a href="#" class="logo">Your Logo</a>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Get Your Plan To Success Page</h1>
+            
+            <section id="advisory-section">
+                <h2>Risk Assessment</h2>
+                <form id="risk-assessment-form" class="form-group">
+                    <label for="investment-goal">How much do you want to gain from your investment?</label>
+                    <input type="number" id="investment-goal" name="investment-goal">
+                    
+                    <label for="time-horizon">What is your estimated time horizon for this investment?</label>
+                    <div style="display: flex;">
+                        <select id="time-horizon-quantity" style="flex: 1;">
+                            <option value="1">1</option>
+                            <!-- Add options for 2 to 100 -->
+                            <!-- You can use a loop to generate options, but for simplicity, I'm writing out options from 2 to 100 -->
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <!-- More options up to 100 -->
+                            <option value="100">100</option>
+                        </select>
+                        <select id="time-horizon-unit" style="flex: 1;">
+                            <option value="weeks">Weeks</option>
+                            <option value="months">Months</option>
+                            <option value="years">Years</option>
+                        </select>
+                    </div>
+
+                    <label for="investment-amount">How much money are you willing to invest?</label>
+                    <input type="number" id="investment-amount" name="investment-amount">
+                    
+                    <div class="button-group">
+                        <button type="submit">Get Advice</button>
+                        <button type="button" id="reset-button">Reset</button>
+                    </div>
+                </form>
+                
+                <div><a href="/home-page"><button>Back To Home Page</button></a></div>
+                <div id="advisory-result">
+                    <!-- Advisory recommendation will appear here -->
+                </div>
+            </section>
+
+            <section id="planning-section" style="display: none;">
+                <h2>Investment Planner</h2>
+                
+                <div id="investment-allocation" style="display: none;">
+                    <!-- Investment allocation details will appear here -->
+                </div>
+
+                <canvas id="investment-chart" width="400" height="200" style="display: none;"></canvas>
+            </section>
+        </div>
+    </main>
+
+    <script>document.getElementById('risk-assessment-form').addEventListener('submit', function(event) {
+        event.preventDefault();
     
-    <section id="advisory-section">
-        <h2>Risk Assessment</h2>
-        <form id="risk-assessment-form">
-            <label for="investment-goal">How much do you want to gain from your investment?</label>
-            <input type="number" id="investment-goal" name="investment-goal">
-            
-            <label for="time-horizon">What is your estimated time horizon for this investment?</label>
-            <select id="time-horizon-unit">
-                <option value="weeks">Weeks</option>
-                <option value="months">Months</option>
-                <option value="years">Years</option>
-            </select>
-            <select id="time-horizon-quantity">
-                <option value="1">1</option>
-                <!-- Add options for 2 to 100 -->
-                <!-- You can use a loop to generate options, but for simplicity, I'm writing out options from 2 to 100 -->
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <!-- More options up to 100 -->
-                <option value="100">100</option>
-            </select>
-
-            <label for="investment-amount">How much money are you willing to invest?</label>
-            <input type="number" id="investment-amount" name="investment-amount">
-            
-            <button type="submit">Get Advice</button>
-            <button type="button" id="reset-button">Reset</button>
-        </form>
-        
-        <div><a href="/home-page"><button>Back To home Page</button></a></div>
-        <div id="advisory-result">
-            <!-- Advisory recommendation will appear here -->
-        </div>
-    </section>
-
-    <section id="planning-section" style="display: none;">
-        <h2>Investment Planner</h2>
-        
-        <div id="investment-allocation" style="display: none;">
-            <!-- Investment allocation details will appear here -->
-        </div>
-
-        <canvas id="investment-chart" width="400" height="200" style="display: none;"></canvas>
-    </section>
-
-    <script>
-        document.getElementById('risk-assessment-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Clear previous data
-            document.getElementById('investment-allocation').innerHTML = '';
-            document.getElementById('investment-chart').style.display = 'none';
-
-            // Get user inputs
-            const investmentGoal = parseFloat(document.getElementById('investment-goal').value);
-            const timeHorizonUnit = document.getElementById('time-horizon-unit').value;
-            const timeHorizonQuantity = parseInt(document.getElementById('time-horizon-quantity').value);
-            const investmentAmount = parseFloat(document.getElementById('investment-amount').value);
-
-            if (isNaN(investmentGoal) || isNaN(investmentAmount)) {
-                alert("Please enter valid numbers for investment goal and amount.");
-                return;
-            }
-
-            // Convert time horizon to years, months, or weeks
-            let timeHorizonLabel;
-            let timeGranularity;
-            if (timeHorizonUnit === 'years') {
-                timeHorizonLabel = 'Month';
-                timeGranularity = 12;
-            } else if (timeHorizonUnit === 'months') {
-                timeHorizonLabel = 'Week';
-                timeGranularity = 4;
-            } else {
-                timeHorizonLabel = 'Day';
-                timeGranularity = 7;
-            }
-
-            // Show the planning section
-            document.getElementById('planning-section').style.display = 'block';
-
-            // Display investment allocation
-            displayAdvice(investmentGoal, investmentAmount);
-
-            // Generate chart data
-            const chartLabels = Array.from({ length: timeHorizonQuantity * timeGranularity + 1 }, (_, index) => `${timeHorizonLabel} ${index}`);
-            const chartData = {
-                labels: chartLabels,
-                datasets: [{
-                    label: 'Growth Over Time',
-                    data: generateChartData(investmentAmount, timeHorizonQuantity, timeGranularity, investmentGoal),
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            };
-
-            // Render chart
-            renderChart(chartData);
-        });
-
-        document.getElementById('reset-button').addEventListener('click', function() {
-            // Reload the page
-            window.location.reload();
-        });
-
-        function displayAdvice(goal, amount) {
-            let allocation = '';
-            let riskLevels = '';
-
-            if (amount >= 10000) {
-                allocation = '70% stocks, 20% real estate, 10% other assets';
-                riskLevels = 'High risk stocks, High risk real estate, Low risk other assets';
-            } else if (amount >= 5000) {
-                allocation = '50% stocks, 30% real estate, 20% other assets';
-                riskLevels = 'Medium risk stocks, Medium risk real estate, Low risk other assets';
-            } else {
-                allocation = '30% stocks, 40% real estate, 30% other assets';
-                riskLevels = 'Low risk stocks, High risk real estate, Low risk other assets';
-            }
-
-            // Display investment allocation with risk levels
-            document.getElementById('investment-allocation').innerHTML = `<p>Your investment goal is to gain $${goal}. Your investment allocation: ${allocation}.<br>Risk Levels: ${riskLevels}</p>`;
-            document.getElementById('investment-allocation').style.display = 'block';
+        // Clear previous data
+        document.getElementById('investment-allocation').innerHTML = '';
+        document.getElementById('investment-chart').style.display = 'none';
+    
+        // Get user inputs
+        const investmentGoal = parseFloat(document.getElementById('investment-goal').value);
+        const timeHorizonUnit = document.getElementById('time-horizon-unit').value;
+        const timeHorizonQuantity = parseInt(document.getElementById('time-horizon-quantity').value);
+        const investmentAmount = parseFloat(document.getElementById('investment-amount').value);
+    
+        if (isNaN(investmentGoal) || isNaN(investmentAmount)) {
+            alert("Please enter valid numbers for investment goal and amount.");
+            return;
         }
-
-        function renderChart(data) {
-            const ctx = document.getElementById('investment-chart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: data,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Investment Amount ($)'
-                            }
+    
+        // Convert time horizon to years, months, or weeks
+        let timeHorizonLabel;
+        let timeGranularity;
+        if (timeHorizonUnit === 'years') {
+            timeHorizonLabel = 'Month';
+            timeGranularity = 12;
+        } else if (timeHorizonUnit === 'months') {
+            timeHorizonLabel = 'Week';
+            timeGranularity = 4;
+        } else {
+            timeHorizonLabel = 'Day';
+            timeGranularity = 7;
+        }
+    
+        // Show the planning section
+        document.getElementById('planning-section').style.display = 'block';
+    
+        // Display investment allocation
+        displayAdvice(investmentGoal, investmentAmount);
+    
+        // Generate chart data
+        const chartLabels = Array.from({ length: timeHorizonQuantity * timeGranularity + 1 }, (_, index) => `${timeHorizonLabel} ${index}`);
+        const chartData = {
+            labels: chartLabels,
+            datasets: [{
+                label: 'Growth Over Time',
+                data: generateChartData(investmentAmount, timeHorizonQuantity, timeGranularity, investmentGoal),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+    
+        // Render chart
+        renderChart(chartData);
+    });
+    
+    document.getElementById('reset-button').addEventListener('click', function() {
+        // Reload the page
+        window.location.reload();
+    });
+    
+    function displayAdvice(goal, amount) {
+        let allocation = '';
+        let riskLevels = '';
+    
+        if (amount >= 10000) {
+            allocation = '70% stocks, 20% real estate, 10% other assets';
+            riskLevels = 'High risk stocks, High risk real estate, Low risk other assets';
+        } else if (amount >= 5000) {
+            allocation = '50% stocks, 30% real estate, 20% other assets';
+            riskLevels = 'Medium risk stocks, Medium risk real estate, Low risk other assets';
+        } else {
+            allocation = '30% stocks, 40% real estate, 30% other assets';
+            riskLevels = 'Low risk stocks, High risk real estate, Low risk other assets';
+        }
+    
+        // Display investment allocation with risk levels
+        document.getElementById('investment-allocation').innerHTML = `<p>Your investment goal is to gain $${goal}. Your investment allocation: ${allocation}.<br>Risk Levels: ${riskLevels}</p>`;
+        document.getElementById('investment-allocation').style.display = 'block';
+    }
+    
+    function renderChart(data) {
+        const ctx = document.getElementById('investment-chart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Investment Amount ($)'
                         }
                     }
                 }
-            });
-
-            // Show the chart
-            document.getElementById('investment-chart').style.display = 'block';
-        }
-
-        function generateChartData(investmentAmount, timeHorizonQuantity, timeGranularity, investmentGoal) {
-            const growthRate = (investmentGoal - investmentAmount) / (timeHorizonQuantity * timeGranularity);
-            let currentValue = investmentAmount;
-            const data = [];
-            for (let i = 0; i <= timeHorizonQuantity * timeGranularity; i++) {
-                data.push(currentValue);
-                currentValue += growthRate;
             }
-            return data;
+        });
+    
+        // Show the chart
+        document.getElementById('investment-chart').style.display = 'block';
+    }
+    
+    function generateChartData(investmentAmount, timeHorizonQuantity, timeGranularity, investmentGoal) {
+        const growthRate = (investmentGoal - investmentAmount) / (timeHorizonQuantity * timeGranularity);
+        let currentValue = investmentAmount;
+        const data = [];
+        for (let i = 0; i <= timeHorizonQuantity * timeGranularity; i++) {
+            data.push(currentValue);
+            currentValue += growthRate;
         }
+        return data;
+    }
     </script>
 </body>
 </html>
