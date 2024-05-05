@@ -19,7 +19,9 @@
           <label for="confirmation-checkbox" class="withdraw-label">I confirm this withdrawal</label>
           <input id="confirmation-checkbox" type="checkbox" required name="confirmation" class="withdraw-checkbox">
           </div>
-          <button type="submit" class="btn withdraw-btn">Withdraw</button>
+          <!-- <button type="submit" class="btn withdraw-btn">Withdraw</button> -->
+          <button type="button" class="btn withdraw-btn btn-block" onclick="withdrawMoney()">Withdraw</button>
+
           <a href="/home-page" class="btn back-btn">Back to Homepage</a>
         </fieldset>
       </form>
@@ -31,6 +33,8 @@
 
     document.getElementById("walletBalance").innerText = "Wallet Balance: " + g_walletBalance.toFixed(2) + " ريال";
   </script>
+
+<script src="/js/balanceUpdate.js"></script>
 
   <script src="/js/walletScript.js"></script>
   <%- include("./part/footer-part.ejs") %>
