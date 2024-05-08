@@ -324,7 +324,7 @@ app.get('/analytics-page', async (req, res) => {
 
 
 //openai things
-const configuration = new Configuration({apiKey:process.env.OPEN_AI_KEY,})
+const configuration = new Configuration({apiKey:process.env.OPEN_AI_KEY,});
 
 // Start the server
 mongoose.connect(process.env.MONGO_URI)
