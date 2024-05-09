@@ -6,9 +6,7 @@ const bodyParser = require('body-parser');
 const { sendEmail } = require('./public/js/emailService');
 const User = require('./models/User');
 const Card = require('./models/Card');
-//openai chatgpt
 
-//const {Configuration,OpenAIApi}= require("openai");
 
 // Initialize Express app
 const app = express();
@@ -330,8 +328,6 @@ app.get('/analytics-page', async (req, res) => {
 // }
 
 
-//openai things
-//const configuration = new Configuration({apiKey:process.env.OPEN_AI_KEY,});
 
 // Start the server
 mongoose.connect(process.env.MONGO_URI)
