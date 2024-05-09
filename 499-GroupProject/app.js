@@ -52,6 +52,10 @@ app.get('/login-page', (req, res) => {
 app.get('/ai-page', (req, res) => {
   res.render('ai-page', { message: '' });
 });
+// back-up ai page
+app.get('/ai2-page', (req, res) => {
+  res.render('ai2-page', { message: '' });
+});
 
 // Render signup page
 app.get('/signup-page', (req, res) => {
