@@ -6,33 +6,57 @@
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- site specific tags -->
-  <title></title>
+  <title>Ask Your AI</title>
   <!-- style sheets -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/ai-page.css">
-  <!-- javascript files -->
-  <script src=".js"></script>
 </head>
 <body>
   <header>
-    
-    <p>Ask Your Ai</p>
+    <p>Ask Your AI</p>
   </header>
   <main>
     <section>
-        <textarea name="answer" id="answer-ai"></textarea>
+        <!-- Display AI responses here -->
+        <div id="ai-responses"></div>
     </section>
     <section>
-<input type="text" name="ask" id="ask-ai">
+        <!-- Input field for user's question -->
+        <input type="text" name="ask" id="ask-ai" placeholder="Ask your question...">
+        <!-- Button to submit user's question -->
+        <button onclick="askAI()">Submit</button>
     </section>
-
     <section>
-        <a href="/home-page"><button>Back</button></a>
-        
+        <!-- Link to go back to home page -->
+        <a href="/home-page">Back</a>
     </section>
   </main>
   <footer>
-    
+    <!-- JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      // Function to send request to AI and display response
+      function askAI() {
+        var question = document.getElementById("ask-ai").value;
+        var aiResponses = document.getElementById("ai-responses");
+        
+        // Make AJAX request to server to get AI response
+        $.ajax({
+          type: "POST",
+          url: "/ask-ai",
+          data: { ask: question },
+          success: function(response) {
+            aiResponses.innerHTML += "<p>User: " + question + "</p>";
+            aiResponses.innerHTML += "<p>AI: " + response.message + "</p>";
+            document.getElementById("ask-ai").value = ""; // Clear input field
+          },
+          error: function(xhr, status, error) {
+            console.error("Error:", error);
+            aiResponses.innerHTML += "<p>Sorry, something went wrong.</p>";
+          }
+        });
+      }
+    </script>
   </footer>
 </body>
 </html>
