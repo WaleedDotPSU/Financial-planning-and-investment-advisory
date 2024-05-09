@@ -20,7 +20,7 @@ const { linkBankAccount } = require('./public/js/utils');
 
 
 // Set up OpenAI with API key from environment variable
-const openai = new OpenAI(process.env.OPENAI_API_KEY); // Update this line
+const openai = new OpenAI(process.env.OPENAI_API_KEY); 
 
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -204,6 +204,11 @@ app.use((req, res) => {
 
 
 // Route to handle AI chat
+
+
+
+
+
 app.post('/ask-ai', async (req, res) => {
   const { ask } = req.body;
 

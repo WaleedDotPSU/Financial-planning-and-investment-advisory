@@ -32,31 +32,35 @@
     </section>
   </main>
   <footer>
-    <!-- JavaScript files -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      // Function to send request to AI and display response
-      function askAI() {
-        var question = document.getElementById("ask-ai").value;
-        var aiResponses = document.getElementById("ai-responses");
-        
-        // Make AJAX request to server to get AI response
-        $.ajax({
-          type: "POST",
-          url: "/ask-ai",
-          data: { ask: question },
-          success: function(response) {
-            aiResponses.innerHTML += "<p>User: " + question + "</p>";
-            aiResponses.innerHTML += "<p>AI: " + response.message + "</p>";
-            document.getElementById("ask-ai").value = ""; // Clear input field
-          },
-          error: function(xhr, status, error) {
-            console.error("Error:", error);
-            aiResponses.innerHTML += "<p>Sorry, something went wrong.</p>";
-          }
-        });
+   <!-- JavaScript files -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  // Function to send request to AI and display response
+  function askAI() {
+    var question = document.getElementById("ask-ai").value;
+    var aiResponses = document.getElementById("ai-responses");
+
+    console.log("Question:", question); // Debugging: Log user's question
+
+    // Make AJAX request to server to get AI response
+    $.ajax({
+      type: "POST",
+      url: "/ask-ai",
+      data: { ask: question },
+      success: function(response) {
+        console.log("Response:", response); // Debugging: Log AI response
+        aiResponses.innerHTML += "<p>User: " + question + "</p>";
+        aiResponses.innerHTML += "<p>AI: " + response.message + "</p>";
+        document.getElementById("ask-ai").value = ""; // Clear input field
+      },
+      error: function(xhr, status, error) {
+        console.error("Error:", error);
+        aiResponses.innerHTML += "<p>Sorry, something went wrong.</p>";
       }
-    </script>
+    });
+  }
+</script>
+
   </footer>
 </body>
 </html>
