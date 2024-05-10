@@ -9,28 +9,6 @@ const User = require('./models/User');
 const Card = require('./models/Card');
 
 
-//ADDED
-const fs = require('fs');
-const faker = require('faker');
-const Transaction = require('./models/Transaction');
-
-// Route to display transactions
-app.get('/transactions', (req, res) => {
-  fs.readFile('transactions.json', 'utf8', (err, data) => {
-      if (err) {
-          console.error(err);
-          res.status(500).send('Error reading transactions data.');
-          return;
-      }
-      const transactions = JSON.parse(data);
-      res.render('transactions', { transactions: transactions });
-  });
-});
-//DO I NEED TO ADD IT?
-//app.set('views', 'views');  // Ensure your EJS files are in a folder named 'views'
-//
-//
-
 // Initialize Express app
 const app = express();
 

@@ -30,166 +30,190 @@ const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
 // Route to display transactions
 app.get('/analytics-page', (req, res) => {
-  fs.readFile('transactions.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Error reading transactions data.');
-      return;
-    }
-    const transactions = JSON.parse(data);
-    res.render('analytics-page', { transactions: transactions });
-  });
+    fs.readFile('transactions.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error reading transactions data.');
+            return;
+        }
+        const transactions = JSON.parse(data);
+        res.render('analytics-page', { transactions: transactions });
+    });
 });
 
-// More Routes
+// Route to handle bank account linking and transaction generation
+app.post('/link-bank-account', async (req, res) => {
+    const bankAccount = req.body.bankAccount;
+    try {
+        // Generate 10 random transactions for the linked bank account
+        let transactions = [];
+        for (let i = 0; i < 10; i++) {
+            const newTransaction = new Transaction({
+                bankAccount: bankAccount, // Use the bank name selected by the user
+                description: faker.finance.transactionDescription(),
+                date: faker.date.recent(),
+                amount: faker.finance.amount(),
+                category: faker.commerce.productMaterial()
+            });
+            await newTransaction.save();
+            transactions.push(newTransaction);
+        }
+        // Write transactions to a JSON file and send response
+        fs.writeFileSync('transactions.json', JSON.stringify(transactions, null, 2));
+        console.log('Transactions Created:', transactions);
+        res.redirect('/analytics-page'); // Redirect to a page to view the transactions
+    } catch (error) {
+        console.error('Error creating transactions:', error);
+        res.status(500).send('Error linking bank account and creating transactions');
+    }
+});
 
 // Redirect to login page
 app.get('/', (req, res) => {
-  res.redirect('/login-page');
+    res.redirect('/login-page');
 });
 
 // Render login page
 app.get('/login-page', (req, res) => {
-  res.render('login-page', { message: '' });
+    res.render('login-page', { message: '' });
 });
 
 // Render place money page
 app.get('/place-money-page', (req, res) => {
-  res.render('place-money-page');
+    res.render('place-money-page');
 });
 
 // Render ai page
 app.get('/ai-page', (req, res) => {
-  res.render('ai-page', { message: '' });
+    res.render('ai-page', { message: '' });
 });
 
 // back-up ai page
 app.get('/ai2-page', (req, res) => {
-  res.render('ai2-page', { message: '' });
+    res.render('ai2-page', { message: '' });
 });
 
 // Render signup page
 app.get('/signup-page', (req, res) => {
-  res.render('signup-page', { message: '', error: '' });
+    res.render('signup-page', { message: '', error: '' });
 });
 
 // Render forget password page
 app.get('/forget-pass-page', (req, res) => {
-  res.render('forget-pass-page', { message: '', error: '' });
+    res.render('forget-pass-page', { message: '', error: '' });
 });
 
 // Render home page
 app.get('/home-page', (req, res) => {
-  res.render('home-page', { g_walletBalance });
+    res.render('home-page', { g_walletBalance });
 });
 
 // Render planning and advisory page
 app.get('/planning-advice-page', (req, res) => {
-  res.render('planning-advice-page', { g_walletBalance });
+    res.render('planning-advice-page', { g_walletBalance });
 });
 
 // Render deposit page
 app.get('/deposit-page', (req, res) => {
-  res.render('deposit-page', { message: '', g_walletBalance });
+    res.render('deposit-page', { message: '', g_walletBalance });
 });
 
 // Render withdraw page
 app.get('/withdraw-page', (req, res) => {
-  res.render('withdraw-page', { g_walletBalance });
+    res.render('withdraw-page', { g_walletBalance });
 });
 
 // Render investment options page
 app.get('/invest-options-page', (req, res) => {
-  res.render('invest-options-page', { g_walletBalance });
+    res.render('invest-options-page', { g_walletBalance });
 });
 
 // Render investing page
 app.get('/InvestingPage', (req, res) => {
-  res.render('InvestingPage', { g_walletBalance });
+    res.render('InvestingPage', { g_walletBalance });
 });
 
 // Render bank linking page
 app.get('/bank-link-page', (req, res) => {
-  res.render('bank-link-page');
+    res.render('bank-link-page');
 });
 
 // Render financial planning page
 app.get('/finance-plan-page', (req, res) => {
-  res.render('finance-plan-page', { g_walletBalance });
+    res.render('finance-plan-page', { g_walletBalance });
 });
 
 // Render my investments page
 app.get('/my-invests-page', (req, res) => {
-  res.render('my-invests-page', { g_walletBalance });
+    res.render('my-invests-page', { g_walletBalance });
 });
 
 // Render options page
 app.get('/options-page', (req, res) => {
-  res.render('options-page');
+    res.render('options-page');
 });
 
 // Handle login
 app.post('/login', async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username });
-
-    if (user && password === user.password) {
-      res.redirect('/home-page');
-    } else {
-      res.render('login-page', { message: 'Invalid username or password' });
+    try {
+        const { username, password } = req.body;
+        const user = await User.findOne({ username });
+        if (user && password === user.password) {
+            res.redirect('/home-page');
+        } else {
+            res.render('login-page', { message: 'Invalid username or password' });
+        }
+    } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
-  } catch (error) {
-    console.error('Error during login:', error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
 });
 
 // Handle signup
 app.post('/signup/v1/', async (req, res) => {
-  const { username, email, password } = req.body;
-  const newUser = new User({ username: username, email: email, password: password });
+    const { username, email, password } = req.body;
+    const newUser = new User({ username: username, email: email, password: password });
 
-  try {
-    await newUser.save();
-    res.render('signup-page', { message: 'User added successfully', error: '' });
-  } catch (error) {
-    console.error(`Could not add user: ${error}`);
-    res.render('signup-page', { message: '', error: 'Could not add user, please try again later' });
-  }
+    try {
+        await newUser.save();
+        res.render('signup-page', { message: 'User added successfully', error: '' });
+    } catch (error) {
+        console.error(`Could not add user: ${error}`);
+        res.render('signup-page', { message: '', error: 'Could not add user, please try again later' });
+    }
 });
 
 // Handle forget password
 app.post('/forget-pass/v1', async (req, res) => {
-  const { email } = req.body;
-  try {
-    const user = await User.findOne({ email });
-    if (user) {
-      const emailText = `Hey ${user.username},\n\nYour password is: ${user.password}\n\nPlease consider changing it once you're logged in.`;
-      await sendEmail(user.email, 'Your Password Recovery', emailText);
-      res.render('forget-pass-page', { message: 'Password is sent to your email', error: '' });
-    } else {
-      res.render('forget-pass-page', { message: '', error: 'User not found' });
+    const { email } = req.body;
+    try {
+        const user = await User.findOne({ email });
+        if (user) {
+            const emailText = `Hey ${user.username},\n\nYour password is: ${user.password}\n\nPlease consider changing it once you're logged in.`;
+            await sendEmail(user.email, 'Your Password Recovery', emailText);
+            res.render('forget-pass-page', { message: 'Password sent to your email', error: '' });
+        } else {
+            res.render('forget-pass-page', { message: '', error: 'User not found' });
+        }
+    } catch (error) {
+        console.error('Error in forget password:', error);
+        res.status(500).render('forget-pass-page', { message: '', error: 'Internal server error' });
     }
-  } catch (error) {
-    console.error('Error in forget password:', error);
-    res.status(500).render('forget-pass-page', { message: '', error: 'Internal server error' });
-  }
 });
 
 // Handle 404 errors
 app.use((req, res) => {
-  res.status(404).render('error-page');
+    res.status(404).render('error-page');
 });
 
 // Start the server
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log(`Successfully connected to the database.`);
-    app.listen(process.env.PORT || 3000, () => {
-      console.log(`Server running on port ${process.env.PORT || 3000}`);
+    .then(() => {
+        console.log(`Successfully connected to the database.`);
+        app.listen(process.env.PORT || 3000, () => {
+            console.log(`Server running on port ${PORT || 3000}`);
+        });
+    })
+    .catch((error) => {
+        console.error('Database connection failed:', error);
     });
-  })
-  .catch((error) => {
-    console.error('Database connection failed:', error);
-  });
