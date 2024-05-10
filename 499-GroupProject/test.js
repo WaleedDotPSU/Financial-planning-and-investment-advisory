@@ -7,63 +7,45 @@ const { OpenAI } = require('openai'); // Import OpenAI library
 const { sendEmail } = require('./public/js/emailService');
 const User = require('./models/User');
 const Card = require('./models/Card');
-
-
-//ADDED
+const Transaction = require('./models/Transaction');
 const fs = require('fs');
 const faker = require('faker');
-const Transaction = require('./models/Transaction');
-
-// Route to display transactions
-app.get('/transactions', (req, res) => {
-  fs.readFile('transactions.json', 'utf8', (err, data) => {
-      if (err) {
-          console.error(err);
-          res.status(500).send('Error reading transactions data.');
-          return;
-      }
-      const transactions = JSON.parse(data);
-      res.render('transactions', { transactions: transactions });
-  });
-});
-//DO I NEED TO ADD IT?
-//app.set('views', 'views');  // Ensure your EJS files are in a folder named 'views'
-//
-//
 
 // Initialize Express app
 const app = express();
 
-// Initialize Global variable
-const g_walletBalance = 1000;
-
-//For Transactions
-const Transaction = require('./models/Transaction');
-const { linkBankAccount } = require('./public/js/utils');
-
-
-// Set up OpenAI with API key from environment variable
-const openai = new OpenAI(process.env.OPENAI_API_KEY); 
-
-// Set the view engine to ejs
+// Set up and configure app
 app.set('view engine', 'ejs');
-
-// Middleware
+app.set('views', 'views');  // Ensure your EJS files are in a folder named 'views'
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Routes
+// Initialize Global variable
+const g_walletBalance = 1000;
+
+// Set up OpenAI with API key from environment variable
+const openai = new OpenAI(process.env.OPENAI_API_KEY);
+
+// Route to display transactions
+app.get('/transactions', (req, res) => {
+  fs.readFile('transactions.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error reading transactions data.');
+      return;
+    }
+    const transactions = JSON.parse(data);
+    res.render('transactions', { transactions: transactions });
+  });
+});
+
+// More Routes
 
 // Redirect to login page
 app.get('/', (req, res) => {
   res.redirect('/login-page');
-});
-
-// Render place money page
-app.get('/place-money-page', (req, res) => {
-  res.render('place-money-page');
 });
 
 // Render login page
@@ -71,10 +53,16 @@ app.get('/login-page', (req, res) => {
   res.render('login-page', { message: '' });
 });
 
+// Render place money page
+app.get('/place-money-page', (req, res) => {
+  res.render('place-money-page');
+});
+
 // Render ai page
 app.get('/ai-page', (req, res) => {
   res.render('ai-page', { message: '' });
 });
+
 // back-up ai page
 app.get('/ai2-page', (req, res) => {
   res.render('ai2-page', { message: '' });
@@ -146,14 +134,11 @@ app.post('/login', async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
 
-    if (user) {
-      if (password === user.password) {
-        return res.redirect('/home-page');
-      }
+    if (user && password === user.password) {
+      res.redirect('/home-page');
+    } else {
+      res.render('login-page', { message: 'Invalid username or password' });
     }
-
-    res.render('login-page', { message: 'Invalid username or password' });
-
   } catch (error) {
     console.error('Error during login:', error);
     res.status(500).json({ message: 'Internal server error' });
@@ -161,67 +146,35 @@ app.post('/login', async (req, res) => {
 });
 
 // Handle signup
-app.post('/signup/v1/', (req, res) => {
+app.post('/signup/v1/', async (req, res) => {
   const { username, email, password } = req.body;
   const newUser = new User({ username: username, email: email, password: password });
 
-  newUser.save()
-    .then((result) => {
-      res.render('signup-page', { message: 'User added successfully', error: '' });
-    })
-    .catch((error) => {
-      console.log(`Could not add user: ${error}`);
-      res.render('signup-page', { message: '', error: 'Could not add user, please try again later' });
-    });
+  try {
+    await newUser.save();
+    res.render('signup-page', { message: 'User added successfully', error: '' });
+  } catch (error) {
+    console.error(`Could not add user: ${error}`);
+    res.render('signup-page', { message: '', error: 'Could not add user, please try again later' });
+  }
 });
 
 // Handle forget password
 app.post('/forget-pass/v1', async (req, res) => {
+  const { email } = req.body;
   try {
-    const { email } = req.body;
-
-    if (!email || typeof email !== 'string') {
-      return res.status(400).render('forget-pass-page', { message: 'Invalid email address', error: '' });
-    }
-
     const user = await User.findOne({ email });
-
-    if (!user) {
-      return res.status(404).render('forget-pass-page', { message: '', error: 'User not found' });
+    if (user) {
+      const emailText = `Hey ${user.username},\n\nYour password is: ${user.password}\n\nPlease consider changing it once you're logged in.`;
+      await sendEmail(user.email, 'Your Password Recovery', emailText);
+      res.render('forget-pass-page', { message: 'Password is sent to your email', error: '' });
+    } else {
+      res.render('forget-pass-page', { message: '', error: 'User not found' });
     }
-
-    const emailText = `Hey ${user.username},\n\nYour password is: ${user.password}\n\nPlease consider changing it once your logged in.`;
-
-    await sendEmail(user.email, 'Your Password Recovery', emailText);
-
-    res.render('forget-pass-page', { message: 'Password is sent to your email', error: '' });
-
-    console.log('Email sent successfully')
   } catch (error) {
     console.error('Error in forget password:', error);
     res.status(500).render('forget-pass-page', { message: '', error: 'Internal server error' });
   }
-});
-
-// Handle deposit
-app.post('/deposit-page', (req, res) => {
-  const { cardNumber, cardHolder, expDate, cvv } = req.body;
-
-  const card = cards.find((c) =>
-    c.cardNumber === cardNumber && c.cardHolder === cardHolder &&
-    c.expDate === expDate && c.cvv === cvv);
-
-  if (card) {
-    res.redirect('/home-page');
-  } else {
-    res.render('deposit-page', { message: 'Invalid card details', g_walletBalance });
-  }
-  res.redirect('/home-page');
-});
-
-// Handle withdraw
-app.post('/withdraw-page', (req, res) => {
-  res.redirect('/home-page');
 });
 
 // Handle 404 errors
@@ -229,37 +182,14 @@ app.use((req, res) => {
   res.status(404).render('error-page');
 });
 
-
-// Route to handle AI chat
-
-
-
-
-
-app.post('/ask-ai', async (req, res) => {
-  const { ask } = req.body;
-
-  try {
-    const completion = await openai.chat.completions.create({
-      messages: [{ role: "system", content: "You are a helpful assistant." }, { role: "user", content: ask }],
-      model: "gpt-3.5-turbo",
-    });
-
-    res.json({ message: completion.choices[0].message.content });
-  } catch (error) {
-    console.error('Error during AI chat:', error);
-    res.status(500).json({ message: 'Sorry, something went wrong.' });
-  }
-});
-
 // Start the server
 mongoose.connect(process.env.MONGO_URI)
-  .then((result) => {
-    console.log(`Successfully connected to database server..`);
+  .then(() => {
+    console.log(`Successfully connected to the database.`);
     app.listen(process.env.PORT || 3000, () => {
-      console.log(`Web server listening on port ${process.env.PORT || 3000}`);
+      console.log(`Server running on port ${process.env.PORT || 3000}`);
     });
   })
   .catch((error) => {
-    console.log(error);
+    console.error('Database connection failed:', error);
   });
