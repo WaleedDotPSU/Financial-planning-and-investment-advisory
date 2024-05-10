@@ -41,9 +41,40 @@ app.get('/analytics-page', (req, res) => {
     });
 });
 
+// // Route to handle bank account linking and transaction generation
+// app.post('/link-bank-account', async (req, res) => {
+//     const bankAccount = req.body.bankAccount;
+//     try {
+//         // Generate 10 random transactions for the linked bank account
+//         let transactions = [];
+//         for (let i = 0; i < 10; i++) {
+//             const newTransaction = new Transaction({
+//                 bankAccount: bankAccount, // Use the bank name selected by the user
+//                 description: faker.finance.transactionDescription(),
+//                 date: faker.date.recent(),
+//                 amount: faker.finance.amount(),
+//                 category: faker.commerce.productMaterial()
+//             });
+//             await newTransaction.save();
+//             transactions.push(newTransaction);
+//         }
+//         // Write transactions to a JSON file and send response
+//         fs.writeFileSync('transactions.json', JSON.stringify(transactions, null, 2));
+//         console.log('Transactions Created:', transactions);
+//         res.redirect('/analytics-page'); // Redirect to a page to view the transactions
+//     } catch (error) {
+//         console.error('Error creating transactions:', error);
+//         res.status(500).send('Error linking bank account and creating transactions');
+//     }
+// });
+
 // Route to handle bank account linking and transaction generation
 app.post('/link-bank-account', async (req, res) => {
-    const bankAccount = req.body.bankAccount;
+    const bankAccount = req.body.bankAccount; // Corrected to match the form's select element name attribute
+    if (!bankAccount) {
+        return res.status(400).send('Bank account is required.'); // Early return if bankAccount is undefined
+    }
+
     try {
         // Generate 10 random transactions for the linked bank account
         let transactions = [];
@@ -67,6 +98,8 @@ app.post('/link-bank-account', async (req, res) => {
         res.status(500).send('Error linking bank account and creating transactions');
     }
 });
+
+
 
 // Redirect to login page
 app.get('/', (req, res) => {
@@ -207,12 +240,13 @@ app.use((req, res) => {
 });
 
 // Start the server
+const port = process.env.PORT || 3000;  // Define port from environment variable or fallback to 3000
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log(`Successfully connected to the database.`);
-        app.listen(process.env.PORT || 3000, () => {
-            console.log(`Server running on port ${PORT || 3000}`);
-        });
+        app.listen(port, () => {
+            console.log(`Server running on port ${port}`); // Use the defined 'port' variable here
+          });
     })
     .catch((error) => {
         console.error('Database connection failed:', error);
