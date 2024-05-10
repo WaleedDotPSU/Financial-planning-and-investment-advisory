@@ -229,6 +229,24 @@ app.post('/ask-ai', async (req, res) => {
   }
 });
 
+app.get('/transactions', (req, res) => {
+  fs.readFile('transactions.json', 'utf8', (err, data) => {
+      if (err) {
+          console.error(err);
+          res.status(500).send('Error reading transactions data.');
+          return;
+      }
+      const transactions = JSON.parse(data);
+      res.render('transactions', { transactions: transactions });
+  });
+});
+
+
+
+
+
+
+
 // Start the server
 mongoose.connect(process.env.MONGO_URI)
   .then((result) => {
