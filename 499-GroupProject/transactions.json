@@ -1,0 +1,866 @@
+[
+  {
+    "_id": "663e5fa1d1233d904413758d",
+    "bankAccount": "24483798",
+    "description": "withdrawal transaction at Vandervort, Cummings and Trantow using card ending with ***4721 for SVC 380.79 in account ***43817196",
+    "date": "2024-05-09T23:45:33.963Z",
+    "amount": 490.57,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e5fa1d1233d904413758f",
+    "bankAccount": "64829673",
+    "description": "invoice transaction at Quitzon Group using card ending with ***8306 for EGP 59.88 in account ***75858038",
+    "date": "2024-05-10T15:31:07.451Z",
+    "amount": 929.3,
+    "category": "Frozen",
+    "__v": 0
+  },
+  {
+    "_id": "663e5fa1d1233d9044137591",
+    "bankAccount": "92272221",
+    "description": "invoice transaction at Klein and Sons using card ending with ***1740 for VUV 985.40 in account ***55185143",
+    "date": "2024-05-09T18:23:08.607Z",
+    "amount": 827.15,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e5fa1d1233d9044137593",
+    "bankAccount": "37107717",
+    "description": "deposit transaction at Lind - Bins using card ending with ***1229 for TOP 242.25 in account ***88353499",
+    "date": "2024-05-09T19:36:43.891Z",
+    "amount": 57.08,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e5fa1d1233d9044137595",
+    "bankAccount": "87372389",
+    "description": "payment transaction at Fahey, Jakubowski and Leuschke using card ending with ***8671 for ZAR 216.23 in account ***59381895",
+    "date": "2024-05-09T21:02:14.240Z",
+    "amount": 956.31,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e5fa1d1233d9044137597",
+    "bankAccount": "19774496",
+    "description": "invoice transaction at Rogahn, Fay and Daugherty using card ending with ***6235 for CDF 118.80 in account ***37822337",
+    "date": "2024-05-09T18:55:31.788Z",
+    "amount": 60.22,
+    "category": "Plastic",
+    "__v": 0
+  },
+  {
+    "_id": "663e5fa1d1233d9044137599",
+    "bankAccount": "00170021",
+    "description": "withdrawal transaction at Sanford, Watsica and Marvin using card ending with ***9748 for KYD 500.30 in account ***56705188",
+    "date": "2024-05-09T18:44:18.522Z",
+    "amount": 858.43,
+    "category": "Frozen",
+    "__v": 0
+  },
+  {
+    "_id": "663e5fa1d1233d904413759b",
+    "bankAccount": "52461496",
+    "description": "deposit transaction at Hudson, Deckow and Auer using card ending with ***5240 for LVL 103.93 in account ***42875178",
+    "date": "2024-05-10T00:32:40.357Z",
+    "amount": 750.29,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e5fa1d1233d904413759d",
+    "bankAccount": "15335544",
+    "description": "payment transaction at Hermiston and Sons using card ending with ***4011 for ZWL 785.04 in account ***54690467",
+    "date": "2024-05-10T08:48:11.533Z",
+    "amount": 257.14,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e5fa1d1233d904413759f",
+    "bankAccount": "77770012",
+    "description": "invoice transaction at Goodwin - Pagac using card ending with ***4694 for SBD 405.07 in account ***78042024",
+    "date": "2024-05-09T18:37:05.056Z",
+    "amount": 738.67,
+    "category": "Metal",
+    "__v": 0
+  },
+  {
+    "_id": "663e773774ead119c6ebcfae",
+    "bankAccount": "70884230",
+    "description": "withdrawal transaction at Krajcik - Greenholt using card ending with ***3739 for XAF 598.01 in account ***97988238",
+    "date": "2024-05-10T10:46:36.402Z",
+    "amount": 413.36,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e773774ead119c6ebcfb0",
+    "bankAccount": "09353917",
+    "description": "deposit transaction at Hermann Group using card ending with ***4477 for BSD 838.43 in account ***63277349",
+    "date": "2024-05-10T00:28:12.260Z",
+    "amount": 999.7,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e773774ead119c6ebcfb2",
+    "bankAccount": "71024285",
+    "description": "withdrawal transaction at Hauck, Botsford and Miller using card ending with ***3579 for BZD 923.02 in account ***98082937",
+    "date": "2024-05-10T03:00:38.958Z",
+    "amount": 102.62,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e773774ead119c6ebcfb4",
+    "bankAccount": "00681612",
+    "description": "invoice transaction at Pollich - Christiansen using card ending with ***8008 for XPF 419.53 in account ***20064804",
+    "date": "2024-05-10T12:35:21.657Z",
+    "amount": 408.49,
+    "category": "Soft",
+    "__v": 0
+  },
+  {
+    "_id": "663e773774ead119c6ebcfb6",
+    "bankAccount": "73724088",
+    "description": "deposit transaction at Harber LLC using card ending with ***1745 for HTG 294.08 in account ***11191473",
+    "date": "2024-05-10T13:43:28.786Z",
+    "amount": 872.41,
+    "category": "Plastic",
+    "__v": 0
+  },
+  {
+    "_id": "663e773774ead119c6ebcfb8",
+    "bankAccount": "15121567",
+    "description": "invoice transaction at Gerlach - Mann using card ending with ***1441 for AED 633.26 in account ***28289788",
+    "date": "2024-05-10T03:17:07.922Z",
+    "amount": 383.65,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e773774ead119c6ebcfba",
+    "bankAccount": "28813733",
+    "description": "withdrawal transaction at Gislason Group using card ending with ***0201 for KMF 566.15 in account ***25426800",
+    "date": "2024-05-10T17:55:22.723Z",
+    "amount": 498.13,
+    "category": "Cotton",
+    "__v": 0
+  },
+  {
+    "_id": "663e773874ead119c6ebcfbc",
+    "bankAccount": "34512666",
+    "description": "deposit transaction at Hodkiewicz LLC using card ending with ***1845 for SOS 816.60 in account ***22768059",
+    "date": "2024-05-10T03:56:02.702Z",
+    "amount": 962.47,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e773874ead119c6ebcfbe",
+    "bankAccount": "68824746",
+    "description": "deposit transaction at Mitchell LLC using card ending with ***1312 for OMR 941.05 in account ***64840565",
+    "date": "2024-05-09T20:28:15.852Z",
+    "amount": 349.52,
+    "category": "Metal",
+    "__v": 0
+  },
+  {
+    "_id": "663e773874ead119c6ebcfc0",
+    "bankAccount": "82719331",
+    "description": "withdrawal transaction at Kunde and Sons using card ending with ***3242 for TRY 96.93 in account ***27569821",
+    "date": "2024-05-10T03:18:09.034Z",
+    "amount": 218.37,
+    "category": "Cotton",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f21fd",
+    "bankAccount": "56620197",
+    "description": "payment transaction at Effertz, Dibbert and Boehm using card ending with ***2994 for ARS 389.30 in account ***98325875",
+    "date": "2024-05-10T13:20:48.263Z",
+    "amount": 1.66,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f21ff",
+    "bankAccount": "37057374",
+    "description": "payment transaction at Homenick - Becker using card ending with ***4341 for LVL 833.77 in account ***36053628",
+    "date": "2024-05-09T19:38:09.540Z",
+    "amount": 296.13,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f2201",
+    "bankAccount": "04326523",
+    "description": "invoice transaction at Reinger, Franecki and Bahringer using card ending with ***4249 for XBA 932.35 in account ***76030102",
+    "date": "2024-05-10T18:53:31.594Z",
+    "amount": 117.77,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f2203",
+    "bankAccount": "57426815",
+    "description": "payment transaction at Schroeder and Sons using card ending with ***2126 for CUC 68.51 in account ***33444263",
+    "date": "2024-05-09T20:18:47.019Z",
+    "amount": 216.85,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f2205",
+    "bankAccount": "16365731",
+    "description": "deposit transaction at Schamberger and Sons using card ending with ***3827 for PYG 898.24 in account ***76866450",
+    "date": "2024-05-10T17:18:23.961Z",
+    "amount": 291,
+    "category": "Cotton",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f2207",
+    "bankAccount": "66899007",
+    "description": "payment transaction at Dietrich - Oberbrunner using card ending with ***7497 for LYD 430.70 in account ***57143448",
+    "date": "2024-05-10T19:30:52.327Z",
+    "amount": 898.42,
+    "category": "Frozen",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f2209",
+    "bankAccount": "84459928",
+    "description": "withdrawal transaction at Rosenbaum, Gusikowski and Conn using card ending with ***0508 for FJD 578.97 in account ***41041784",
+    "date": "2024-05-10T19:24:36.821Z",
+    "amount": 989.23,
+    "category": "Metal",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f220b",
+    "bankAccount": "79688976",
+    "description": "withdrawal transaction at Hirthe, Trantow and Homenick using card ending with ***9562 for TND 331.09 in account ***38814609",
+    "date": "2024-05-10T03:34:42.872Z",
+    "amount": 430.43,
+    "category": "Granite",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f220d",
+    "bankAccount": "11164909",
+    "description": "invoice transaction at Keeling Inc using card ending with ***0965 for HNL 878.40 in account ***91211353",
+    "date": "2024-05-10T17:16:25.348Z",
+    "amount": 564.69,
+    "category": "Granite",
+    "__v": 0
+  },
+  {
+    "_id": "663e775b13947bd33c4f220f",
+    "bankAccount": "37801362",
+    "description": "invoice transaction at Rath, Dach and O'Keefe using card ending with ***0127 for FKP 818.02 in account ***63338428",
+    "date": "2024-05-10T01:19:41.437Z",
+    "amount": 391.04,
+    "category": "Plastic",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90ca",
+    "bankAccount": "29577736",
+    "description": "payment transaction at Tromp and Sons using card ending with ***6389 for UZS 507.08 in account ***97700032",
+    "date": "2024-05-09T20:46:50.942Z",
+    "amount": 948.15,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90ce",
+    "bankAccount": "35108621",
+    "description": "deposit transaction at Brekke Group using card ending with ***3219 for IRR 968.43 in account ***54051145",
+    "date": "2024-05-10T19:38:48.722Z",
+    "amount": 195.3,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90d2",
+    "bankAccount": "55952399",
+    "description": "deposit transaction at Douglas and Sons using card ending with ***3406 for TWD 267.38 in account ***56827862",
+    "date": "2024-05-10T16:53:09.289Z",
+    "amount": 282.33,
+    "category": "Metal",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90d6",
+    "bankAccount": "86588624",
+    "description": "deposit transaction at Quigley, Reichel and Witting using card ending with ***7694 for LKR 184.85 in account ***28213102",
+    "date": "2024-05-10T01:21:37.559Z",
+    "amount": 704.21,
+    "category": "Plastic",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90da",
+    "bankAccount": "87690413",
+    "description": "invoice transaction at Hauck - Cassin using card ending with ***3753 for FKP 267.76 in account ***26819350",
+    "date": "2024-05-10T00:11:37.696Z",
+    "amount": 889.11,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90dd",
+    "bankAccount": "12424622",
+    "description": "payment transaction at Schuster - Borer using card ending with ***8623 for UAH 826.52 in account ***51863167",
+    "date": "2024-05-10T19:05:58.984Z",
+    "amount": 745.59,
+    "category": "Cotton",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90df",
+    "bankAccount": "82573153",
+    "description": "deposit transaction at Weissnat - Paucek using card ending with ***5296 for MYR 883.05 in account ***88850111",
+    "date": "2024-05-10T00:48:40.700Z",
+    "amount": 218.42,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90e1",
+    "bankAccount": "53996871",
+    "description": "withdrawal transaction at Littel Group using card ending with ***0967 for INR 278.87 in account ***34687621",
+    "date": "2024-05-10T13:01:55.624Z",
+    "amount": 197.49,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90e3",
+    "bankAccount": "33186084",
+    "description": "withdrawal transaction at Herzog - King using card ending with ***0457 for DKK 399.48 in account ***58333714",
+    "date": "2024-05-10T13:54:02.074Z",
+    "amount": 547.03,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90e5",
+    "bankAccount": "28731776",
+    "description": "payment transaction at Lynch, Veum and Leffler using card ending with ***6192 for NOK 653.04 in account ***65361134",
+    "date": "2024-05-09T21:33:48.731Z",
+    "amount": 787.81,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90e7",
+    "bankAccount": "31269515",
+    "description": "withdrawal transaction at Yundt - Franecki using card ending with ***6492 for LRD 498.88 in account ***79792309",
+    "date": "2024-05-10T19:43:10.272Z",
+    "amount": 62.61,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90e9",
+    "bankAccount": "47989521",
+    "description": "payment transaction at Block, Rippin and Trantow using card ending with ***7969 for TMT 30.12 in account ***46060664",
+    "date": "2024-05-10T18:59:32.065Z",
+    "amount": 839.5,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90eb",
+    "bankAccount": "28239025",
+    "description": "invoice transaction at Torp Group using card ending with ***8701 for SCR 814.97 in account ***36217950",
+    "date": "2024-05-10T00:07:48.054Z",
+    "amount": 663.42,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90ed",
+    "bankAccount": "89379868",
+    "description": "deposit transaction at Adams, Beatty and Cormier using card ending with ***1474 for AZN 379.47 in account ***78607336",
+    "date": "2024-05-10T04:23:24.046Z",
+    "amount": 393.12,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90ef",
+    "bankAccount": "13051053",
+    "description": "invoice transaction at Littel - Schuppe using card ending with ***5051 for DOP 649.20 in account ***70882538",
+    "date": "2024-05-10T09:58:50.794Z",
+    "amount": 762.95,
+    "category": "Metal",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90f2",
+    "bankAccount": "17244351",
+    "description": "payment transaction at Mohr - Witting using card ending with ***7995 for BAM 788.70 in account ***75263219",
+    "date": "2024-05-09T21:45:50.423Z",
+    "amount": 70.47,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90f5",
+    "bankAccount": "89661753",
+    "description": "invoice transaction at Dibbert - McLaughlin using card ending with ***1662 for CUP 952.71 in account ***15784694",
+    "date": "2024-05-10T18:51:32.540Z",
+    "amount": 589.42,
+    "category": "Plastic",
+    "__v": 0
+  },
+  {
+    "_id": "663e7a134f801eb0a04b90f8",
+    "bankAccount": "06572421",
+    "description": "invoice transaction at O'Hara, Brekke and Schulist using card ending with ***9088 for BGN 370.60 in account ***94543016",
+    "date": "2024-05-10T06:57:25.591Z",
+    "amount": 220.45,
+    "category": "Metal",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af681",
+    "bankAccount": "29116340",
+    "description": "invoice transaction at Tromp and Sons using card ending with ***6924 for EUR 441.94 in account ***61412345",
+    "date": "2024-05-09T22:47:54.186Z",
+    "amount": 365.62,
+    "category": "Soft",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af685",
+    "bankAccount": "02924426",
+    "description": "deposit transaction at Koelpin - Abernathy using card ending with ***1122 for UAH 848.50 in account ***49088618",
+    "date": "2024-05-10T03:30:16.513Z",
+    "amount": 48.17,
+    "category": "Granite",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af689",
+    "bankAccount": "64770768",
+    "description": "invoice transaction at Steuber Group using card ending with ***9299 for STN 460.82 in account ***92657918",
+    "date": "2024-05-10T07:16:31.823Z",
+    "amount": 396.34,
+    "category": "Soft",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af68d",
+    "bankAccount": "41136493",
+    "description": "payment transaction at Stiedemann - Stokes using card ending with ***8011 for TTD 895.85 in account ***10725474",
+    "date": "2024-05-10T16:19:22.771Z",
+    "amount": 891.76,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af691",
+    "bankAccount": "27179012",
+    "description": "withdrawal transaction at Ritchie and Sons using card ending with ***4369 for BND 207.68 in account ***57261616",
+    "date": "2024-05-09T21:29:56.271Z",
+    "amount": 233.31,
+    "category": "Fresh",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af694",
+    "bankAccount": "55479394",
+    "description": "withdrawal transaction at Bruen - Hodkiewicz using card ending with ***9506 for AOA 670.20 in account ***66170588",
+    "date": "2024-05-10T09:10:08.365Z",
+    "amount": 618.89,
+    "category": "Frozen",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af696",
+    "bankAccount": "02860427",
+    "description": "payment transaction at Casper, O'Reilly and Kuvalis using card ending with ***2287 for ETB 13.70 in account ***38746505",
+    "date": "2024-05-10T01:02:31.190Z",
+    "amount": 258.35,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af698",
+    "bankAccount": "35909134",
+    "description": "withdrawal transaction at Ledner - Kuhic using card ending with ***5117 for GMD 610.68 in account ***73620954",
+    "date": "2024-05-10T13:16:23.745Z",
+    "amount": 134.81,
+    "category": "Soft",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af69a",
+    "bankAccount": "89867125",
+    "description": "deposit transaction at Powlowski Inc using card ending with ***8803 for ARS 728.20 in account ***71207628",
+    "date": "2024-05-10T03:19:37.000Z",
+    "amount": 673.45,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af69c",
+    "bankAccount": "00475764",
+    "description": "withdrawal transaction at Rosenbaum - Torphy using card ending with ***4071 for XBC 120.37 in account ***26384157",
+    "date": "2024-05-10T15:11:46.630Z",
+    "amount": 442.63,
+    "category": "Soft",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af69e",
+    "bankAccount": "67328753",
+    "description": "withdrawal transaction at Wehner - Lehner using card ending with ***0625 for NZD 787.26 in account ***98682035",
+    "date": "2024-05-10T14:10:51.226Z",
+    "amount": 981.99,
+    "category": "Fresh",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af6a0",
+    "bankAccount": "35841000",
+    "description": "invoice transaction at Ritchie - Vandervort using card ending with ***2757 for TRY 472.38 in account ***54271230",
+    "date": "2024-05-10T08:10:31.557Z",
+    "amount": 627.3,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af6a2",
+    "bankAccount": "83456372",
+    "description": "payment transaction at Gulgowski, Collier and Gaylord using card ending with ***9946 for USD 784.76 in account ***26602829",
+    "date": "2024-05-10T08:10:44.848Z",
+    "amount": 889.36,
+    "category": "Granite",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af6a4",
+    "bankAccount": "21755511",
+    "description": "withdrawal transaction at Wehner and Sons using card ending with ***2946 for NOK 936.13 in account ***41370357",
+    "date": "2024-05-10T11:38:16.387Z",
+    "amount": 396.91,
+    "category": "Fresh",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af6a6",
+    "bankAccount": "90863283",
+    "description": "payment transaction at Reynolds, O'Hara and Deckow using card ending with ***9226 for MDL 886.72 in account ***90503907",
+    "date": "2024-05-10T09:00:44.185Z",
+    "amount": 634.08,
+    "category": "Soft",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af6a8",
+    "bankAccount": "38059905",
+    "description": "deposit transaction at Becker - Little using card ending with ***9204 for SGD 32.86 in account ***32490849",
+    "date": "2024-05-10T01:03:54.368Z",
+    "amount": 667.78,
+    "category": "Metal",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa50451ee36796af6ac",
+    "bankAccount": "43998657",
+    "description": "invoice transaction at Ward, Mueller and Runolfsdottir using card ending with ***4004 for QAR 141.67 in account ***18062261",
+    "date": "2024-05-10T17:30:43.695Z",
+    "amount": 518.82,
+    "category": "Frozen",
+    "__v": 0
+  },
+  {
+    "_id": "663e7aa60451ee36796af6af",
+    "bankAccount": "81741339",
+    "description": "payment transaction at Roob, Langworth and Cole using card ending with ***1270 for BIF 779.18 in account ***58686004",
+    "date": "2024-05-10T10:08:38.200Z",
+    "amount": 568.74,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aae2",
+    "bankAccount": "22205121",
+    "description": "withdrawal transaction at Gutmann, Ritchie and Kovacek using card ending with ***8617 for HKD 574.14 in account ***58507730",
+    "date": "2024-05-10T14:14:03.570Z",
+    "amount": 467.11,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aae6",
+    "bankAccount": "20573963",
+    "description": "invoice transaction at Lockman - Kling using card ending with ***8184 for UGX 768.28 in account ***17113046",
+    "date": "2024-05-10T04:06:13.671Z",
+    "amount": 168.3,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aaea",
+    "bankAccount": "97638058",
+    "description": "deposit transaction at Grady LLC using card ending with ***2832 for KPW 571.93 in account ***73937561",
+    "date": "2024-05-10T13:20:10.590Z",
+    "amount": 358.28,
+    "category": "Plastic",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aaed",
+    "bankAccount": "75420856",
+    "description": "withdrawal transaction at McKenzie, Dietrich and Witting using card ending with ***2422 for TRY 531.75 in account ***94527017",
+    "date": "2024-05-10T07:43:38.797Z",
+    "amount": 551.13,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aaef",
+    "bankAccount": "45052862",
+    "description": "withdrawal transaction at Beier, Cruickshank and Witting using card ending with ***3180 for DOP 191.48 in account ***39803779",
+    "date": "2024-05-10T00:25:14.573Z",
+    "amount": 628.76,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aaf1",
+    "bankAccount": "38935953",
+    "description": "payment transaction at Hansen - Mann using card ending with ***0111 for FKP 480.74 in account ***18552042",
+    "date": "2024-05-10T09:34:09.641Z",
+    "amount": 570.71,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aaf3",
+    "bankAccount": "74105757",
+    "description": "invoice transaction at Corkery and Sons using card ending with ***7056 for OMR 10.72 in account ***25133222",
+    "date": "2024-05-10T14:43:27.219Z",
+    "amount": 437.69,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aaf5",
+    "bankAccount": "94309114",
+    "description": "withdrawal transaction at Langworth Group using card ending with ***9890 for JOD 469.86 in account ***68541456",
+    "date": "2024-05-10T13:05:55.774Z",
+    "amount": 601.79,
+    "category": "Granite",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aaf7",
+    "bankAccount": "84688467",
+    "description": "payment transaction at Paucek - Shields using card ending with ***5346 for SBD 872.60 in account ***34795980",
+    "date": "2024-05-09T20:30:54.663Z",
+    "amount": 677.69,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aaf9",
+    "bankAccount": "79733674",
+    "description": "invoice transaction at Keeling, Goldner and Bahringer using card ending with ***5622 for BYR 474.05 in account ***73376544",
+    "date": "2024-05-10T08:18:43.344Z",
+    "amount": 358.6,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aafb",
+    "bankAccount": "90623066",
+    "description": "payment transaction at Kessler LLC using card ending with ***1877 for MUR 963.00 in account ***17992927",
+    "date": "2024-05-10T10:11:24.852Z",
+    "amount": 893.49,
+    "category": "Soft",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aafd",
+    "bankAccount": "85193478",
+    "description": "deposit transaction at Skiles - Deckow using card ending with ***9445 for XDR 327.15 in account ***17215894",
+    "date": "2024-05-10T08:00:54.052Z",
+    "amount": 382.5,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307aaff",
+    "bankAccount": "70669838",
+    "description": "deposit transaction at Reinger, Ritchie and Bergstrom using card ending with ***0469 for BYR 850.30 in account ***56174355",
+    "date": "2024-05-10T14:36:44.754Z",
+    "amount": 209.63,
+    "category": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307ab01",
+    "bankAccount": "34771628",
+    "description": "withdrawal transaction at Schimmel - Johnston using card ending with ***1439 for SBD 844.32 in account ***96397111",
+    "date": "2024-05-09T21:32:52.947Z",
+    "amount": 815.88,
+    "category": "Frozen",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307ab03",
+    "bankAccount": "14616808",
+    "description": "withdrawal transaction at Rodriguez, Roberts and Conroy using card ending with ***2319 for XPT 144.52 in account ***60479632",
+    "date": "2024-05-10T03:37:07.435Z",
+    "amount": 714.91,
+    "category": "Granite",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307ab05",
+    "bankAccount": "96395292",
+    "description": "deposit transaction at Wisozk, Rohan and Homenick using card ending with ***6002 for SHP 90.62 in account ***90715486",
+    "date": "2024-05-10T17:19:18.066Z",
+    "amount": 61.3,
+    "category": "Steel",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307ab07",
+    "bankAccount": "97891644",
+    "description": "withdrawal transaction at Friesen - Abshire using card ending with ***4072 for BTN 424.57 in account ***41386037",
+    "date": "2024-05-10T13:07:41.327Z",
+    "amount": 619.22,
+    "category": "Frozen",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307ab0a",
+    "bankAccount": "35706523",
+    "description": "payment transaction at Price and Sons using card ending with ***3428 for BIF 878.35 in account ***33241776",
+    "date": "2024-05-10T05:34:53.058Z",
+    "amount": 72.7,
+    "category": "Granite",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af3e9afe2f54307ab0d",
+    "bankAccount": "11041434",
+    "description": "payment transaction at Schmidt - Weimann using card ending with ***8950 for GHS 674.76 in account ***51606063",
+    "date": "2024-05-10T19:48:20.186Z",
+    "amount": 940.35,
+    "category": "Metal",
+    "__v": 0
+  },
+  {
+    "_id": "663e7af4e9afe2f54307ab10",
+    "bankAccount": "75574414",
+    "description": "deposit transaction at Beier, Halvorson and Predovic using card ending with ***2849 for ZWL 435.91 in account ***92794310",
+    "date": "2024-05-10T18:18:04.389Z",
+    "amount": 207.39,
+    "category": "Frozen",
+    "__v": 0
+  },
+  {
+    "_id": "663e7b9fdc33d92c62d290fa",
+    "bankAccount": "92300692",
+    "description": "deposit transaction at Lynch - Ritchie using card ending with ***2954 for PLN 451.67 in account ***02375952",
+    "date": "2024-05-10T17:20:59.136Z",
+    "amount": 114.07,
+    "category": "Fresh",
+    "__v": 0
+  },
+  {
+    "_id": "663e7b9fdc33d92c62d290fc",
+    "bankAccount": "00367192",
+    "description": "withdrawal transaction at Feest - Stark using card ending with ***9240 for PGK 158.85 in account ***57022022",
+    "date": "2024-05-10T17:08:30.177Z",
+    "amount": 313.64,
+    "category": "Plastic",
+    "__v": 0
+  },
+  {
+    "_id": "663e7ba0dc33d92c62d290fe",
+    "bankAccount": "85258560",
+    "description": "withdrawal transaction at Kozey, Hills and Ullrich using card ending with ***5964 for PAB 798.33 in account ***11414850",
+    "date": "2024-05-10T11:38:26.427Z",
+    "amount": 841.68,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e7ba0dc33d92c62d29100",
+    "bankAccount": "94923687",
+    "description": "invoice transaction at Kunze - Adams using card ending with ***0318 for TTD 944.75 in account ***39011648",
+    "date": "2024-05-10T06:09:54.411Z",
+    "amount": 915.68,
+    "category": "Fresh",
+    "__v": 0
+  },
+  {
+    "_id": "663e7ba0dc33d92c62d29102",
+    "bankAccount": "56670920",
+    "description": "invoice transaction at Barton, Hirthe and Hoppe using card ending with ***9435 for IDR 304.33 in account ***37815498",
+    "date": "2024-05-10T15:09:00.222Z",
+    "amount": 319.51,
+    "category": "Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "663e7ba0dc33d92c62d29104",
+    "bankAccount": "91089441",
+    "description": "invoice transaction at Murray, Weimann and Wuckert using card ending with ***2269 for ZAR 534.46 in account ***90730074",
+    "date": "2024-05-10T02:51:19.774Z",
+    "amount": 803.57,
+    "category": "Plastic",
+    "__v": 0
+  },
+  {
+    "_id": "663e7ba0dc33d92c62d29106",
+    "bankAccount": "39008733",
+    "description": "deposit transaction at Wiegand - Cole using card ending with ***9410 for GNF 407.69 in account ***14718214",
+    "date": "2024-05-10T15:16:32.544Z",
+    "amount": 4.47,
+    "category": "Cotton",
+    "__v": 0
+  },
+  {
+    "_id": "663e7ba0dc33d92c62d29108",
+    "bankAccount": "87278018",
+    "description": "invoice transaction at Stracke and Sons using card ending with ***3757 for BHD 771.80 in account ***27838070",
+    "date": "2024-05-10T03:15:31.473Z",
+    "amount": 23.94,
+    "category": "Granite",
+    "__v": 0
+  },
+  {
+    "_id": "663e7ba0dc33d92c62d2910a",
+    "bankAccount": "60856358",
+    "description": "invoice transaction at Hickle, Zulauf and Zemlak using card ending with ***2206 for WST 365.77 in account ***81530507",
+    "date": "2024-05-10T19:34:19.699Z",
+    "amount": 972.3,
+    "category": "Concrete",
+    "__v": 0
+  },
+  {
+    "_id": "663e7ba0dc33d92c62d2910c",
+    "bankAccount": "75951078",
+    "description": "withdrawal transaction at Yost, Bauch and Dietrich using card ending with ***7897 for ANG 147.30 in account ***73685819",
+    "date": "2024-05-09T23:42:20.734Z",
+    "amount": 589.54,
+    "category": "Granite",
+    "__v": 0
+  }
+]
