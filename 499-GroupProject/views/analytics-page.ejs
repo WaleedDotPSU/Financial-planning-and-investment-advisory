@@ -1,71 +1,21 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Financial Planning and Investment Advisory</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/err.css">
-    <link rel="stylesheet" href="css/BankLinkPage.css">
-
-</head>
-<body>
-    <div class="balance-box">
-        <h2>Total Balance</h2>
-        <p><%= totalBalance %></p>
-    </div>
-
-    <div class="account-info-box">
-        <h2>Account Information</h2>
-        <p>Number of Accounts: <%= numAccounts %></p>
-    </div>
-
-    <div class="transactions-box">
-        <h1>Transaction History</h1>
-        <ul>
-            <% transactions.forEach(transaction => { %>
-                <li>
-                    <strong>Date:</strong> <%= transaction.date %><br>
-                    <strong>Description:</strong> <%= transaction.description %><br>
-                    <strong>Amount:</strong> <%= transaction.amount %>
-                </li>
-            <% }); %>
-        </ul>
-    </div>
-
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Transaction Analysis</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/analysis.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions List</title>
 </head>
 <body>
-    <div class="balance-box">
-        <h2>Total Balance</h2>
-        <p><%= totalBalance %></p>
-    </div>
-
-    <div class="account-info-box">
-        <h2>Account Information</h2>
-        <p>Number of Accounts: <%= numAccounts %></p>
-    </div>
-
-    <div class="transactions-box">
-        <h1>Transaction History</h1>
-        <ul>
-            <% transactions.forEach(transaction => { %>
-                <li>
-                    <strong>Date:</strong> <%= transaction.date %><br>
-                    <strong>Description:</strong> <%= transaction.description %><br>
-                    <strong>Amount:</strong> <%= transaction.amount %><br>
-                    <strong>Category:</strong> <%= transaction.category %><br>
-                    <strong>Bank:</strong> <%= transaction.bank %>
-                </li>
-            <% }); %>
-        </ul>
-    </div>
+    <h1>Transactions</h1>
+    <ul>
+        <% transactions.forEach(transaction => { %>
+            <li>
+                <strong>Description:</strong> <%= transaction.description %><br>
+                <strong>Amount:</strong> $<%= transaction.amount %><br>
+                <strong>Date:</strong> <%= new Date(transaction.date).toLocaleDateString() %><br>
+                <strong>Category:</strong> <%= transaction.category %>
+            </li>
+        <% }); %>
+    </ul>
 </body>
 </html>

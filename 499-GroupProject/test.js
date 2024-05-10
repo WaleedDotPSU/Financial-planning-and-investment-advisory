@@ -29,7 +29,7 @@ const g_walletBalance = 1000;
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
 // Route to display transactions
-app.get('/transactions', (req, res) => {
+app.get('/analytics-page', (req, res) => {
   fs.readFile('transactions.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
@@ -37,7 +37,7 @@ app.get('/transactions', (req, res) => {
       return;
     }
     const transactions = JSON.parse(data);
-    res.render('transactions', { transactions: transactions });
+    res.render('analytics-page', { transactions: transactions });
   });
 });
 
