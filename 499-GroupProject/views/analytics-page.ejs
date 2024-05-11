@@ -10,6 +10,7 @@
     <ul>
         <% transactions.forEach(transaction => { %>
             <li>
+                <strong>Bank Account:</strong> <%= transaction.bankAccount %><br>
                 <strong>Description:</strong> <%= transaction.description %><br>
                 <strong>Amount:</strong> $<%= transaction.amount %><br>
                 <strong>Date:</strong> <%= new Date(transaction.date).toLocaleDateString() %><br>
