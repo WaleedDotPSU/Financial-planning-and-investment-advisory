@@ -18,7 +18,7 @@
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.2",
     "nodemailer": "^6.9.13",
-    "openai": "^4.42.0"
+    "openai": "^4.45.0"
   },
   "description": ""
 }

@@ -55,7 +55,13 @@
       },
       error: function(xhr, status, error) {
         console.error("Error:", error);
-        aiResponses.innerHTML += "<p>Sorry, something went wrong.</p>";
+        var errorMessage = "Sorry, something went wrong.";
+        if (xhr.status === 401) {
+          errorMessage = "Authentication error: Please check your API key.";
+        } else if (xhr.status === 429) {
+          errorMessage = "Quota exceeded: Please try again later.";
+        }
+        aiResponses.innerHTML += "<p>" + errorMessage + "</p>";
       }
     });
   }
