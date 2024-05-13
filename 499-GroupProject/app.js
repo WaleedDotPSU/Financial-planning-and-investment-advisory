@@ -144,7 +144,7 @@ app.post('/ask-ai', async (req, res) => {
   try {
     const completion = await openai.chat.completions.create({
       messages: [{ role: "system", content: "You are a helpful assistant." }, { role: "user", content: ask }],
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
     });
 
     res.json({ message: completion.choices[0].message.content });
