@@ -107,6 +107,10 @@ app.get('/finance-plan-page', (req, res) => res.render('finance-plan-page', { g_
 app.get('/my-invests-page', (req, res) => res.render('my-invests-page', { g_walletBalance }));
 app.get('/options-page', (req, res) => res.render('options-page'));
 
+
+//This route was added for the comprehensive Financial Planning Page named testPage.ejs
+app.get('/testPage', (req, res) => res.render('testPage'));
+
 // Error handling for login, signup, and forget password
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
