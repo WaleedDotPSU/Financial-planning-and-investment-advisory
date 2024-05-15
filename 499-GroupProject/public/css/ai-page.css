@@ -1,54 +1,135 @@
 /* reset.css */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+dl, dd, ol, ul, figure, fieldset, legend, textarea,
+th, td { margin: 0; padding: 0; }
 
-/* AI page styles */
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333; /* Default text color */
+    background-color: #f7f7f7; /* Off-white background */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
 header {
-  background-color: #f2f2f2;
-  padding: 20px;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007bff; /* Blue header */
+    color: #fff; /* White text */
 }
 
 main {
-  margin-top: 20px;
+    margin: 20px auto;
+    width: 80%;
 }
 
 section {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
+    background-color: #fff; /* White background for sections */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Soft shadow effect */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
-textarea, input[type="text"] {
-  width: 80%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+#prompt-section {
+    text-align: center;
+}
+
+#prompt-section input[type="text"],
+#prompt-section button {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid #007bff; /* Blue border */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff; /* White background */
+    color: #007bff; /* Blue text */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+#prompt-section input[type="text"]::placeholder {
+    color: #999; /* Placeholder color */
+}
+
+#prompt-section button:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: #fff; /* White text on hover */
 }
 
 footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007bff; /* Blue footer */
+    color: #fff; /* White text */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+#ai-responses {
+    margin-top: 20px; /* Add space between messages */
+}
+
+.user-message,
+.ai-message {
+    margin-bottom: 10px; /* Add space between user and AI messages */
+    font-size: 0.9em; /* Smaller font size for messages */
+}
+
+.ai-message {
+    font-weight: bold; /* Make AI messages clearer */
+}
+
+.button-group {
+    text-align: center;
+}
+
+.button-group button {
+    margin: 5px;
+}
+
+ /* Your CSS Styles */
+ #conversation-area {
+  max-height: 400px; /* Adjust the height as needed */
+  overflow-y: auto;
+}
+
+.button {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #007bff; /* Blue border */
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff; /* White background */
+  color: #007bff; /* Blue text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.button:hover {
+  background-color: #007bff; /* Blue background on hover */
+  color: #fff; /* White text on hover */
+}
+
+.back-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.back-button:hover {
+  background-color: #007bff; /* Blue background on hover */
+  color: #fff; /* White text on hover */
+}
+
+@media (max-width: 768px) {
+  /* Responsive adjustments */
+  .button, .back-button {
+    display: block;
+    width: 100%;
+  }
 }
