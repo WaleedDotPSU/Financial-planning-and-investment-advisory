@@ -21,10 +21,46 @@
         <div id="ai-responses"></div>
     </section>
     <section>
-        <!-- Input field for user's question -->
-        <input type="text" name="ask" id="ask-ai" placeholder="Ask your question...">
+      <section id="advisory-section">
+        <h2>Risk Assessment</h2>
+        <form id="risk-assessment-form" class="form-group" onsubmit="return false;">
+            <label for="investment-goal">How much do you want to gain from your investment?</label>
+            <input type="number" id="investment-goal" name="investment-goal">
+            
+            <label for="time-horizon">What is your estimated time horizon for this investment?</label>
+            <div style="display: flex;">
+                <select id="time-horizon-quantity" style="flex: 1;">
+                    <option value="1">1</option>
+                    <!-- Add options for 2 to 100 -->
+                    <!-- You can use a loop to generate options, but for simplicity, I'm writing out options from 2 to 100 -->
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <!-- More options up to 100 -->
+                    <option value="100">100</option>
+                </select>
+                <select id="time-horizon-unit" style="flex: 1;">
+                    <option value="weeks">Weeks</option>
+                    <option value="months">Months</option>
+                    <option value="years">Years</option>
+                </select>
+            </div>
+
+            <label for="investment-amount">How much money are you willing to invest?</label>
+            <input type="number" id="investment-amount" name="investment-amount">
+            
+            <div class="button-group">
+                <button type="button" id="submit-info-button" onclick="moveToPrompt()">Submit</button>
+                <button type="button" id="reset-button">Reset</button>
+            </div>
+        </form>
+        
+      </section>
+    </section>
+    <section id="prompt-section" style="display: none;">
+        <!-- Prompt for asking AI -->
+        <input type="text" name="ask" id="ask-ai-prompt" placeholder="Ask your question...">
         <!-- Button to submit user's question -->
-        <button onclick="askAI()">Submit</button>
+        <button onclick="askAI()">Ask AI</button>
     </section>
     <section>
         <!-- Link to go back to home page -->
@@ -35,23 +71,34 @@
    <!-- JavaScript files -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+  // Function to move to prompt section after submitting investment information
+  function moveToPrompt() {
+    document.getElementById("prompt-section").style.display = "block";
+    document.getElementById("risk-assessment-form").style.display = "none";
+  }
+
   // Function to send request to AI and display response
   function askAI() {
-    var question = document.getElementById("ask-ai").value;
-    var aiResponses = document.getElementById("ai-responses");
+    var goal = document.getElementById("investment-goal").value;
+    var horizonQuantity = document.getElementById("time-horizon-quantity").value;
+    var horizonUnit = document.getElementById("time-horizon-unit").value;
+    var amount = document.getElementById("investment-amount").value;
+    var question = document.getElementById("ask-ai-prompt").value;
 
-    console.log("Question:", question); // Debugging: Log user's question
+    // Constructing full sentence
+    var fullSentence = "I want to gain " + goal + " by investing " + amount + " within " + horizonQuantity + " " + horizonUnit;
 
     // Make AJAX request to server to get AI response
     $.ajax({
       type: "POST",
       url: "/ask-ai",
-      data: { ask: question },
+      data: { ask: fullSentence },
       success: function(response) {
         console.log("Response:", response); // Debugging: Log AI response
-        aiResponses.innerHTML += "<p>User: " + question + "</p>";
+        var aiResponses = document.getElementById("ai-responses");
+        aiResponses.innerHTML += "<p>User: " + fullSentence + "</p>";
         aiResponses.innerHTML += "<p>AI: " + response.message + "</p>";
-        document.getElementById("ask-ai").value = ""; // Clear input field
+        document.getElementById("ask-ai-prompt").value = ""; // Clear input field
       },
       error: function(xhr, status, error) {
         console.error("Error:", error);
@@ -61,6 +108,7 @@
         } else if (xhr.status === 429) {
           errorMessage = "Quota exceeded: Please try again later.";
         }
+        var aiResponses = document.getElementById("ai-responses");
         aiResponses.innerHTML += "<p>" + errorMessage + "</p>";
       }
     });
