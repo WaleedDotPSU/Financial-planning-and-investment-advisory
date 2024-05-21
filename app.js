@@ -36,7 +36,7 @@ app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: { secure: false } // for https
 }));
 
 // Flash messages
@@ -76,7 +76,8 @@ passport.deserializeUser(async (id, done) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Routes
+// Routes //
+
 app.get('/', (req, res) => {
   res.redirect('/login-page');
 });
@@ -153,6 +154,8 @@ app.get('/options-page', (req, res) => {
   }
   res.render('options-page', { message: '', error: '' });
 });
+
+// Routes //
 
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/home-page',
