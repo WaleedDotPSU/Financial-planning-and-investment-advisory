@@ -20,16 +20,17 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Investo-ai-page" aria-expanded="false" aria-controls="charts">
-          <i class="menu-icon fa fa-eercast"></i>
-          <span class="menu-title">Investo-AI</span>
+        <a class="nav-link" data-bs-toggle="collapse" href="#advisories" aria-expanded="false" aria-controls="icons">
+          <i class="menu-icon mdi mdi-layers-outline"></i>
+          <span class="menu-title">Advisories</span>
+          <i class="menu-arrow"></i>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/advisory-page" aria-expanded="false" aria-controls="charts">
-          <i class="menu-icon fa fa-eercast"></i>
-          <span class="menu-title">Financial Advisory</span>
-        </a>
+        <div class="collapse" id="advisories">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="/financial-advisory-page">Finacial Advisory</a></li>
+            <li class="nav-item"> <a class="nav-link" href="/investment-advisory-page" aria-expanded="false" aria-controls="charts">Investment Advisory</a></li>
+          </ul>
+        </div>
       </li>
     </ul>
   </nav>

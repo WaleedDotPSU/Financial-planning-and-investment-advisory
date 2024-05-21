@@ -121,11 +121,11 @@ app.get('/link-account-page', (req, res) => {
   res.render('link-account-page', { message: '', error: '' });
 });
 
-app.get('/Investo-ai-page', (req, res) => {
+app.get('/investment-advisory-page', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
   }
-  res.render('Investo-ai-page', { message: '', error: '' });
+  res.render('investment-advisory-page', { message: '', error: '' });
 });
 
 app.get('/my-transactions-page', async (req, res) => {
