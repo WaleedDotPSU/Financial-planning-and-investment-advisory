@@ -128,6 +128,13 @@ app.get('/investment-advisory-page', (req, res) => {
   res.render('investment-advisory-page', { message: '', error: '' });
 });
 
+app.get('/financial-advisory-page', (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect('/login-page');
+  }
+  res.render('financial-advisory-page', { message: '', error: '' });
+});
+
 app.get('/my-transactions-page', async (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
