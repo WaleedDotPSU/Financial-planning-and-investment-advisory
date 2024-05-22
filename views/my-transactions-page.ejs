@@ -89,7 +89,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('filter-button').addEventListener('click', async () => {
         const bankAccount = document.getElementById('bankAccount').value;
-  
+
         try {
           const response = await fetch('/filter-transactions', {
             method: 'POST',
@@ -98,13 +98,13 @@
             },
             body: JSON.stringify({ bankAccount })
           });
-  
+
           if (response.ok) {
             const data = await response.json();
             console.log('Filtered Transactions:', data.transactions); // Log filtered transactions for debugging
             const transactionsTableBody = document.querySelector('#transactions-table tbody');
             transactionsTableBody.innerHTML = '';
-  
+
             data.transactions.forEach(transaction => {
               const tr = document.createElement('tr');
               tr.innerHTML = `

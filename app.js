@@ -76,24 +76,30 @@ passport.deserializeUser(async (id, done) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // Routes //
 
+// Default route
 app.get('/', (req, res) => {
   res.redirect('/login-page');
 });
 
+// Login route
 app.get('/login-page', (req, res) => {
   res.render('login-page', { message: req.flash('error') });
 });
 
+// Signup route
 app.get('/signup-page', (req, res) => {
   res.render('signup-page', { message: '', error: '' });
 });
 
+// Forget password route
 app.get('/forget-password-page', (req, res) => {
   res.render('forget-password-page', { message: '', error: '' });
 });
 
+// Homepage route
 app.get('/home-page', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
@@ -101,6 +107,7 @@ app.get('/home-page', (req, res) => {
   res.render('home-page', { message: '', error: '', user: req.user, card: req.user.cards });
 });
 
+// Deposit route
 app.get('/deposit-page', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
@@ -108,6 +115,7 @@ app.get('/deposit-page', (req, res) => {
   res.render('deposit-page', { message: '', error: '' });
 });
 
+// Withdraw route
 app.get('/withdraw-page', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
@@ -115,6 +123,7 @@ app.get('/withdraw-page', (req, res) => {
   res.render('withdraw-page', { message: '', error: '' });
 });
 
+// Link account route
 app.get('/link-account-page', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
@@ -122,6 +131,7 @@ app.get('/link-account-page', (req, res) => {
   res.render('link-account-page', { message: '', error: '' });
 });
 
+// Investment advisory route
 app.get('/investment-advisory-page', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
@@ -129,6 +139,7 @@ app.get('/investment-advisory-page', (req, res) => {
   res.render('investment-advisory-page', { message: '', error: '' });
 });
 
+// Financial advisory route
 app.get('/financial-advisory-page', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
@@ -136,25 +147,29 @@ app.get('/financial-advisory-page', (req, res) => {
   res.render('financial-advisory-page', { message: '', error: '' });
 });
 
+// My transactions route
 app.get('/my-transactions-page', async (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
   }
+  
   try {
-    const user = await User.findById(req.user._id).populate('transactions');
-    const transactions = user.transactions;
+    const user = await User.findById(req.user._id).populate('cards.transactions');
+    
+    // Collect all transactions from all cards
+    let allTransactions = [];
+    user.cards.forEach(card => {
+      allTransactions = allTransactions.concat(card.transactions);
+    });
 
-    if (!Array.isArray(transactions)) {
-      throw new Error('Transactions is not an array');
-    }
-
-    res.render('my-transactions-page', { message: '', error: '', transactions });
+    res.render('my-transactions-page', { message: '', error: '', transactions: allTransactions });
   } catch (error) {
     console.error('Error fetching transactions:', error);
     res.render('my-transactions-page', { message: '', error: 'Failed to fetch transactions', transactions: [] });
   }
 });
 
+// Investment options route
 app.get('/options-page', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login-page');
@@ -162,14 +177,17 @@ app.get('/options-page', (req, res) => {
   res.render('options-page', { message: '', error: '' });
 });
 
-// Routes //
 
+// Handlers //
+
+// Login handler
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/home-page',
   failureRedirect: '/login-page',
   failureFlash: true
 }));
 
+// Signup handler
 app.post('/submit-signup', async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -199,6 +217,7 @@ app.post('/submit-signup', async (req, res) => {
   }
 });
 
+// Forget password handler
 app.post('/submit-forget-password', async (req, res) => {
   try {
     const { email } = req.body;
@@ -226,6 +245,7 @@ app.post('/submit-forget-password', async (req, res) => {
   }
 });
 
+// AI handler
 app.post('/ask-ai', async (req, res) => {
   const { ask } = req.body;
 
@@ -242,6 +262,7 @@ app.post('/ask-ai', async (req, res) => {
   }
 });
 
+// Link account handler
 app.post('/link_account', async (req, res) => {
   const { cardHolderName, cardNumber, cardDate, cardCvv, iban, bankAccount } = req.body;
 
@@ -254,7 +275,16 @@ app.post('/link_account', async (req, res) => {
       return res.render('link-account-page', { message: '', error: 'All fields are required except IBAN' });
     }
 
-    let user = req.user;
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+      return res.render('link-account-page', { message: '', error: 'User not found' });
+    }
+
+    const existingCard = user.cards.find(card => String(card.number) === String(cardNumber));
+    if (existingCard) {
+      return res.render('link-account-page', { message: '', error: 'Card already exists in your account' });
+    }
 
     const newCard = new Card({
       name: cardHolderName,
@@ -266,20 +296,59 @@ app.post('/link_account', async (req, res) => {
       funds: 10000
     });
 
-    user.cards.push(newCard);
+    const transactions = generateFakeTransactions(10, bankAccount);
 
-    const transactions = generateFakeTransactions(10);
-    user.transactions = user.transactions.concat(transactions);
+    newCard.transactions.push(...transactions);
+
+    user.cards.push(newCard);
 
     await user.save();
 
     res.render('link-account-page', { message: 'Card has been linked to your account', error: '' });
   } catch (error) {
     res.render('link-account-page', { message: '', error: 'Could not link card to your account, try again later' });
-    console.log(error);
+    console.error(error);
   }
 });
 
+// Transaction generator handler
+app.post('/generate-transactions', async (req, res) => {
+  const userId = req.user._id;
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    const transactions = generateFakeTransactions(10);
+
+    user.transactions = user.transactions.concat(transactions);
+
+    await user.save();
+
+    res.json({ message: 'Transactions generated successfully.' });
+  } catch (error) {
+    console.error('Error generating transactions:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Transaction generator function
+function generateFakeTransactions(count, bankAccount) {
+  const categories = ['food', 'transportation', 'rent', 'amenities', 'mortgage'];
+  const transactions = [];
+  for (let i = 0; i < count; i++) {
+    transactions.push({
+      amount: faker.finance.amount(),
+      date: faker.date.past(),
+      category: faker.helpers.arrayElement(categories),
+      bankAccount: bankAccount,
+    });
+  }
+  return transactions;
+}
+
+// Deposit handler
 app.post('/deposit_money', (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
@@ -334,6 +403,7 @@ app.post('/deposit_money', (req, res, next) => {
   }
 });
 
+// Withdraw handler
 app.post('/withdraw_money', (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
@@ -386,6 +456,7 @@ app.post('/withdraw_money', (req, res, next) => {
   }
 });
 
+// Transaction filtering handler
 app.post('/filter-transactions', async (req, res) => {
   if (!req.isAuthenticated()) {
     return res.status(401).json({ message: 'User not authenticated' });
@@ -393,60 +464,25 @@ app.post('/filter-transactions', async (req, res) => {
 
   const { bankAccount } = req.body;
   try {
-    const user = await User.findById(req.user._id).populate({
-      path: 'transactions',
-      match: { bankAccount: bankAccount }
+    const user = await User.findById(req.user._id).populate('cards.transactions');
+    
+    // Collect all transactions from all cards
+    let allTransactions = [];
+    user.cards.forEach(card => {
+      allTransactions = allTransactions.concat(card.transactions);
     });
 
-    const transactions = user.transactions;
+    // Filter transactions by bank account
+    const filteredTransactions = allTransactions.filter(transaction => transaction.bankAccount === bankAccount);
 
-    if (!Array.isArray(transactions)) {
-      throw new Error('Transactions is not an array');
-    }
-
-    res.json({ transactions });
+    res.json({ transactions: filteredTransactions });
   } catch (error) {
     console.error('Error filtering transactions:', error);
     res.status(500).json({ message: 'Failed to fetch transactions' });
   }
 });
 
-app.post('/generate-transactions', async (req, res) => {
-  const userId = req.user._id;
-  try {
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-
-    const transactions = generateFakeTransactions(10);
-
-    user.transactions = user.transactions.concat(transactions);
-
-    await user.save();
-
-    res.json({ message: 'Transactions generated successfully.' });
-  } catch (error) {
-    console.error('Error generating transactions:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-function generateFakeTransactions(count) {
-  const categories = ['food', 'transportation', 'rent', 'amenities', 'mortgage'];
-  const bankAccounts = ['Al Rajhi Bank', 'Saudi British Bank (SABB)', 'National Commercial Bank (NCB)'];
-  const transactions = [];
-  for (let i = 0; i < count; i++) {
-    transactions.push({
-      amount: faker.finance.amount(),
-      date: faker.date.past(),
-      category: faker.helpers.arrayElement(categories),
-      bankAccount: faker.helpers.arrayElement(bankAccounts),
-    });
-  }
-  return transactions;
-}
-
+// Error handler
 app.use((req, res) => {
   res.status(404).render('error-page');
 });
