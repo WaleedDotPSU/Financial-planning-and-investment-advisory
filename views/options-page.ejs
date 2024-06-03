@@ -1,5 +1,5 @@
 <%- include('partials/header.ejs') %>
-<title>Investment Options - Investopia </title>
+<title>Investment Options - Investopia</title>
 <link rel="stylesheet" href="/css/options-page.css">
 
 <body class="with-welcome-text">
@@ -48,19 +48,32 @@
                         <div class="plan">
                           <div class="plan-header <%= risk %>">
                             <h2><%= risk.charAt(0).toUpperCase() + risk.slice(1) %> Risk</h2>
-                            <p class="description">FOR PLANNED PROJECTS</p>
-                            <p class="details">Bring your designs to the next level and export them.</p>
+                            <p class="description">FOR PLANNED INVESTMENTS</p>
+                            <p class="details">
+                              <%= risk === 'high' ? 'Higher potential ROI but higher risks' :
+                                  risk === 'medium' ? 'Balanced ROI and risk' :
+                                  'Lower ROI but safer investments' %>
+                            </p>
+                            <p class="details">
+                              <%= risk === 'high' ? 'Stocks: 70%, Bonds: 20%, Others: 10%' :
+                                  risk === 'medium' ? 'Stocks: 50%, Bonds: 30%, Others: 20%' :
+                                  'Stocks: 30%, Bonds: 50%, Others: 20%' %>
+                            </p>
                           </div>
                           <ul class="features">
-                            <li>3 new projects / month</li>
-                            <li>Basic interaction</li>
-                            <li>Assets library</li>
+                            <li>Portfolio details</li>
+                            <li>Performance tracking</li>
+                            <li>Investment advice</li>
                           </ul>
-                          <button class="btn1" data-risk="<%= risk %>">GET STARTED</button>
-                          <div class="investment-input" style="display: none;">
-                            <input type="number" class="investment-amount" placeholder="Enter amount">
-                            <button class="btn1 invest-btn" data-risk="<%= risk %>">Invest</button>
-                          </div>
+                          <% if (typeof user !== 'undefined' && user.investments && user.investments.some(investment => investment.risk === risk)) { %>
+                            <button class="btn1 stop-invest-btn active" data-risk="<%= risk %>">STOP INVESTMENT</button>
+                          <% } else { %>
+                            <button class="btn1 start-invest-btn" data-risk="<%= risk %>">START INVESTMENT</button>
+                            <div class="investment-input" style="display: none;">
+                              <input type="number" class="investment-amount" placeholder="Enter amount">
+                              <button class="btn1 invest-btn" data-risk="<%= risk %>">Invest</button>
+                            </div>
+                          <% } %>
                         </div>
                         <% }); %>
                       </div>
